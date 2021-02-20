@@ -1,0 +1,76 @@
+<VSTemplate Version="3.0.0" xmlns="http://schemas.microsoft.com/developer/vstemplate/2005" Type="Project">
+  <TemplateData>
+    <Name>Urho3DNetTemplate.Android</Name>
+    <Description>&lt;No description available&gt;</Description>
+    <ProjectType>CSharp</ProjectType>
+    <ProjectSubType>
+    </ProjectSubType>
+    <SortOrder>1000</SortOrder>
+    <CreateNewFolder>true</CreateNewFolder>
+    <DefaultName>Urho3DNetTemplate.Android</DefaultName>
+    <ProvideDefaultName>true</ProvideDefaultName>
+    <LocationField>Enabled</LocationField>
+    <EnableLocationBrowseButton>true</EnableLocationBrowseButton>
+    <Icon>__TemplateIcon.ico</Icon>
+  </TemplateData>
+  <TemplateContent>
+    <Project TargetFileName="$safeprojectname$.Android.csproj" File="Urho3DNetTemplate.Android.csproj" ReplaceParameters="true">
+      <Folder Name="Assets" TargetFolderName="Assets">
+        <ProjectItem ReplaceParameters="true" TargetFileName="AboutAssets.txt">AboutAssets.txt</ProjectItem>
+      </Folder>
+      <ProjectItem ReplaceParameters="true" TargetFileName="MainActivity.cs">MainActivity.cs</ProjectItem>
+      <Folder Name="Properties" TargetFolderName="Properties">
+        <ProjectItem ReplaceParameters="true" TargetFileName="AndroidManifest.xml">AndroidManifest.xml</ProjectItem>
+        <ProjectItem ReplaceParameters="true" TargetFileName="AssemblyInfo.cs">AssemblyInfo.cs</ProjectItem>
+      </Folder>
+      <Folder Name="Resources" TargetFolderName="Resources">
+        <ProjectItem ReplaceParameters="true" TargetFileName="AboutResources.txt">AboutResources.txt</ProjectItem>
+        <Folder Name="drawable" TargetFolderName="drawable" />
+        <Folder Name="layout" TargetFolderName="layout">
+          <ProjectItem ReplaceParameters="true" TargetFileName="activity_main.xml">activity_main.xml</ProjectItem>
+          <ProjectItem ReplaceParameters="true" TargetFileName="content_main.xml">content_main.xml</ProjectItem>
+        </Folder>
+        <Folder Name="menu" TargetFolderName="menu">
+          <ProjectItem ReplaceParameters="true" TargetFileName="menu_main.xml">menu_main.xml</ProjectItem>
+        </Folder>
+        <Folder Name="mipmap-anydpi-v26" TargetFolderName="mipmap-anydpi-v26">
+          <ProjectItem ReplaceParameters="true" TargetFileName="ic_launcher.xml">ic_launcher.xml</ProjectItem>
+          <ProjectItem ReplaceParameters="true" TargetFileName="ic_launcher_round.xml">ic_launcher_round.xml</ProjectItem>
+        </Folder>
+        <Folder Name="mipmap-hdpi" TargetFolderName="mipmap-hdpi">
+          <ProjectItem ReplaceParameters="false" TargetFileName="ic_launcher.png">ic_launcher.png</ProjectItem>
+          <ProjectItem ReplaceParameters="false" TargetFileName="ic_launcher_foreground.png">ic_launcher_foreground.png</ProjectItem>
+          <ProjectItem ReplaceParameters="false" TargetFileName="ic_launcher_round.png">ic_launcher_round.png</ProjectItem>
+        </Folder>
+        <Folder Name="mipmap-mdpi" TargetFolderName="mipmap-mdpi">
+          <ProjectItem ReplaceParameters="false" TargetFileName="ic_launcher.png">ic_launcher.png</ProjectItem>
+          <ProjectItem ReplaceParameters="false" TargetFileName="ic_launcher_foreground.png">ic_launcher_foreground.png</ProjectItem>
+          <ProjectItem ReplaceParameters="false" TargetFileName="ic_launcher_round.png">ic_launcher_round.png</ProjectItem>
+        </Folder>
+        <Folder Name="mipmap-xhdpi" TargetFolderName="mipmap-xhdpi">
+          <ProjectItem ReplaceParameters="false" TargetFileName="ic_launcher.png">ic_launcher.png</ProjectItem>
+          <ProjectItem ReplaceParameters="false" TargetFileName="ic_launcher_foreground.png">ic_launcher_foreground.png</ProjectItem>
+          <ProjectItem ReplaceParameters="false" TargetFileName="ic_launcher_round.png">ic_launcher_round.png</ProjectItem>
+        </Folder>
+        <Folder Name="mipmap-xxhdpi" TargetFolderName="mipmap-xxhdpi">
+          <ProjectItem ReplaceParameters="false" TargetFileName="ic_launcher.png">ic_launcher.png</ProjectItem>
+          <ProjectItem ReplaceParameters="false" TargetFileName="ic_launcher_foreground.png">ic_launcher_foreground.png</ProjectItem>
+          <ProjectItem ReplaceParameters="false" TargetFileName="ic_launcher_round.png">ic_launcher_round.png</ProjectItem>
+        </Folder>
+        <Folder Name="mipmap-xxxhdpi" TargetFolderName="mipmap-xxxhdpi">
+          <ProjectItem ReplaceParameters="false" TargetFileName="ic_launcher.png">ic_launcher.png</ProjectItem>
+          <ProjectItem ReplaceParameters="false" TargetFileName="ic_launcher_foreground.png">ic_launcher_foreground.png</ProjectItem>
+          <ProjectItem ReplaceParameters="false" TargetFileName="ic_launcher_round.png">ic_launcher_round.png</ProjectItem>
+        </Folder>
+        <ProjectItem ReplaceParameters="true" TargetFileName="Resource.designer.cs">Resource.designer.cs</ProjectItem>
+        <Folder Name="values" TargetFolderName="values">
+          <ProjectItem ReplaceParameters="true" TargetFileName="colors.xml">colors.xml</ProjectItem>
+          <ProjectItem ReplaceParameters="true" TargetFileName="dimens.xml">dimens.xml</ProjectItem>
+          <ProjectItem ReplaceParameters="true" TargetFileName="ic_launcher_background.xml">ic_launcher_background.xml</ProjectItem>
+          <ProjectItem ReplaceParameters="true" TargetFileName="strings.xml">strings.xml</ProjectItem>
+          <ProjectItem ReplaceParameters="true" TargetFileName="styles.xml">styles.xml</ProjectItem>
+        </Folder>
+      </Folder>
+    </Project>
+  </TemplateContent>
+</VSTemplate>

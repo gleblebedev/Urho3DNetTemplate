@@ -1,0 +1,43 @@
+<VSTemplate Version="3.0.0" xmlns="http://schemas.microsoft.com/developer/vstemplate/2005" Type="ProjectGroup">
+  <TemplateData>
+    <Name>Urho3DNet</Name>
+    <Description>Urho3DNet cross-platform template
+    </Description>
+    <ProjectType>CSharp</ProjectType>
+    <ProjectSubType>
+    </ProjectSubType>
+    <SortOrder>1000</SortOrder>
+    <CreateNewFolder>true</CreateNewFolder>
+    <DefaultName>Urho3DNetTemplate</DefaultName>
+    <ProvideDefaultName>true</ProvideDefaultName>
+    <LocationField>Enabled</LocationField>
+    <EnableLocationBrowseButton>true</EnableLocationBrowseButton>
+    <CreateInPlace>true</CreateInPlace>
+    <Icon>__TemplateIcon.ico</Icon>
+  </TemplateData>
+  <TemplateContent>
+      <ProjectCollection>
+          <ProjectTemplateLink ProjectName="content" CopyParameters="true">
+              content\MyTemplate.vstemplate
+          </ProjectTemplateLink>
+          <ProjectTemplateLink ProjectName="$safeprojectname$" CopyParameters="true">
+              Urho3DNetTemplate\MyTemplate.vstemplate
+          </ProjectTemplateLink>
+          <ProjectTemplateLink ProjectName="$safeprojectname$.Android" CopyParameters="true">
+              Urho3DNetTemplate.Android\MyTemplate.vstemplate
+          </ProjectTemplateLink>
+          <ProjectTemplateLink ProjectName="$safeprojectname$.Core" CopyParameters="true">
+              Urho3DNetTemplate.Core\MyTemplate.vstemplate
+          </ProjectTemplateLink>
+          <ProjectTemplateLink ProjectName="$safeprojectname$.Desktop" CopyParameters="true">
+              Urho3DNetTemplate.Desktop\MyTemplate.vstemplate
+          </ProjectTemplateLink>
+          <ProjectTemplateLink ProjectName="$safeprojectname$.IOS" CopyParameters="true">
+              Urho3DNetTemplate.IOS\MyTemplate.vstemplate
+          </ProjectTemplateLink>
+          <ProjectTemplateLink ProjectName="$safeprojectname$.UWP" CopyParameters="true">
+              Urho3DNetTemplate.UWP\MyTemplate.vstemplate
+          </ProjectTemplateLink>
+      </ProjectCollection>
+  </TemplateContent>
+</VSTemplate>
