@@ -1,14 +1,13 @@
 <VSTemplate Version="3.0.0" xmlns="http://schemas.microsoft.com/developer/vstemplate/2005" Type="ProjectGroup">
   <TemplateData>
     <Name>Urho3DNet</Name>
-    <Description>Urho3DNet cross-platform template
-    </Description>
+    <Description>Urho3DNet cross-platform project template</Description>
     <ProjectType>CSharp</ProjectType>
     <ProjectSubType>
     </ProjectSubType>
     <SortOrder>1000</SortOrder>
     <CreateNewFolder>true</CreateNewFolder>
-    <DefaultName>Urho3DNetTemplate</DefaultName>
+    <DefaultName>Urho3DNetApp</DefaultName>
     <ProvideDefaultName>true</ProvideDefaultName>
     <LocationField>Enabled</LocationField>
     <EnableLocationBrowseButton>true</EnableLocationBrowseButton>
@@ -17,9 +16,6 @@
   </TemplateData>
   <TemplateContent>
       <ProjectCollection>
-          <ProjectTemplateLink ProjectName="content" CopyParameters="true">
-              content\MyTemplate.vstemplate
-          </ProjectTemplateLink>
           <ProjectTemplateLink ProjectName="$safeprojectname$" CopyParameters="true">
               Urho3DNetTemplate\MyTemplate.vstemplate
           </ProjectTemplateLink>
@@ -37,6 +33,9 @@
           </ProjectTemplateLink>
           <ProjectTemplateLink ProjectName="$safeprojectname$.UWP" CopyParameters="true">
               Urho3DNetTemplate.UWP\MyTemplate.vstemplate
+          </ProjectTemplateLink>
+          <ProjectTemplateLink ProjectName="content" CopyParameters="true">
+              content\MyTemplate.vstemplate
           </ProjectTemplateLink>
       </ProjectCollection>
   </TemplateContent>

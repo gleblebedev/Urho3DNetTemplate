@@ -1,13 +1,13 @@
 <VSTemplate Version="3.0.0" xmlns="http://schemas.microsoft.com/developer/vstemplate/2005" Type="Project">
   <TemplateData>
-    <Name>Urho3DNetTemplate.Desktop</Name>
-    <Description>&lt;No description available&gt;</Description>
+    <Name>Urho3DNet.Desktop</Name>
+    <Description>Urho3DNet .NET Framework project template</Description>
     <ProjectType>CSharp</ProjectType>
     <ProjectSubType>
     </ProjectSubType>
     <SortOrder>1000</SortOrder>
     <CreateNewFolder>true</CreateNewFolder>
-    <DefaultName>Urho3DNetTemplate.Desktop</DefaultName>
+    <DefaultName>Urho3DNet.Desktop</DefaultName>
     <ProvideDefaultName>true</ProvideDefaultName>
     <LocationField>Enabled</LocationField>
     <EnableLocationBrowseButton>true</EnableLocationBrowseButton>

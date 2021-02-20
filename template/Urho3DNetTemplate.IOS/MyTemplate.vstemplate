@@ -1,13 +1,13 @@
 <VSTemplate Version="3.0.0" xmlns="http://schemas.microsoft.com/developer/vstemplate/2005" Type="Project">
   <TemplateData>
-    <Name>Urho3DNetTemplate.IOS</Name>
-    <Description>&lt;No description available&gt;</Description>
+    <Name>Urho3DNet.IOS</Name>
+    <Description>Urho3DNet iOS project template</Description>
     <ProjectType>CSharp</ProjectType>
     <ProjectSubType>
     </ProjectSubType>
     <SortOrder>1000</SortOrder>
     <CreateNewFolder>true</CreateNewFolder>
-    <DefaultName>Urho3DNetTemplate.IOS</DefaultName>
+    <DefaultName>Urho3DNet.IOS</DefaultName>
     <ProvideDefaultName>true</ProvideDefaultName>
     <LocationField>Enabled</LocationField>
     <EnableLocationBrowseButton>true</EnableLocationBrowseButton>
@@ -16,9 +16,8 @@
   <TemplateContent>
     <Project TargetFileName="Urho3DNetTemplate.IOS.csproj" File="Urho3DNetTemplate.IOS.csproj" ReplaceParameters="true">
       <Folder Name="Assets.xcassets" TargetFolderName="Assets.xcassets">
-        <ProjectItem ReplaceParameters="false" TargetFileName="readme.txt">readme.txt</ProjectItem>
         <Folder Name="AppIcon.appiconset" TargetFolderName="AppIcon.appiconset">
-          <ProjectItem ReplaceParameters="false" TargetFileName="Contents.json">Contents.json</ProjectItem>
+          <ProjectItem ReplaceParameters="true" TargetFileName="Contents.json">Contents.json</ProjectItem>
           <ProjectItem ReplaceParameters="false" TargetFileName="Icon1024.png">Icon1024.png</ProjectItem>
           <ProjectItem ReplaceParameters="false" TargetFileName="Icon120.png">Icon120.png</ProjectItem>
           <ProjectItem ReplaceParameters="false" TargetFileName="Icon152.png">Icon152.png</ProjectItem>

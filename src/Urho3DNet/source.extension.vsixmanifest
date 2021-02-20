@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <PackageManifest Version="2.0.0" xmlns="http://schemas.microsoft.com/developer/vsx-schema/2011" xmlns:d="http://schemas.microsoft.com/developer/vsx-schema-design/2011">
     <Metadata>
-        <Identity Id="-1" Version="1.0" Language="en-US" Publisher="Fabrikam" />
+        <Identity Id="{9B1E5F82-3335-4EE9-A180-138CBA8CC06C}" Version="0.3.7.219" Language="en-US" Publisher="Gleb Lebedev" />
         <DisplayName>Urho3DNet</DisplayName>
         <Description xml:space="preserve">Urho3DNet cross-platform project template</Description>
     </Metadata>
