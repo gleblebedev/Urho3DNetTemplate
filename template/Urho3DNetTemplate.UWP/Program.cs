@@ -1,7 +1,8 @@
 ﻿using System;
 using Urho3DNet;
+using $safeprojectname$;
 
-namespace $ext_safeprojectname$
+namespace rbfxSample.UniversalWindows
 {
     internal class Program
     {
@@ -11,6 +12,7 @@ namespace $ext_safeprojectname$
         [MTAThread]
         private static void Main()
         {
+            Launcher.SdlHandleBackButton = true;
             Launcher.Run(_=> new UrhoApplication(_));
         }
     }

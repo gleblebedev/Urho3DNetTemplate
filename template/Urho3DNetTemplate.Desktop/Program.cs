@@ -1,7 +1,7 @@
 ﻿using System;
 using Urho3DNet;
 
-namespace $ext_safeprojectname$
+namespace $safeprojectname$
 {
     static class Program
     {

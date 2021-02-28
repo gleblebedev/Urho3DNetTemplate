@@ -1,8 +1,7 @@
 <VSTemplate Version="3.0.0" xmlns="http://schemas.microsoft.com/developer/vstemplate/2005" Type="Project">
   <TemplateData>
     <Name>Urho3DNetTemplate</Name>
-    <Description>
-    </Description>
+    <Description>Urho3DNet Project Template</Description>
     <ProjectType>CSharp</ProjectType>
     <ProjectSubType>
     </ProjectSubType>
@@ -17,6 +16,11 @@
   </TemplateData>
   <TemplateContent>
     <Project TargetFileName="$safeprojectname$.csproj" File="Urho3DNetTemplate.csproj" ReplaceParameters="true">
+      <Folder Name="Data" TargetFolderName="Data">
+        <Folder Name="Scenes" TargetFolderName="Scenes">
+          <ProjectItem ReplaceParameters="true" TargetFileName="TeapotScene.xml">TeapotScene.xml</ProjectItem>
+        </Folder>
+      </Folder>
       <ProjectItem ReplaceParameters="true" TargetFileName="UrhoApplication.cs">UrhoApplication.cs</ProjectItem>
     </Project>
   </TemplateContent>

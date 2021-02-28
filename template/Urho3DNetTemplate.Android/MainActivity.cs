@@ -5,7 +5,7 @@ using Android.Runtime;
 using Org.Libsdl.App;
 using Urho3DNet;
 
-namespace $ext_safeprojectname$
+namespace $safeprojectname$
 {
     [Activity(Label = "@string/app_name",
         ConfigurationChanges = ConfigChanges.Orientation | ConfigChanges.ScreenSize | ConfigChanges.KeyboardHidden,
@@ -19,13 +19,14 @@ namespace $ext_safeprojectname$
 
         protected override void OnCreate(Bundle savedInstanceState)
         {
+            //Launcher.SdlTrapBackButton = true;
             Launcher.Run(_ => new UrhoApplication(_));
 
             base.OnCreate(savedInstanceState);
             Xamarin.Essentials.Platform.Init(this, savedInstanceState);
         }
 
-        public override void OnRequestPermissionsResult(int requestCode, string[] permissions, [GeneratedEnum] Permission[] grantResults)
+        public override void OnRequestPermissionsResult(int requestCode, string[] permissions, [GeneratedEnum] Android.Content.PM.Permission[] grantResults)
         {
             Xamarin.Essentials.Platform.OnRequestPermissionsResult(requestCode, permissions, grantResults);
 

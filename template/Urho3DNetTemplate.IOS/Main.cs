@@ -1,6 +1,6 @@
 ﻿using Urho3DNet;
 
-namespace $ext_safeprojectname$
+namespace $safeprojectname$
 {
     public class Application
     {

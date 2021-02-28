@@ -34,9 +34,6 @@
           <ProjectTemplateLink ProjectName="$safeprojectname$.UWP" CopyParameters="true">
               Urho3DNetTemplate.UWP\MyTemplate.vstemplate
           </ProjectTemplateLink>
-          <ProjectTemplateLink ProjectName="content" CopyParameters="true">
-              content\MyTemplate.vstemplate
-          </ProjectTemplateLink>
       </ProjectCollection>
   </TemplateContent>
 </VSTemplate>

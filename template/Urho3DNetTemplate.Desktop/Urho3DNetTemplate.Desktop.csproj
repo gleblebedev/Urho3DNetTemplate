@@ -3,7 +3,7 @@
   <PropertyGroup>
     <OutputType>Exe</OutputType>
     <TargetFramework>net471</TargetFramework>
-    <RootNamespace>$ext_safeprojectname$</RootNamespace>
+    <RootNamespace>$safeprojectname$</RootNamespace>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Platform)'=='AnyCPU'">
@@ -11,18 +11,11 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Content Include="..\content\Data\**">
-      <Link>Data/%(RecursiveDir)%(FileName)%(Extension)</Link>
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
+    <PackageReference Include="unofficial.Urho3DNet" Version="0.3.7.231" />
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="unofficial.Urho3DNet" Version="0.3.7.219" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <ProjectReference Include="..\$ext_safeprojectname$\$ext_safeprojectname$.csproj" />
+    <ProjectReference Include="..\Urho3DNetTemplate\Urho3DNetTemplate.csproj" />
   </ItemGroup>
 
   <ItemGroup>
