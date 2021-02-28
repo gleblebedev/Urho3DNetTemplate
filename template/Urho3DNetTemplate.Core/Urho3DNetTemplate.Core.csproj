@@ -10,4 +10,12 @@
     <PlatformTarget>x64</PlatformTarget>
   </PropertyGroup>
 
+  <ItemGroup>
+    <PackageReference Include="unofficial.Urho3DNet" Version="0.3.7.231" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Urho3DNetTemplate\Urho3DNetTemplate.csproj" />
+  </ItemGroup>
+
 </Project>
