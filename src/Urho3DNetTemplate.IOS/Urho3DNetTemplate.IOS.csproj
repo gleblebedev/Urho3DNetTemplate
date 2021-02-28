@@ -73,7 +73,7 @@
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="unofficial.Urho3DNet">
-      <Version>0.3.7.219</Version>
+      <Version>0.3.7.231</Version>
     </PackageReference>
     <PackageReference Include="Xamarin.Essentials" Version="1.5.3.2" />
   </ItemGroup>
@@ -120,11 +120,6 @@
     <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\Icon60.png">
       <Visible>false</Visible>
     </ImageAsset>
-  </ItemGroup>
-  <ItemGroup>
-    <BundleResource Include="..\content\**">
-      <Link>%(RecursiveDir)%(FileName)%(Extension)</Link>
-    </BundleResource>
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Resources\" />

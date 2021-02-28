@@ -12,6 +12,7 @@ namespace rbfxSample.UniversalWindows
         [MTAThread]
         private static void Main()
         {
+            Launcher.SdlHandleBackButton = true;
             Launcher.Run(_=> new UrhoApplication(_));
         }
     }

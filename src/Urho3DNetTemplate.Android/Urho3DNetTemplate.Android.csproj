@@ -105,13 +105,8 @@
     <Folder Include="Resources\drawable\" />
   </ItemGroup>
   <ItemGroup>
-    <AndroidAsset Include="..\content\**">
-      <Link>%(RecursiveDir)%(FileName)%(Extension)</Link>
-    </AndroidAsset>
-  </ItemGroup>
-  <ItemGroup>
     <PackageReference Include="unofficial.Urho3DNet">
-      <Version>0.3.7.219</Version>
+      <Version>0.3.7.231</Version>
     </PackageReference>
     <PackageReference Include="Xamarin.Android.Support.Design" Version="28.0.0.3" />
     <PackageReference Include="Xamarin.Android.Support.Core.Utils" Version="28.0.0.3" />

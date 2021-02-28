@@ -19,6 +19,7 @@ namespace Urho3DNetTemplate
 
         protected override void OnCreate(Bundle savedInstanceState)
         {
+            //Launcher.SdlTrapBackButton = true;
             Launcher.Run(_ => new UrhoApplication(_));
 
             base.OnCreate(savedInstanceState);
