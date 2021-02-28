@@ -2,7 +2,7 @@
 using Urho3DNet;
 using Urho3DNetTemplate;
 
-namespace rbfxSample.UniversalWindows
+namespace Urho3DNetTemplate.UWP
 {
     internal class Program
     {

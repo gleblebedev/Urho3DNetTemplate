@@ -2,7 +2,7 @@
 using Urho3DNet;
 using $safeprojectname$;
 
-namespace rbfxSample.UniversalWindows
+namespace $safeprojectname$
 {
     internal class Program
     {
