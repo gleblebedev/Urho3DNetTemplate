@@ -1,8 +1,7 @@
 ﻿using System;
 using Urho3DNet;
-using $safeprojectname$;
 
-namespace $safeprojectname$
+namespace $ext_safeprojectname$
 {
     internal class Program
     {

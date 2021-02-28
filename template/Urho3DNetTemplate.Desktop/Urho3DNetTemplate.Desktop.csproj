@@ -3,7 +3,7 @@
   <PropertyGroup>
     <OutputType>Exe</OutputType>
     <TargetFramework>net471</TargetFramework>
-    <RootNamespace>$safeprojectname$</RootNamespace>
+    <RootNamespace>$ext_safeprojectname$</RootNamespace>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Platform)'=='AnyCPU'">
@@ -11,11 +11,11 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="unofficial.Urho3DNet" Version="0.3.7.231" />
+    <PackageReference Include="unofficial.Urho3DNet" Version="0.3.7.232" />
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\Urho3DNetTemplate\Urho3DNetTemplate.csproj" />
+    <ProjectReference Include="..\$ext_safeprojectname$\$ext_safeprojectname$.csproj" />
   </ItemGroup>
 
   <ItemGroup>

@@ -7,8 +7,8 @@
     <ProjectGuid>{$guid1$}</ProjectGuid>
     <OutputType>AppContainerExe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>$safeprojectname$</RootNamespace>
-    <AssemblyName>Urho3DNetTemplate.UWP</AssemblyName>
+    <RootNamespace>$ext_safeprojectname$</RootNamespace>
+    <AssemblyName>$safeprojectname$</AssemblyName>
     <DefaultLanguage>en-US</DefaultLanguage>
     <TargetPlatformIdentifier>UAP</TargetPlatformIdentifier>
     <TargetPlatformVersion Condition=" '$(TargetPlatformVersion)' == '' ">10.0.18362.0</TargetPlatformVersion>
@@ -96,13 +96,13 @@
       <Version>6.2.10</Version>
     </PackageReference>
     <PackageReference Include="unofficial.Urho3DNet">
-      <Version>0.3.7.231</Version>
+      <Version>0.3.7.232</Version>
     </PackageReference>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Urho3DNetTemplate\Urho3DNetTemplate.csproj">
+    <ProjectReference Include="..\$ext_safeprojectname$\$ext_safeprojectname$.csproj">
       <Project>{12061FFC-551B-48ED-96CA-BB13DF2B8C67}</Project>
-      <Name>Urho3DNetTemplate</Name>
+      <Name>$ext_safeprojectname$</Name>
     </ProjectReference>
   </ItemGroup>
   <PropertyGroup Condition=" '$(VisualStudioVersion)' == '' or '$(VisualStudioVersion)' &lt; '14.0' ">

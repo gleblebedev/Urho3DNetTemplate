@@ -5,7 +5,7 @@ using Android.Runtime;
 using Org.Libsdl.App;
 using Urho3DNet;
 
-namespace $safeprojectname$
+namespace $ext_safeprojectname$
 {
     [Activity(Label = "@string/app_name",
         ConfigurationChanges = ConfigChanges.Orientation | ConfigChanges.ScreenSize | ConfigChanges.KeyboardHidden,
