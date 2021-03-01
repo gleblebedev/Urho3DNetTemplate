@@ -114,9 +114,9 @@
     <PackageReference Include="Xamarin.Essentials" Version="1.5.3.2" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Urho3DNetTemplate\Urho3DNetTemplate.csproj">
+    <ProjectReference Include="..\$ext_safeprojectname$\$ext_safeprojectname$.csproj">
       <Project>{12061FFC-551B-48ED-96CA-BB13DF2B8C67}</Project>
-      <Name>Urho3DNetTemplate</Name>
+      <Name>$ext_safeprojectname$</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\Android\Xamarin.Android.CSharp.targets" />
