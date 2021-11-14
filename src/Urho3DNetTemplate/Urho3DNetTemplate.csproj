@@ -1,11 +1,11 @@
-<Project Sdk="MSBuild.Sdk.Extras/3.0.23">
+﻿<Project Sdk="MSBuild.Sdk.Extras/3.0.23">
 
     <PropertyGroup>
         <TargetFrameworks>netstandard2.0;xamarin.ios10;monoandroid90</TargetFrameworks>
     </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="unofficial.Urho3DNet" Version="0.3.7.232" />
+    <PackageReference Include="unofficial.Urho3DNet" Version="0.3.7.320" />
   </ItemGroup>
 
     <!-- Exclude Data folder and all it's content -->
