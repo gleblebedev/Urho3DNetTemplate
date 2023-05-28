@@ -1,0 +1,44 @@
+<VSTemplate Version="3.0.0" xmlns="http://schemas.microsoft.com/developer/vstemplate/2005" Type="Project">
+  <TemplateData>
+    <Name>Urho3DNetTemplate.Content</Name>
+    <Description>Urho3DNet Content Template</Description>
+    <ProjectType>CSharp</ProjectType>
+    <ProjectSubType>
+    </ProjectSubType>
+    <SortOrder>1000</SortOrder>
+    <CreateNewFolder>true</CreateNewFolder>
+    <DefaultName>Content</DefaultName>
+    <ProvideDefaultName>true</ProvideDefaultName>
+    <LocationField>Enabled</LocationField>
+    <EnableLocationBrowseButton>true</EnableLocationBrowseButton>
+    <CreateInPlace>true</CreateInPlace>
+    <Icon>__TemplateIcon.ico</Icon>
+    <Hidden>true</Hidden>
+  </TemplateData>
+  <TemplateContent>
+    <Project TargetFileName="Content.csproj" File="Content.csproj" ReplaceParameters="true">
+      <Folder Name="Common" TargetFolderName="Common">
+        <Folder Name="Data" TargetFolderName="Data">
+          <Folder Name="Scenes" TargetFolderName="Scenes">
+            <ProjectItem ReplaceParameters="true" TargetFileName="TeapotScene.xml">TeapotScene.xml</ProjectItem>
+          </Folder>
+        </Folder>
+      </Folder>
+      <Folder Name="Android" TargetFolderName="Android">
+        <Folder Name="Data" TargetFolderName="Data">
+            <ProjectItem ReplaceParameters="false" TargetFileName="android.txt">android.txt</ProjectItem>
+        </Folder>
+      </Folder>
+      <Folder Name="Desktop" TargetFolderName="Desktop">
+        <Folder Name="Data" TargetFolderName="Data">
+          <ProjectItem ReplaceParameters="false" TargetFileName="desktop.txt">desktop.txt</ProjectItem>
+        </Folder>
+      </Folder>
+      <Folder Name="IOS" TargetFolderName="IOS">
+        <Folder Name="Data" TargetFolderName="Data">
+          <ProjectItem ReplaceParameters="false" TargetFileName="ios.txt">ios.txt</ProjectItem>
+        </Folder>
+      </Folder>
+    </Project>
+  </TemplateContent>
+</VSTemplate>

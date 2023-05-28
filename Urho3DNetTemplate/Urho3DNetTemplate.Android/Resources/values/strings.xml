@@ -1,4 +1,4 @@
 <resources>
-    <string name="app_name">$safeprojectname$</string>
-    <string name="action_settings">Settings</string>
+    <string name="app_name">$ext_safeprojectname$</string>
+    <string name="app_text"></string>
 </resources>

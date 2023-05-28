@@ -9,7 +9,7 @@ namespace $ext_safeprojectname$
         /// The main entry point for the application.
         /// </summary>
         [STAThread]
-        static void Main()
+        static void Main(string[] args)
         {
             Launcher.Run(_ => new UrhoApplication(_));
         }

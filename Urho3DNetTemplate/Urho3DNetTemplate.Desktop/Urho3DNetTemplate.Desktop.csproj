@@ -2,7 +2,7 @@
 
   <PropertyGroup>
     <OutputType>Exe</OutputType>
-    <TargetFramework>net471</TargetFramework>
+    <TargetFramework>net7.0</TargetFramework>
     <RootNamespace>$ext_safeprojectname$</RootNamespace>
   </PropertyGroup>
 
@@ -11,15 +11,22 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="unofficial.Urho3DNet" Version="0.3.7.320" />
+    <PackageReference Include="unofficial.Urho3DNet" Version="0.3.7.530" />
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\$ext_safeprojectname$\$ext_safeprojectname$.csproj" />
+    <Content Include="../Content/Common/**">
+      <Link>%(RecursiveDir)%(FileName)%(Extension)</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="../Content/Desktop/**">
+      <Link>%(RecursiveDir)%(FileName)%(Extension)</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Properties\" />
+     <ProjectReference Include="..\$ext_safeprojectname$\$ext_safeprojectname$.csproj" />
   </ItemGroup>
 
 </Project>

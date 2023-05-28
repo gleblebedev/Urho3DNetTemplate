@@ -16,20 +16,17 @@
   </TemplateData>
   <TemplateContent>
       <ProjectCollection>
+          <ProjectTemplateLink ProjectName="Content" CopyParameters="true">
+              Content\MyTemplate.vstemplate
+          </ProjectTemplateLink>
           <ProjectTemplateLink ProjectName="$safeprojectname$" CopyParameters="true">
               Urho3DNetTemplate\MyTemplate.vstemplate
           </ProjectTemplateLink>
           <ProjectTemplateLink ProjectName="$safeprojectname$.Android" CopyParameters="true">
               Urho3DNetTemplate.Android\MyTemplate.vstemplate
           </ProjectTemplateLink>
-          <ProjectTemplateLink ProjectName="$safeprojectname$.Core" CopyParameters="true">
-              Urho3DNetTemplate.Core\MyTemplate.vstemplate
-          </ProjectTemplateLink>
           <ProjectTemplateLink ProjectName="$safeprojectname$.Desktop" CopyParameters="true">
               Urho3DNetTemplate.Desktop\MyTemplate.vstemplate
-          </ProjectTemplateLink>
-          <ProjectTemplateLink ProjectName="$safeprojectname$.IOS" CopyParameters="true">
-              Urho3DNetTemplate.IOS\MyTemplate.vstemplate
           </ProjectTemplateLink>
           <ProjectTemplateLink ProjectName="$safeprojectname$.UWP" CopyParameters="true">
               Urho3DNetTemplate.UWP\MyTemplate.vstemplate

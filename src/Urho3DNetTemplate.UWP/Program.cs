@@ -1,8 +1,7 @@
 ﻿using System;
 using Urho3DNet;
-using Urho3DNetTemplate;
 
-namespace Urho3DNetTemplate.UWP
+namespace Urho3DNetTemplate
 {
     internal class Program
     {
@@ -12,8 +11,8 @@ namespace Urho3DNetTemplate.UWP
         [MTAThread]
         private static void Main()
         {
-            Launcher.SdlHandleBackButton = true;
-            Launcher.Run(_=> new UrhoApplication(_));
+            Urho3DNet.Launcher.SdlHandleBackButton = true;
+            Urho3DNet.Launcher.Run(_=> new UrhoApplication(_));
         }
     }
 }

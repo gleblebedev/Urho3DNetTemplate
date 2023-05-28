@@ -6,7 +6,7 @@ namespace Urho3DNetTemplate
     public class UrhoApplication: Application
     {
         protected Scene _scene;
-        private Node _cameeraNode;
+        private Node _cameraNode;
         private Viewport _viewport;
 
         public UrhoApplication(Context context) : base(context)
@@ -31,10 +31,10 @@ namespace Urho3DNetTemplate
             _scene = Context.CreateObject<Scene>();
             _scene.LoadXML("Scenes/TeapotScene.xml");
 
-            _cameeraNode = _scene.GetChild("MainCamera", true);
+            _cameraNode = _scene.GetChild("MainCamera", true);
 
             _viewport = Context.CreateObject<Viewport>();
-            _viewport.Camera = _cameeraNode?.GetComponent<Camera>();
+            _viewport.Camera = _cameraNode?.GetComponent<Camera>();
             _viewport.Scene = _scene;
             Context.Renderer.SetViewport(0, _viewport);
             

@@ -12,6 +12,7 @@
     <LocationField>Enabled</LocationField>
     <EnableLocationBrowseButton>true</EnableLocationBrowseButton>
     <Icon>__TemplateIcon.ico</Icon>
+    <Hidden>true</Hidden>
   </TemplateData>
   <TemplateContent>
     <Project TargetFileName="$safeprojectname$.UWP.csproj" File="Urho3DNetTemplate.UWP.csproj" ReplaceParameters="true">

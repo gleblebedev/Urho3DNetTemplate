@@ -1,0 +1,14 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Folder Include="Android\Data\" />
+    <Folder Include="Common\Data\" />
+    <Folder Include="Desktop\Data\" />
+    <Folder Include="IOS\Data\" />
+  </ItemGroup>
+
+</Project>

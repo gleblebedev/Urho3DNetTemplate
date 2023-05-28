@@ -1,21 +1,34 @@
-<?xml version="1.0" encoding="utf-8"?>
 <PackageManifest Version="2.0.0" xmlns="http://schemas.microsoft.com/developer/vsx-schema/2011" xmlns:d="http://schemas.microsoft.com/developer/vsx-schema-design/2011">
     <Metadata>
-        <Identity Id="{9B1E5F82-3335-4EE9-A180-138CBA8CC06C}" Version="0.3.7.232" Language="en-US" Publisher="Gleb Lebedev" />
+        <Identity Id="{9B1E5F82-3335-4EE9-A180-138CBA8CC06C}" Version="0.3.7.530" Language="en-US" Publisher="Gleb Lebedev" />
         <DisplayName>Urho3DNet</DisplayName>
         <Description xml:space="preserve">Urho3DNet cross-platform project template</Description>
         <Icon>__TemplateIcon.ico</Icon>
     </Metadata>
     <Installation>
-        <InstallationTarget Id="Microsoft.VisualStudio.Community" Version="[16.0, 17.0)" />
+    <InstallationTarget Id="Microsoft.VisualStudio.Community" Version="[15.0,17.0)">
+      <ProductArchitecture>x86</ProductArchitecture>
+    </InstallationTarget>
+    <InstallationTarget Id="Microsoft.VisualStudio.Community" Version="[17.0,18.0)">
+      <ProductArchitecture>amd64</ProductArchitecture>
+    </InstallationTarget>
+    <InstallationTarget Id="Microsoft.VisualStudio.Pro" Version="[15.0,17.0)">
+      <ProductArchitecture>x86</ProductArchitecture>
+    </InstallationTarget>
+    <InstallationTarget Id="Microsoft.VisualStudio.Pro" Version="[17.0,18.0)">
+      <ProductArchitecture>amd64</ProductArchitecture>
+    </InstallationTarget>
+    <InstallationTarget Id="Microsoft.VisualStudio.Enterprise" Version="[15.0,17.0)">
+      <ProductArchitecture>x86</ProductArchitecture>
+    </InstallationTarget>
+    <InstallationTarget Id="Microsoft.VisualStudio.Enterprise" Version="[17.0,18.0)">
+      <ProductArchitecture>amd64</ProductArchitecture>
+    </InstallationTarget>
     </Installation>
-    <Dependencies>
-        <Dependency Id="Microsoft.Framework.NDP" DisplayName="Microsoft .NET Framework" d:Source="Manual" Version="[4.5,)" />
-    </Dependencies>
     <Assets>
-        <Asset d:Source="File" Path="ProjectTemplates" Type="Microsoft.VisualStudio.ProjectTemplate" d:TargetPath="ProjectTemplates\Urho3DNetTemplate.zip" />
+        <Asset Type="Microsoft.VisualStudio.ProjectTemplate" Path="ProjectTemplates"/>
     </Assets>
     <Prerequisites>
-        <Prerequisite Id="Microsoft.VisualStudio.Component.CoreEditor" Version="[16.0,17.0)" DisplayName="Visual Studio core editor" />
+        <Prerequisite Id="Microsoft.VisualStudio.Component.CoreEditor" Version="[17.0,18.0)" DisplayName="Visual Studio core editor" />
     </Prerequisites>
 </PackageManifest>
