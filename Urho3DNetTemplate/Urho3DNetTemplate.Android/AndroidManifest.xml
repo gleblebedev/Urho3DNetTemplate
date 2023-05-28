@@ -5,7 +5,7 @@
           package="com.companyname.$ext_safeprojectname$">
 
     <!-- OpenGL ES 3.0 -->
-    <uses-feature android:glEsVersion="0x00020000" />
+    <uses-feature android:glEsVersion="0x00030000" />
     <!-- Allow opening network sockets -->
     <uses-permission android:name="android.permission.INTERNET" />
     <!-- Allow access to the vibrator -->

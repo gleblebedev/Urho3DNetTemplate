@@ -8,10 +8,11 @@
     <ApplicationId>com.companyname.$ext_safeprojectname$</ApplicationId>
     <ApplicationVersion>1</ApplicationVersion>
     <ApplicationDisplayVersion>1.0</ApplicationDisplayVersion>
+    <URHO3D_GRAPHICS_API>GLES3</URHO3D_GRAPHICS_API>
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="unofficial.Urho3DNet" Version="0.3.7.530" />
+    <PackageReference Include="unofficial.Urho3DNet" Version="0.3.7.531" />
   </ItemGroup>
 
   <ItemGroup>

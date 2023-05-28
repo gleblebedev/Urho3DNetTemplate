@@ -18,6 +18,11 @@ namespace $safeprojectname$
             EngineParameters[Urho3D.EpFullScreen] = false;
             EngineParameters[Urho3D.EpWindowResizable] = true;
             EngineParameters[Urho3D.EpWindowTitle] = "$safeprojectname$";
+            EngineParameters[Urho3D.EpApplicationName] = "$safeprojectname$";
+            EngineParameters[Urho3D.EpConfigName] = "";
+            // Optimize shaders via SpirV-Cross
+            EngineParameters[Urho3D.EpShaderPolicyGlsl] = 2;
+            EngineParameters[Urho3D.EpShaderPolicyHlsl] = 2;
             
             base.Setup();
         }

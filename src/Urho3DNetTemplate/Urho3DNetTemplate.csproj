@@ -5,7 +5,7 @@
     </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="unofficial.Urho3DNet" Version="0.3.7.530" />
+    <PackageReference Include="unofficial.Urho3DNet" Version="0.3.7.531" />
   </ItemGroup>
 
 </Project>
