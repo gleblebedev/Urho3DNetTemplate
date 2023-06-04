@@ -22,6 +22,9 @@
           <Folder Name="Scenes" TargetFolderName="Scenes">
             <ProjectItem ReplaceParameters="true" TargetFileName="TeapotScene.xml">TeapotScene.xml</ProjectItem>
           </Folder>
+          <Folder Name="Images" TargetFolderName="Images">
+            <ProjectItem ReplaceParameters="false" TargetFileName="Splash.png">Splash.png</ProjectItem>
+          </Folder>
         </Folder>
       </Folder>
       <Folder Name="Android" TargetFolderName="Android">

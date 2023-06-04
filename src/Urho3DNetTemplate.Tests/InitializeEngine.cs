@@ -1,3 +1,4 @@
+using System.Diagnostics;
 using Urho3DNet;
 using Xunit.Abstractions;
 using Xunit.Sdk;
@@ -6,6 +7,9 @@ using Xunit.Sdk;
 
 namespace Urho3DNetTemplate
 {
+    /// <summary>
+    /// Helper class to run the Urho3D Application in a background.
+    /// </summary>
     public class InitializeEngine : XunitTestFramework, IDisposable
     {
         private Context _context;
@@ -14,6 +18,10 @@ namespace Urho3DNetTemplate
         private ManualResetEvent _initLock = new ManualResetEvent(false);
         private CancellationTokenSource _cancellationTokenSource = new CancellationTokenSource();
 
+        /// <summary>
+        /// Create and run application instance.
+        /// </summary>
+        /// <param name="messageSink"></param>
         public InitializeEngine(IMessageSink messageSink)
             : base(messageSink)
         {
@@ -21,6 +29,9 @@ namespace Urho3DNetTemplate
             _initLock.WaitOne();
         }
 
+        /// <summary>
+        /// Run application main loop in a task.
+        /// </summary>
         private int RunApp()
         {
             _context = new Context();
@@ -28,6 +39,10 @@ namespace Urho3DNetTemplate
             _initLock.Set();
             return _app.Run();
         }
+
+        /// <summary>
+        /// Dispose application.
+        /// </summary>
 
         public new void Dispose()
         {
@@ -38,9 +53,9 @@ namespace Urho3DNetTemplate
             }
             catch (Exception ex)
             {
+                Debug.WriteLine(ex);
             }
             _context?.Dispose();
-            // Place tear down code here
             base.Dispose();
         }
     }

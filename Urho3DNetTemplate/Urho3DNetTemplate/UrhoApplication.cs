@@ -21,10 +21,10 @@ namespace $safeprojectname$
             EngineParameters[Urho3D.EpApplicationName] = "$safeprojectname$";
             EngineParameters[Urho3D.EpOrganizationName] = "$safeprojectname$";
             EngineParameters[Urho3D.EpConfigName] = "";
-            // Run shaders via SpirV-Cross to eliminate potential OpenGL driver bugs
+
+            // Run shaders via SpirV-Cross to eliminate potential driver bugs
             EngineParameters[Urho3D.EpShaderPolicyGlsl] = 2;
-            //EngineParameters[Urho3D.EpShaderPolicyHlsl] = 1;
-            
+            EngineParameters[Urho3D.EpShaderPolicyHlsl] = 2;
             // Enable this if you need to debug translated shaders.
             //EngineParameters[Urho3D.EpShaderLogSources] = true;
 

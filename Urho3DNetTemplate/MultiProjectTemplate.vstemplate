@@ -15,6 +15,9 @@
     <Icon>__TemplateIcon.ico</Icon>
   </TemplateData>
   <TemplateContent>
+      <CustomParameters>
+          <CustomParameter Name="$urho3dnetversion$" Value="0.3.7.533"/>
+      </CustomParameters>
       <ProjectCollection>
           <ProjectTemplateLink ProjectName="Content" CopyParameters="true">
               Content\MyTemplate.vstemplate
@@ -27,6 +30,9 @@
           </ProjectTemplateLink>
           <ProjectTemplateLink ProjectName="$safeprojectname$.Desktop" CopyParameters="true">
               Urho3DNetTemplate.Desktop\MyTemplate.vstemplate
+          </ProjectTemplateLink>
+          <ProjectTemplateLink ProjectName="$safeprojectname$.Tests" CopyParameters="true">
+              Urho3DNetTemplate.Tests\MyTemplate.vstemplate
           </ProjectTemplateLink>
           <ProjectTemplateLink ProjectName="$safeprojectname$.UWP" CopyParameters="true">
               Urho3DNetTemplate.UWP\MyTemplate.vstemplate

@@ -3,12 +3,16 @@ using Xunit;
 
 namespace Urho3DNetTemplate
 {
+    /// <summary>
+    /// Sample set of unit tests.
+    /// Replace this with your own unit tests.
+    /// </summary>
     public class SampleUnitTestFixture: UnitTestBase
     {
         [Fact]
         public async Task SampeUnitTest()
         {
-            await OnMainThread();
+            await ToMainThreadAsync();
 
             SharedPtr<Scene> scene = new Scene(Context);
 
@@ -18,7 +22,7 @@ namespace Urho3DNetTemplate
         [Fact]
         public async Task SampeUnitTest2()
         {
-            await OnMainThread();
+            await ToMainThreadAsync();
 
             SharedPtr<Scene> scene = new Scene(Context);
             scene.Ptr.SubscribeToEvent("TestEvent", scene.Ptr, map => { });

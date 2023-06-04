@@ -1,78 +1,80 @@
+using System.Runtime.CompilerServices;
 using Urho3DNet;
 
-namespace Urho3DNetTemplate;
-
-public class TestApplication: Application
+namespace Urho3DNetTemplate
 {
-    private object _gate = new object();
-    private Queue<TaskCompletionSource> _tasks = new Queue<TaskCompletionSource>();
-    private Queue<TaskCompletionSource> _executionList = new Queue<TaskCompletionSource>();
-    private readonly int _mainThread;
-
-    public TestApplication(Context context) : base(context)
+    /// <summary>
+    /// Test application.
+    /// </summary>
+    public class TestApplication : Application
     {
-        Instance = this;
-        _mainThread = Thread.CurrentThread.ManagedThreadId;
-    }
+        private object _gate = new object();
+        private List<Action> _tasks = new List<Action>();
+        private List<Action> _executionList = new List<Action>();
 
-    public static TestApplication Instance { get; private set; }
-
-    public Task OnMainThreadAsync()
-    {
-        if (_mainThread == Thread.CurrentThread.ManagedThreadId)
-            return Task.CompletedTask;
-
-        var taskCompletionSource = new TaskCompletionSource(TaskCreationOptions.None);
-        lock (_gate)
+        public TestApplication(Context context) : base(context)
         {
-            _tasks.Enqueue(taskCompletionSource);
+            Instance = this;
         }
 
-        taskCompletionSource.Task.ConfigureAwait(false);
+        public static TestApplication Instance { get; private set; }
 
-        return taskCompletionSource.Task;
-    }
-
-    public override void Setup()
-    {
-        EngineParameters[Urho3D.EpHeadless] = true;
-        base.Setup();
-    }
-
-    public override void Start()
-    {
-        SubscribeToEvent(E.Update, OnUpdate);
-        SubscribeToEvent(E.LogMessage, OnLogMessage);
-        base.Start();
-    }
-
-    private void OnLogMessage(VariantMap args)
-    {
-        var logLevel = (LogLevel)args[E.LogMessage.Level].Int;
-        if (logLevel >= LogLevel.LogError)
+        public ConfiguredTaskAwaitable<bool> ToMainThreadAsync()
         {
-            var message = args[E.LogMessage.Message].String;
-            throw new Exception(message);
-        }
-    }
-
-    private void OnUpdate(VariantMap obj)
-    {
-        lock (_gate)
-        {
-            (_tasks, _executionList) = (_executionList, _tasks);
+            var tcs = new TaskCompletionSource<bool>();
+            InvokeOnMain(() => tcs.TrySetResult(true));
+            return tcs.Task.ConfigureAwait(false);
         }
 
-        while (_executionList.Count > 0)
+        private void InvokeOnMain(Action func)
         {
-            var task = _executionList.Dequeue();
-            task.SetResult();
+            lock (_gate)
+            {
+                _tasks.Add(func);
+            }
         }
-    }
 
-    public override void Stop()
-    {
-        UnsubscribeFromEvent(E.Update);
-        base.Stop();
+        public override void Setup()
+        {
+            EngineParameters[Urho3D.EpHeadless] = true;
+            base.Setup();
+        }
+
+        public override void Start()
+        {
+            SubscribeToEvent(E.Update, OnUpdate);
+            SubscribeToEvent(E.LogMessage, OnLogMessage);
+            base.Start();
+        }
+
+        private void OnLogMessage(VariantMap args)
+        {
+            var logLevel = (LogLevel)args[E.LogMessage.Level].Int;
+            if (logLevel >= LogLevel.LogError)
+            {
+                var message = args[E.LogMessage.Message].String;
+                throw new Exception(message);
+            }
+        }
+
+        private void OnUpdate(VariantMap obj)
+        {
+            lock (_gate)
+            {
+                (_tasks, _executionList) = (_executionList, _tasks);
+            }
+
+            foreach (var action in _executionList)
+            {
+                action?.Invoke();
+            }
+            _executionList.Clear();
+        }
+
+        public override void Stop()
+        {
+            UnsubscribeFromEvent(E.Update);
+            base.Stop();
+        }
     }
 }
