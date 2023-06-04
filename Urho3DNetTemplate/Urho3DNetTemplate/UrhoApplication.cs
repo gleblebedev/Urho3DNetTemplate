@@ -19,31 +19,34 @@ namespace $safeprojectname$
             EngineParameters[Urho3D.EpWindowResizable] = true;
             EngineParameters[Urho3D.EpWindowTitle] = "$safeprojectname$";
             EngineParameters[Urho3D.EpApplicationName] = "$safeprojectname$";
+            EngineParameters[Urho3D.EpOrganizationName] = "$safeprojectname$";
             EngineParameters[Urho3D.EpConfigName] = "";
-            // Optimize shaders via SpirV-Cross
+            // Run shaders via SpirV-Cross to eliminate potential OpenGL driver bugs
             EngineParameters[Urho3D.EpShaderPolicyGlsl] = 2;
-            EngineParameters[Urho3D.EpShaderPolicyHlsl] = 2;
+            //EngineParameters[Urho3D.EpShaderPolicyHlsl] = 1;
             
+            // Enable this if you need to debug translated shaders.
+            //EngineParameters[Urho3D.EpShaderLogSources] = true;
+
             base.Setup();
         }
 
         public override void Start()
         {
+            var stateManager = this.Context.GetSubsystem<StateManager>();
+            stateManager.FadeInDuration = 0.1f;
+            stateManager.FadeOutDuration = 0.1f;
+            using (SharedPtr<SplashScreen> splash = new SplashScreen(Context))
+            {
+                splash.Ptr.Duration = 1.0f;
+                splash.Ptr.BackgroundImage = Context.ResourceCache.GetResource<Texture2D>("Images/Splash.png");
+                splash.Ptr.ForegroundImage = Context.ResourceCache.GetResource<Texture2D>("Images/Splash.png");
+                stateManager.EnqueueState(splash);
+            }
+
+            stateManager.EnqueueState(new GameState(Context));
+
             SubscribeToEvent(E.LogMessage, OnLogMessage);
-            Context.Input.SetMouseMode(MouseMode.MmFree);
-            Context.Input.SetMouseVisible(true);
-
-            _scene = Context.CreateObject<Scene>();
-            _scene.LoadXML("Scenes/TeapotScene.xml");
-
-            _cameraNode = _scene.GetChild("MainCamera", true);
-
-            _viewport = Context.CreateObject<Viewport>();
-            _viewport.Camera = _cameraNode?.GetComponent<Camera>();
-            _viewport.Scene = _scene;
-            Context.Renderer.SetViewport(0, _viewport);
-            
-            SubscribeToEvent(E.KeyUp, HandleKeyUp);
             
             base.Start();
         }
@@ -56,29 +59,6 @@ namespace $safeprojectname$
                 case LogLevel.LogError:
                     throw new ApplicationException(args[E.LogMessage.Message].String);
             }
-        }
-
-        private void HandleKeyUp(VariantMap args)
-        {
-            var key = (Key) args[E.KeyUp.Key].Int;
-            switch (key)
-            {
-                case Key.KeyEscape:
-                case Key.KeyBackspace:
-                    Context.Engine.Exit();
-                    return;
-            }
-        }
-
-        public override void Stop()
-        {
-            base.Stop();
-        }
-
-        protected override void Dispose(bool disposing)
-        {
-            _scene?.Dispose();
-            base.Dispose(disposing);
         }
     }
 }

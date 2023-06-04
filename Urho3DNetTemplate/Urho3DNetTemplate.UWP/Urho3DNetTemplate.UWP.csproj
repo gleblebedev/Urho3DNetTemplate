@@ -110,7 +110,7 @@
       <Version>6.2.10</Version>
     </PackageReference>
     <PackageReference Include="unofficial.Urho3DNet">
-      <Version>0.3.7.531</Version>
+      <Version>0.3.7.532</Version>
     </PackageReference>
   </ItemGroup>
   <ItemGroup>

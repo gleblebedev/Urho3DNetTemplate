@@ -22,6 +22,7 @@
           <ProjectItem ReplaceParameters="true" TargetFileName="TeapotScene.xml">TeapotScene.xml</ProjectItem>
         </Folder>
       </Folder>
+      <ProjectItem ReplaceParameters="true" TargetFileName="GameState.cs">GameState.cs</ProjectItem>
       <ProjectItem ReplaceParameters="true" TargetFileName="UrhoApplication.cs">UrhoApplication.cs</ProjectItem>
     </Project>
   </TemplateContent>
