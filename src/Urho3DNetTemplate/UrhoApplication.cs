@@ -36,7 +36,7 @@ namespace Urho3DNetTemplate
             using (SharedPtr<SplashScreen> splash = new SplashScreen(Context))
             {
                 splash.Ptr.Duration = 1.0f;
-                splash.Ptr.BackgroundImage = Context.ResourceCache.GetResource<Texture2D>("Images/Splash.png");
+                splash.Ptr.BackgroundImage = Context.ResourceCache.GetResource<Texture2D>("Images/Background.png");
                 splash.Ptr.ForegroundImage = Context.ResourceCache.GetResource<Texture2D>("Images/Splash.png");
                 stateManager.EnqueueState(splash);
             }

@@ -1,0 +1,26 @@
+<VSTemplate Version="3.0.0" xmlns="http://schemas.microsoft.com/developer/vstemplate/2005" Type="Project">
+  <TemplateData>
+    <Name>Urho3DNetTemplate.Tests</Name>
+    <Description>Urho3DNetTemplate.Tests</Description>
+    <ProjectType>CSharp</ProjectType>
+    <ProjectSubType>
+    </ProjectSubType>
+    <SortOrder>1000</SortOrder>
+    <CreateNewFolder>true</CreateNewFolder>
+    <DefaultName>Urho3DNetTemplate.Tests</DefaultName>
+    <ProvideDefaultName>true</ProvideDefaultName>
+    <LocationField>Enabled</LocationField>
+    <EnableLocationBrowseButton>true</EnableLocationBrowseButton>
+    <CreateInPlace>true</CreateInPlace>
+    <Icon>__TemplateIcon.ico</Icon>
+    <Hidden>true</Hidden>
+  </TemplateData>
+  <TemplateContent>
+    <Project TargetFileName="$ext_safeprojectname$.Tests.csproj" File="Urho3DNetTemplate.Tests.csproj" ReplaceParameters="true">
+      <ProjectItem ReplaceParameters="true" TargetFileName="InitializeEngine.cs">InitializeEngine.cs</ProjectItem>
+      <ProjectItem ReplaceParameters="true" TargetFileName="SampleUnitTestFixture.cs">SampleUnitTestFixture.cs</ProjectItem>
+      <ProjectItem ReplaceParameters="true" TargetFileName="TestApplication.cs">TestApplication.cs</ProjectItem>
+      <ProjectItem ReplaceParameters="true" TargetFileName="UnitTestBase.cs">UnitTestBase.cs</ProjectItem>
+    </Project>
+  </TemplateContent>
+</VSTemplate>

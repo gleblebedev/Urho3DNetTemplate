@@ -20,6 +20,7 @@ namespace Urho3DNetTemplate
             _viewport.Camera = _cameraNode?.GetComponent<Camera>();
             _viewport.Scene = _scene;
             SetViewport(0, _viewport);
+            _scene.Ptr.IsUpdateEnabled = false;
         }
 
         public override void Activate(StringVariantMap bundle)
@@ -27,14 +28,17 @@ namespace Urho3DNetTemplate
             Context.Input.SetMouseMode(MouseMode.MmFree);
             Context.Input.SetMouseVisible(true);
 
-
             SubscribeToEvent(E.KeyUp, HandleKeyUp);
+
+            _scene.Ptr.IsUpdateEnabled = true;
 
             base.Activate(bundle);
         }
 
         public override void Deactivate()
         {
+            _scene.Ptr.IsUpdateEnabled = false;
+
             base.Deactivate();
         }
 

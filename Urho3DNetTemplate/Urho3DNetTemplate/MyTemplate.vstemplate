@@ -17,11 +17,6 @@
   </TemplateData>
   <TemplateContent>
     <Project TargetFileName="$safeprojectname$.csproj" File="Urho3DNetTemplate.csproj" ReplaceParameters="true">
-      <Folder Name="Data" TargetFolderName="Data">
-        <Folder Name="Scenes" TargetFolderName="Scenes">
-          <ProjectItem ReplaceParameters="true" TargetFileName="TeapotScene.xml">TeapotScene.xml</ProjectItem>
-        </Folder>
-      </Folder>
       <ProjectItem ReplaceParameters="true" TargetFileName="GameState.cs">GameState.cs</ProjectItem>
       <ProjectItem ReplaceParameters="true" TargetFileName="UrhoApplication.cs">UrhoApplication.cs</ProjectItem>
     </Project>

@@ -32,6 +32,7 @@
         </Folder>
         <Folder Name="Textures" TargetFolderName="Textures" />
       </Folder>
+      <ProjectItem ReplaceParameters="false" TargetFileName="icon.ico">icon.ico</ProjectItem>
       <ProjectItem ReplaceParameters="true" TargetFileName="Program.cs">Program.cs</ProjectItem>
     </Project>
   </TemplateContent>
