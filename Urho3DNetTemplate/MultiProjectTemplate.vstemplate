@@ -16,7 +16,7 @@
   </TemplateData>
   <TemplateContent>
       <CustomParameters>
-          <CustomParameter Name="$urho3dnetversion$" Value="0.3.7.533"/>
+          <CustomParameter Name="$urho3dnetversion$" Value="0.3.7.535"/>
       </CustomParameters>
       <ProjectCollection>
           <ProjectTemplateLink ProjectName="Content" CopyParameters="true">

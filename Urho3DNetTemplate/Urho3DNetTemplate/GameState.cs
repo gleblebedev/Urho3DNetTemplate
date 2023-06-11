@@ -4,12 +4,14 @@ namespace $safeprojectname$
 {
     public class GameState : ApplicationState
     {
+        private readonly UrhoApplication _app;
         protected readonly SharedPtr<Scene> _scene;
         private readonly Node _cameraNode;
         private readonly Viewport _viewport;
 
-        public GameState(Context context) : base(context)
+        public GameState(UrhoApplication app) : base(app.Context)
         {
+            _app = app;
             _scene = Context.CreateObject<Scene>();
             _scene.Ptr.LoadXML("Scenes/TeapotScene.xml");
 
@@ -20,6 +22,7 @@ namespace $safeprojectname$
             _viewport.Camera = _cameraNode?.GetComponent<Camera>();
             _viewport.Scene = _scene;
             SetViewport(0, _viewport);
+            _scene.Ptr.IsUpdateEnabled = false;
         }
 
         public override void Activate(StringVariantMap bundle)
@@ -27,14 +30,17 @@ namespace $safeprojectname$
             Context.Input.SetMouseMode(MouseMode.MmFree);
             Context.Input.SetMouseVisible(true);
 
-
             SubscribeToEvent(E.KeyUp, HandleKeyUp);
+
+            _scene.Ptr.IsUpdateEnabled = true;
 
             base.Activate(bundle);
         }
 
         public override void Deactivate()
         {
+            _scene.Ptr.IsUpdateEnabled = false;
+
             base.Deactivate();
         }
 
@@ -45,7 +51,7 @@ namespace $safeprojectname$
             {
                 case Key.KeyEscape:
                 case Key.KeyBackspace:
-                    Context.Engine.Exit();
+                    _app.ToMenu();
                     return;
             }
         }

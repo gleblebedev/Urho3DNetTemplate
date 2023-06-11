@@ -4,12 +4,14 @@ namespace Urho3DNetTemplate
 {
     public class GameState : ApplicationState
     {
+        private readonly UrhoApplication _app;
         protected readonly SharedPtr<Scene> _scene;
         private readonly Node _cameraNode;
         private readonly Viewport _viewport;
 
-        public GameState(Context context) : base(context)
+        public GameState(UrhoApplication app) : base(app.Context)
         {
+            _app = app;
             _scene = Context.CreateObject<Scene>();
             _scene.Ptr.LoadXML("Scenes/TeapotScene.xml");
 
@@ -49,7 +51,7 @@ namespace Urho3DNetTemplate
             {
                 case Key.KeyEscape:
                 case Key.KeyBackspace:
-                    Context.Engine.Exit();
+                    _app.ToMenu();
                     return;
             }
         }

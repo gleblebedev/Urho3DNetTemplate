@@ -19,12 +19,30 @@
     <Project TargetFileName="Content.csproj" File="Content.csproj" ReplaceParameters="true">
       <Folder Name="Common" TargetFolderName="Common">
         <Folder Name="Data" TargetFolderName="Data">
+          <Folder Name="Fonts" TargetFolderName="Fonts">
+            <ProjectItem ReplaceParameters="false" TargetFileName="Anonymous Pro.ttf">Anonymous Pro.ttf</ProjectItem>
+            <ProjectItem ReplaceParameters="false" TargetFileName="ArchivoBlack-Regular.ttf">ArchivoBlack-Regular.ttf</ProjectItem>
+            <ProjectItem ReplaceParameters="true" TargetFileName="OFL.txt">OFL.txt</ProjectItem>
+            <ProjectItem ReplaceParameters="true" TargetFileName="read_me.html">read_me.html</ProjectItem>
+          </Folder>
+          <Folder Name="Images" TargetFolderName="Images">
+            <ProjectItem ReplaceParameters="false" TargetFileName="Background.png">Background.png</ProjectItem>
+            <ProjectItem ReplaceParameters="false" TargetFileName="Splash.png">Splash.png</ProjectItem>
+          </Folder>
           <Folder Name="Scenes" TargetFolderName="Scenes">
             <ProjectItem ReplaceParameters="true" TargetFileName="TeapotScene.xml">TeapotScene.xml</ProjectItem>
           </Folder>
-          <Folder Name="Images" TargetFolderName="Images">
-            <ProjectItem ReplaceParameters="false" TargetFileName="Splash.png">Splash.png</ProjectItem>
+          <Folder Name="Sounds" TargetFolderName="Sounds">
+            <ProjectItem ReplaceParameters="false" TargetFileName="UIClicked.wav">UIClicked.wav</ProjectItem>
+            <ProjectItem ReplaceParameters="false" TargetFileName="UINavigated.wav">UINavigated.wav</ProjectItem>
           </Folder>
+          <Folder Name="UI" TargetFolderName="UI">
+            <ProjectItem ReplaceParameters="false" TargetFileName="casual.png">casual.png</ProjectItem>
+            <ProjectItem ReplaceParameters="false" TargetFileName="casual.rcss">casual.rcss</ProjectItem>
+            <ProjectItem ReplaceParameters="false" TargetFileName="MainMenu.rml">MainMenu.rml</ProjectItem>
+            <ProjectItem ReplaceParameters="false" TargetFileName="rml.rcss">rml.rcss</ProjectItem>
+          </Folder>
+          <ProjectItem ReplaceParameters="true" TargetFileName="common.txt">common.txt</ProjectItem>
         </Folder>
       </Folder>
       <Folder Name="Android" TargetFolderName="Android">

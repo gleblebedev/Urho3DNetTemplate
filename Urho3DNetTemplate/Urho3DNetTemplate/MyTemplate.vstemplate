@@ -19,6 +19,8 @@
     <Project TargetFileName="$safeprojectname$.csproj" File="Urho3DNetTemplate.csproj" ReplaceParameters="true">
       <ProjectItem ReplaceParameters="true" TargetFileName="GameState.cs">GameState.cs</ProjectItem>
       <ProjectItem ReplaceParameters="true" TargetFileName="UrhoApplication.cs">UrhoApplication.cs</ProjectItem>
+      <ProjectItem ReplaceParameters="true" TargetFileName="MainMenuComponent.cs">MainMenuComponent.cs</ProjectItem>
+      <ProjectItem ReplaceParameters="true" TargetFileName="MainMenuState.cs">MainMenuState.cs</ProjectItem>
     </Project>
   </TemplateContent>
 </VSTemplate>

@@ -5,6 +5,8 @@ namespace Urho3DNetTemplate
 {
     public class UrhoApplication: Application
     {
+        private SharedPtr<GameState> _gameState;
+        private SharedPtr<MainMenuState> _mainMenuState;
 
         public UrhoApplication(Context context) : base(context)
         {
@@ -30,6 +32,20 @@ namespace Urho3DNetTemplate
 
         public override void Start()
         {
+            var cache = GetSubsystem<ResourceCache>();
+            var ui = GetSubsystem<RmlUI>();
+            StringList fonts = new StringList();
+            cache.Scan(fonts, "Fonts/", "*.ttf", ScanFlag.ScanFiles);
+            foreach (var font in fonts)
+            {
+                ui.LoadFont($"Fonts/{font}");
+            }
+            cache.Scan(fonts, "Fonts/", "*.otf", ScanFlag.ScanFiles);
+            foreach (var font in fonts)
+            {
+                ui.LoadFont($"Fonts/{font}");
+            }
+
             var stateManager = this.Context.GetSubsystem<StateManager>();
             stateManager.FadeInDuration = 0.1f;
             stateManager.FadeOutDuration = 0.1f;
@@ -41,11 +57,37 @@ namespace Urho3DNetTemplate
                 stateManager.EnqueueState(splash);
             }
 
-            stateManager.EnqueueState(new GameState(Context));
+            ToMenu();
+            
 
             SubscribeToEvent(E.LogMessage, OnLogMessage);
             
             base.Start();
+        }
+
+        /// <summary>
+        /// Transition to main menu
+        /// </summary>
+        public void ToMenu()
+        {
+            _mainMenuState = _mainMenuState ?? new MainMenuState(this);
+            Context.GetSubsystem<StateManager>().EnqueueState(_mainMenuState);
+        }
+
+        public override void Stop()
+        {
+            _mainMenuState?.Dispose();
+            _gameState?.Dispose();
+            base.Stop();
+        }
+
+        /// <summary>
+        /// Transition to game
+        /// </summary>
+        public void ToGame()
+        {
+            _gameState = _gameState ?? new GameState(this);
+            Context.GetSubsystem<StateManager>().EnqueueState(_gameState);
         }
 
         private void OnLogMessage(VariantMap args)
