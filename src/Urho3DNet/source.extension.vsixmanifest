@@ -1,8 +1,18 @@
 <PackageManifest Version="2.0.0" xmlns="http://schemas.microsoft.com/developer/vsx-schema/2011" xmlns:d="http://schemas.microsoft.com/developer/vsx-schema-design/2011">
     <Metadata>
-        <Identity Id="{9B1E5F82-3335-4EE9-A180-138CBA8CC06C}" Version="0.3.7.535" Language="en-US" Publisher="Gleb Lebedev" />
+        <Identity Id="{9B1E5F82-3335-4EE9-A180-138CBA8CC06C}" Version="0.3.7.540" Language="en-US" Publisher="Gleb Lebedev" />
         <DisplayName>Urho3DNet</DisplayName>
-        <Description xml:space="preserve">Urho3DNet cross-platform project template</Description>
+        <Description xml:space="preserve">Urho3DNet cross-platform solution template.
+
+It creates the following projects:
+
+- Content: for all game assets. Each folder represents a target platform
+- Class library with game logic
+- *.Android project to run the application on android platfroms
+- *.Desktop project to run the application on Windows, Linux and OSX
+- *.Tests project for unit tests (XUnit)
+- *.UWP project to publish the application to Windows Store for Windows or XBox.
+</Description>
         <Icon>__TemplateIcon.ico</Icon>
     </Metadata>
     <Installation>

@@ -38,7 +38,6 @@ input.blue-button
     min-height: 48px;
     text-align: center;
     font-effect: outline(1px #333), shadow(0px 3px #333);
-    font-weight: bold;
     padding-top: 16.5px;
     padding-right: 12.5px;
     padding-bottom: 20.5px;
@@ -47,8 +46,6 @@ input.blue-button
 input.blue-button:hover
 {
     decorator: ninepatch( blue-button-hover, blue-button-hover-inner, 1.0 );
-    font-effect: outline(1px #333), shadow(0px 3px #333);
-    font-weight: bold;
     padding-top: 12.5px;
     padding-right: 12.5px;
     padding-bottom: 24.5px;
@@ -57,8 +54,6 @@ input.blue-button:hover
 input.blue-button:active
 {
     decorator: ninepatch( blue-button-active, blue-button-active-inner, 1.0 );
-    font-effect: outline(1px #333), shadow(0px 3px #333);
-    font-weight: bold;
     padding-top: 18.5px;
     padding-right: 12.5px;
     padding-bottom: 18.5px;
@@ -67,6 +62,7 @@ input.blue-button:active
 input.blue-button:disabled
 {
     decorator: ninepatch( blue-button-disabled, blue-button-disabled-inner, 1.0 );
+    font-effect: none;
     padding-top: 20.5px;
     padding-right: 12.5px;
     padding-bottom: 16.5px;
@@ -83,7 +79,6 @@ input.orange-button
     min-height: 48px;
     text-align: center;
     font-effect: outline(1px #333), shadow(0px 3px #333);
-    font-weight: bold;
     padding-top: 16.5px;
     padding-right: 12.5px;
     padding-bottom: 20.5px;
@@ -92,8 +87,6 @@ input.orange-button
 input.orange-button:hover
 {
     decorator: ninepatch( orange-button-hover, orange-button-hover-inner, 1.0 );
-    font-effect: outline(1px #333), shadow(0px 3px #333);
-    font-weight: bold;
     padding-top: 12.5px;
     padding-right: 12.5px;
     padding-bottom: 24.5px;
@@ -102,8 +95,6 @@ input.orange-button:hover
 input.orange-button:active
 {
     decorator: ninepatch( orange-button-active, orange-button-active-inner, 1.0 );
-    font-effect: outline(1px #333), shadow(0px 3px #333);
-    font-weight: bold;
     padding-top: 18.5px;
     padding-right: 12.5px;
     padding-bottom: 18.5px;
@@ -112,6 +103,7 @@ input.orange-button:active
 input.orange-button:disabled
 {
     decorator: ninepatch( orange-button-disabled, orange-button-disabled-inner, 1.0 );
+    font-effect: none;
     padding-top: 20.5px;
     padding-right: 12.5px;
     padding-bottom: 16.5px;

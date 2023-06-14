@@ -29,12 +29,16 @@
 	</style>
 </head>
 
-<body navigation-group="main_menu_group">
+<body navigation-group="main_menu_group" data-model="MainMenuComponent">
 	<br/>
 	<navigable group="main_menu_group" class="gray-inner-panel" style="width: 50%; margin: auto">
 		<img src="../Images/Splash.png" style="margin: 0 auto"/>
-		<input type="button" class="blue-button" style="display: block" onclick="event:Game" onnavigated="sound:Sounds/UINavigated.wav" onpressed="sound:Sounds/UIClicked.wav">
-			Play game
+		<div style="text-align: center">{{game_title}}</div>
+		<input type="button" class="blue-button" data-attrif-disabled="!is_game_played" style="display: block" onclick="event:Continue" onnavigated="sound:Sounds/UINavigated.wav" onpressed="sound:Sounds/UIClicked.wav">
+			Continue
+		</input>
+		<input type="button" class="blue-button" style="display: block" onclick="event:NewGame" onnavigated="sound:Sounds/UINavigated.wav" onpressed="sound:Sounds/UIClicked.wav">
+			New game
 		</input>
 		<input type="button" class="blue-button" style="display: block" onclick="event:Exit" onnavigated="sound:Sounds/UINavigated.wav" onpressed="sound:Sounds/UIClicked.wav">
 			Exit

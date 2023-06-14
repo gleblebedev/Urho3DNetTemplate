@@ -12,6 +12,8 @@ namespace Urho3DNetTemplate
         {
         }
 
+        public bool IsGameRunning => _gameState;
+
         public override void Setup()
         {
             EngineParameters[Urho3D.EpFullScreen] = false;
@@ -32,6 +34,10 @@ namespace Urho3DNetTemplate
 
         public override void Start()
         {
+            Context.AddFactoryReflection<MainMenuComponent>();
+            Context.AddFactoryReflection<MainMenuState>();
+            Context.AddFactoryReflection<GameState>();
+
             var cache = GetSubsystem<ResourceCache>();
             var ui = GetSubsystem<RmlUI>();
             StringList fonts = new StringList();
@@ -84,10 +90,22 @@ namespace Urho3DNetTemplate
         /// <summary>
         /// Transition to game
         /// </summary>
-        public void ToGame()
+        public void ToNewGame()
         {
-            _gameState = _gameState ?? new GameState(this);
+            _gameState?.Dispose();
+            _gameState = new GameState(this);
             Context.GetSubsystem<StateManager>().EnqueueState(_gameState);
+        }
+
+        /// <summary>
+        /// Transition to game
+        /// </summary>
+        public void ContinueGame()
+        {
+            if (_gameState)
+            {
+                Context.GetSubsystem<StateManager>().EnqueueState(_gameState);
+            }
         }
 
         private void OnLogMessage(VariantMap args)
@@ -98,6 +116,11 @@ namespace Urho3DNetTemplate
                 case LogLevel.LogError:
                     throw new ApplicationException(args[E.LogMessage.Message].String);
             }
+        }
+
+        public void Quit()
+        {
+            Context.Engine.Exit();
         }
     }
 }

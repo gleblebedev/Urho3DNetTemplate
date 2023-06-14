@@ -11,6 +11,9 @@ namespace Urho3DNetTemplate
 
         public GameState(UrhoApplication app) : base(app.Context)
         {
+            MouseMode = MouseMode.MmFree;
+            IsMouseVisible = true;
+
             _app = app;
             _scene = Context.CreateObject<Scene>();
             _scene.Ptr.LoadXML("Scenes/TeapotScene.xml");
@@ -27,9 +30,6 @@ namespace Urho3DNetTemplate
 
         public override void Activate(StringVariantMap bundle)
         {
-            Context.Input.SetMouseMode(MouseMode.MmFree);
-            Context.Input.SetMouseVisible(true);
-
             SubscribeToEvent(E.KeyUp, HandleKeyUp);
 
             _scene.Ptr.IsUpdateEnabled = true;
@@ -40,7 +40,7 @@ namespace Urho3DNetTemplate
         public override void Deactivate()
         {
             _scene.Ptr.IsUpdateEnabled = false;
-
+            UnsubscribeFromEvent(E.KeyUp);
             base.Deactivate();
         }
 
