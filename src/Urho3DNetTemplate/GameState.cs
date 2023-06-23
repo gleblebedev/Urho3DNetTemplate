@@ -8,24 +8,55 @@ namespace Urho3DNetTemplate
         protected readonly SharedPtr<Scene> _scene;
         private readonly Node _cameraNode;
         private readonly Viewport _viewport;
+        private readonly Node _character;
+        private readonly Node _cameraRoot;
 
         public GameState(UrhoApplication app) : base(app.Context)
         {
-            MouseMode = MouseMode.MmFree;
-            IsMouseVisible = true;
+            MouseMode = MouseMode.MmAbsolute;
+            IsMouseVisible = false;
 
             _app = app;
             _scene = Context.CreateObject<Scene>();
-            _scene.Ptr.LoadXML("Scenes/TeapotScene.xml");
+            _scene.Ptr.LoadXML("Scenes/Sample.xml");
 
-            _cameraNode = _scene.Ptr.GetChild("MainCamera", true);
-            _cameraNode.CreateComponent<FreeFlyController>();
+            var nodeList = _scene.Ptr.GetChildrenWithComponent(nameof(KinematicCharacterController), true);
+            foreach (var node in nodeList)
+            {
+                SetupCharacter(node);
+                node.CreateComponent<NonPlayableCharacter>();
+            }
+
+            _character = _scene.Ptr.CreateChild();
+            _character.Position = new Vector3(0, 0.2f, 0);
+            _character.CreateComponent<PrefabReference>().SetPrefab(Context.ResourceCache.GetResource<PrefabResource>("Models/Characters/YBot/YBot.prefab"));
+            var player = SetupCharacter(_character);
+            _cameraRoot = _character.CreateChild(); 
+            var cameraPrefab = _cameraRoot.CreateComponent<PrefabReference>();
+            cameraPrefab.SetPrefab(Context.ResourceCache.GetResource<PrefabResource>("Models/Characters/Camera.prefab"));
+            cameraPrefab.Inline(PrefabInlineFlag.None);
+            _cameraNode = _character.GetComponent<Camera>(true).Node;
+            _character.CreateComponent<MoveAndOrbitController>().InputMap = Context.ResourceCache.GetResource<InputMap>("Input/MoveAndOrbit.inputmap");
+            player.CameraYaw = _character.GetChild("CameraYawPivot", true);
+            player.CameraPitch = _character.GetChild("CameraPitchPivot", true);
 
             _viewport = Context.CreateObject<Viewport>();
             _viewport.Camera = _cameraNode?.GetComponent<Camera>();
             _viewport.Scene = _scene;
             SetViewport(0, _viewport);
             _scene.Ptr.IsUpdateEnabled = false;
+        }
+
+        private Character SetupCharacter(Node _character)
+        {
+            var player = _character.CreateComponent<Character>();
+            player.CharacterController = _character.GetComponent<KinematicCharacterController>();
+            player.AnimationController = _character.GetComponent<AnimationController>(true);
+            player.ModelPivot = _character.GetChild("ModelPivot");
+            player.Idle = Context.ResourceCache.GetResource<Animation>("Animations/Idle.ani");
+            player.Walk = Context.ResourceCache.GetResource<Animation>("Animations/Walking.ani");
+            return player;
+
         }
 
         public override void Activate(StringVariantMap bundle)

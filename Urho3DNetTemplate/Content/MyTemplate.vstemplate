@@ -17,8 +17,21 @@
   </TemplateData>
   <TemplateContent>
     <Project TargetFileName="Content.csproj" File="Content.csproj" ReplaceParameters="true">
+      <Folder Name="Android" TargetFolderName="Android">
+        <Folder Name="Data" TargetFolderName="Data">
+          <ProjectItem ReplaceParameters="true" TargetFileName="android.txt">android.txt</ProjectItem>
+        </Folder>
+      </Folder>
       <Folder Name="Common" TargetFolderName="Common">
         <Folder Name="Data" TargetFolderName="Data">
+          <Folder Name="Animations" TargetFolderName="Animations">
+            <ProjectItem ReplaceParameters="false" TargetFileName="Idle.ani">Idle.ani</ProjectItem>
+            <ProjectItem ReplaceParameters="true" TargetFileName="Idle.xml">Idle.xml</ProjectItem>
+            <ProjectItem ReplaceParameters="false" TargetFileName="Running.ani">Running.ani</ProjectItem>
+            <ProjectItem ReplaceParameters="true" TargetFileName="Running.xml">Running.xml</ProjectItem>
+            <ProjectItem ReplaceParameters="false" TargetFileName="Walking.ani">Walking.ani</ProjectItem>
+            <ProjectItem ReplaceParameters="true" TargetFileName="Walking.xml">Walking.xml</ProjectItem>
+          </Folder>
           <Folder Name="Fonts" TargetFolderName="Fonts">
             <ProjectItem ReplaceParameters="false" TargetFileName="Anonymous Pro.ttf">Anonymous Pro.ttf</ProjectItem>
             <ProjectItem ReplaceParameters="false" TargetFileName="ArchivoBlack-Regular.ttf">ArchivoBlack-Regular.ttf</ProjectItem>
@@ -29,8 +42,78 @@
             <ProjectItem ReplaceParameters="false" TargetFileName="Background.png">Background.png</ProjectItem>
             <ProjectItem ReplaceParameters="false" TargetFileName="Splash.png">Splash.png</ProjectItem>
           </Folder>
+          <Folder Name="Input" TargetFolderName="Input">
+            <ProjectItem ReplaceParameters="false" TargetFileName="MoveAndOrbit.inputmap">MoveAndOrbit.inputmap</ProjectItem>
+          </Folder>
+          <Folder Name="Materials" TargetFolderName="Materials">
+            <ProjectItem ReplaceParameters="true" TargetFileName="VertexColor.xml">VertexColor.xml</ProjectItem>
+            <ProjectItem ReplaceParameters="true" TargetFileName="VertexColorAlpha.xml">VertexColorAlpha.xml</ProjectItem>
+          </Folder>
+          <Folder Name="Models" TargetFolderName="Models">
+            <Folder Name="Characters" TargetFolderName="Characters">
+              <Folder Name="XBot" TargetFolderName="XBot">
+                <ProjectItem ReplaceParameters="true" TargetFileName="Joints.xml">Joints.xml</ProjectItem>
+                <ProjectItem ReplaceParameters="true" TargetFileName="License.txt">License.txt</ProjectItem>
+                <ProjectItem ReplaceParameters="true" TargetFileName="Limbs.xml">Limbs.xml</ProjectItem>
+                <ProjectItem ReplaceParameters="false" TargetFileName="XBot.mdl">XBot.mdl</ProjectItem>
+                <ProjectItem ReplaceParameters="false" TargetFileName="XBot.prefab">XBot.prefab</ProjectItem>
+              </Folder>
+              <Folder Name="YBot" TargetFolderName="YBot">
+                <ProjectItem ReplaceParameters="true" TargetFileName="Joints.xml">Joints.xml</ProjectItem>
+                <ProjectItem ReplaceParameters="true" TargetFileName="License.txt">License.txt</ProjectItem>
+                <ProjectItem ReplaceParameters="true" TargetFileName="Limbs.xml">Limbs.xml</ProjectItem>
+                <ProjectItem ReplaceParameters="false" TargetFileName="YBot.mdl">YBot.mdl</ProjectItem>
+                <ProjectItem ReplaceParameters="false" TargetFileName="YBot.prefab">YBot.prefab</ProjectItem>
+              </Folder>
+              <ProjectItem ReplaceParameters="false" TargetFileName="Camera.prefab">Camera.prefab</ProjectItem>
+            </Folder>
+          </Folder>
+          <Folder Name="Quaternius" TargetFolderName="Quaternius">
+            <Folder Name="UltimateModularSciFiPack" TargetFolderName="UltimateModularSciFiPack">
+              <Folder Name="Meshes" TargetFolderName="Meshes">
+                <Folder Name="Column_3" TargetFolderName="Column_3">
+                  <ProjectItem ReplaceParameters="false" TargetFileName="Column_3.mdl">Column_3.mdl</ProjectItem>
+                </Folder>
+                <Folder Name="Column_Slim" TargetFolderName="Column_Slim">
+                  <ProjectItem ReplaceParameters="false" TargetFileName="Column_Slim.mdl">Column_Slim.mdl</ProjectItem>
+                </Folder>
+                <Folder Name="FloorTile_Basic" TargetFolderName="FloorTile_Basic">
+                  <ProjectItem ReplaceParameters="false" TargetFileName="FloorTile_Basic.mdl">FloorTile_Basic.mdl</ProjectItem>
+                </Folder>
+                <Folder Name="Props_Base" TargetFolderName="Props_Base">
+                  <ProjectItem ReplaceParameters="false" TargetFileName="Props_Base.mdl">Props_Base.mdl</ProjectItem>
+                </Folder>
+                <Folder Name="Props_Crate" TargetFolderName="Props_Crate">
+                  <ProjectItem ReplaceParameters="false" TargetFileName="Props_Crate.mdl">Props_Crate.mdl</ProjectItem>
+                </Folder>
+                <Folder Name="Props_Pod" TargetFolderName="Props_Pod">
+                  <ProjectItem ReplaceParameters="false" TargetFileName="Props_Pod.mdl">Props_Pod.mdl</ProjectItem>
+                </Folder>
+                <Folder Name="RoofTile_Empty" TargetFolderName="RoofTile_Empty">
+                  <ProjectItem ReplaceParameters="false" TargetFileName="RoofTile_Empty.mdl">RoofTile_Empty.mdl</ProjectItem>
+                </Folder>
+                <Folder Name="Wall_5" TargetFolderName="Wall_5">
+                  <ProjectItem ReplaceParameters="false" TargetFileName="Wall_5.mdl">Wall_5.mdl</ProjectItem>
+                </Folder>
+                <Folder Name="Wall_Empty" TargetFolderName="Wall_Empty">
+                  <ProjectItem ReplaceParameters="false" TargetFileName="Wall_Empty.mdl">Wall_Empty.mdl</ProjectItem>
+                </Folder>
+              </Folder>
+              <Folder Name="Prefabs" TargetFolderName="Prefabs">
+                <ProjectItem ReplaceParameters="false" TargetFileName="Column_3.prefab">Column_3.prefab</ProjectItem>
+                <ProjectItem ReplaceParameters="false" TargetFileName="Column_Slim.prefab">Column_Slim.prefab</ProjectItem>
+                <ProjectItem ReplaceParameters="false" TargetFileName="FloorTile_Basic.prefab">FloorTile_Basic.prefab</ProjectItem>
+                <ProjectItem ReplaceParameters="false" TargetFileName="Props_Base.prefab">Props_Base.prefab</ProjectItem>
+                <ProjectItem ReplaceParameters="false" TargetFileName="Props_Crate.prefab">Props_Crate.prefab</ProjectItem>
+                <ProjectItem ReplaceParameters="false" TargetFileName="Props_Pod.prefab">Props_Pod.prefab</ProjectItem>
+                <ProjectItem ReplaceParameters="false" TargetFileName="RoofTile_Empty.prefab">RoofTile_Empty.prefab</ProjectItem>
+                <ProjectItem ReplaceParameters="false" TargetFileName="Wall_5.prefab">Wall_5.prefab</ProjectItem>
+                <ProjectItem ReplaceParameters="false" TargetFileName="Wall_Empty.prefab">Wall_Empty.prefab</ProjectItem>
+              </Folder>
+            </Folder>
+          </Folder>
           <Folder Name="Scenes" TargetFolderName="Scenes">
-            <ProjectItem ReplaceParameters="true" TargetFileName="TeapotScene.xml">TeapotScene.xml</ProjectItem>
+            <ProjectItem ReplaceParameters="true" TargetFileName="Sample.xml">Sample.xml</ProjectItem>
           </Folder>
           <Folder Name="Sounds" TargetFolderName="Sounds">
             <ProjectItem ReplaceParameters="false" TargetFileName="UIClicked.wav">UIClicked.wav</ProjectItem>
@@ -45,19 +128,14 @@
           <ProjectItem ReplaceParameters="true" TargetFileName="common.txt">common.txt</ProjectItem>
         </Folder>
       </Folder>
-      <Folder Name="Android" TargetFolderName="Android">
-        <Folder Name="Data" TargetFolderName="Data">
-            <ProjectItem ReplaceParameters="false" TargetFileName="android.txt">android.txt</ProjectItem>
-        </Folder>
-      </Folder>
       <Folder Name="Desktop" TargetFolderName="Desktop">
         <Folder Name="Data" TargetFolderName="Data">
-          <ProjectItem ReplaceParameters="false" TargetFileName="desktop.txt">desktop.txt</ProjectItem>
+          <ProjectItem ReplaceParameters="true" TargetFileName="desktop.txt">desktop.txt</ProjectItem>
         </Folder>
       </Folder>
       <Folder Name="IOS" TargetFolderName="IOS">
         <Folder Name="Data" TargetFolderName="Data">
-          <ProjectItem ReplaceParameters="false" TargetFileName="ios.txt">ios.txt</ProjectItem>
+          <ProjectItem ReplaceParameters="true" TargetFileName="ios.txt">ios.txt</ProjectItem>
         </Folder>
       </Folder>
     </Project>

@@ -21,10 +21,11 @@ namespace Urho3DNetTemplate
             EngineParameters[Urho3D.EpWindowTitle] = "Urho3DNetTemplate";
             EngineParameters[Urho3D.EpApplicationName] = "Urho3DNetTemplate";
             EngineParameters[Urho3D.EpOrganizationName] = "Urho3DNetTemplate";
+            EngineParameters[Urho3D.EpFrameLimiter] = true;
             EngineParameters[Urho3D.EpConfigName] = "";
 
             // Run shaders via SpirV-Cross to eliminate potential driver bugs
-            EngineParameters[Urho3D.EpShaderPolicyGlsl] = 2;
+            EngineParameters[Urho3D.EpShaderPolicyGlsl] = 0;
             EngineParameters[Urho3D.EpShaderPolicyHlsl] = 2;
             // Enable this if you need to debug translated shaders.
             //EngineParameters[Urho3D.EpShaderLogSources] = true;
@@ -34,9 +35,13 @@ namespace Urho3DNetTemplate
 
         public override void Start()
         {
+            Context.Engine.MaxFps = 60;
             Context.AddFactoryReflection<MainMenuComponent>();
             Context.AddFactoryReflection<MainMenuState>();
             Context.AddFactoryReflection<GameState>();
+            Context.AddFactoryReflection<Character>();
+            Context.AddFactoryReflection<NonPlayableCharacter>();
+            Context.AddFactoryReflection<InteractableBox>();
 
             var cache = GetSubsystem<ResourceCache>();
             var ui = GetSubsystem<RmlUI>();

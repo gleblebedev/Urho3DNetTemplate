@@ -8,18 +8,36 @@ namespace $safeprojectname$
         protected readonly SharedPtr<Scene> _scene;
         private readonly Node _cameraNode;
         private readonly Viewport _viewport;
+        private readonly Node _character;
+        private readonly Node _cameraRoot;
 
         public GameState(UrhoApplication app) : base(app.Context)
         {
-            MouseMode = MouseMode.MmFree;
-            IsMouseVisible = true;
+            MouseMode = MouseMode.MmAbsolute;
+            IsMouseVisible = false;
 
             _app = app;
             _scene = Context.CreateObject<Scene>();
-            _scene.Ptr.LoadXML("Scenes/TeapotScene.xml");
+            _scene.Ptr.LoadXML("Scenes/Sample.xml");
 
-            _cameraNode = _scene.Ptr.GetChild("MainCamera", true);
-            _cameraNode.CreateComponent<FreeFlyController>();
+            _character = _scene.Ptr.CreateChild();
+            _character.Position = new Vector3(0, 0.2f, 0);
+            _character.CreateComponent<PrefabReference>().SetPrefab(Context.ResourceCache.GetResource<PrefabResource>("Models/Characters/YBot/YBot.prefab"));
+            var player = _character.CreateComponent<PlayerComponent>();
+            player.CharacterController = _character.GetComponent<KinematicCharacterController>();
+            player.AnimationController = _character.GetComponent<AnimationController>(true);
+            player.ModelPivot = _character.GetChild("ModelPivot");
+            _cameraRoot = _character.CreateChild(); 
+            var cameraPrefab = _cameraRoot.CreateComponent<PrefabReference>();
+            cameraPrefab.SetPrefab(Context.ResourceCache.GetResource<PrefabResource>("Models/Characters/Camera.prefab"));
+            cameraPrefab.Inline(PrefabInlineFlag.None);
+            _cameraNode = _character.GetComponent<Camera>(true).Node;
+            player.CameraYaw = _character.GetChild("CameraYawPivot",true);
+            player.CameraPitch = _character.GetChild("CameraPitchPivot",true);
+            player.Idle = Context.ResourceCache.GetResource<Animation>("Animations/Idle.ani");
+            player.Walk = Context.ResourceCache.GetResource<Animation>("Animations/Walking.ani");
+            _character.CreateComponent<MoveAndOrbitController>().InputMap = Context.ResourceCache.GetResource<InputMap>("Input/MoveAndOrbit.inputmap");
+            
 
             _viewport = Context.CreateObject<Viewport>();
             _viewport.Camera = _cameraNode?.GetComponent<Camera>();

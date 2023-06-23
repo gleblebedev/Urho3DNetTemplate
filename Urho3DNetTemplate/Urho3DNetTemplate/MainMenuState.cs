@@ -1,5 +1,4 @@
-﻿using System.ComponentModel;
-using Urho3DNet;
+﻿using Urho3DNet;
 
 namespace $safeprojectname$
 {

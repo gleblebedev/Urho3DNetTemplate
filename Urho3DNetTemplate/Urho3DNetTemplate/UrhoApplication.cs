@@ -21,6 +21,7 @@ namespace $safeprojectname$
             EngineParameters[Urho3D.EpWindowTitle] = "$safeprojectname$";
             EngineParameters[Urho3D.EpApplicationName] = "$safeprojectname$";
             EngineParameters[Urho3D.EpOrganizationName] = "$safeprojectname$";
+            EngineParameters[Urho3D.EpFrameLimiter] = true;
             EngineParameters[Urho3D.EpConfigName] = "";
 
             // Run shaders via SpirV-Cross to eliminate potential driver bugs
@@ -34,9 +35,11 @@ namespace $safeprojectname$
 
         public override void Start()
         {
+            Context.Engine.MaxFps = 60;
             Context.AddFactoryReflection<MainMenuComponent>();
             Context.AddFactoryReflection<MainMenuState>();
             Context.AddFactoryReflection<GameState>();
+            Context.AddFactoryReflection<PlayerComponent>();
 
             var cache = GetSubsystem<ResourceCache>();
             var ui = GetSubsystem<RmlUI>();
