@@ -3,8 +3,8 @@
 	<attribute name="Name" value="Sample" />
 	<attribute name="Time Scale" value="1.000000" />
 	<attribute name="Elapsed Time" value="0.000000" />
-	<attribute name="Next Node ID" value="3612" />
-	<attribute name="Next Component ID" value="3323" />
+	<attribute name="Next Node ID" value="5150" />
+	<attribute name="Next Component ID" value="4937" />
 	<attribute name="Variables" />
 	<attribute name="Variable Names" value="" />
 	<attribute name="Lightmaps" value="Texture2D" />
@@ -83,7 +83,7 @@
 		<attribute name="Is Enabled" value="true" />
 		<attribute name="Name" value="Props_Crate" />
 		<attribute name="Tags">
-			<string value="Untagged" />
+			<string value="InteractableBox" />
 		</attribute>
 		<attribute name="Position" value="-1.265 0.178 -1.256" />
 		<attribute name="Rotation" value="1 0 0 0" />
@@ -281,6 +281,34 @@
 			<attribute name="Variables" />
 			<component type="PrefabReference" id="1714">
 				<attribute name="Prefab" value="PrefabResource;Quaternius/UltimateModularSciFiPack/Prefabs/Column_3.prefab" />
+			</component>
+		</node>
+		<node id="3863">
+			<attribute name="Is Enabled" value="true" />
+			<attribute name="Name" value="FloorTile_Basic" />
+			<attribute name="Tags">
+				<string value="Untagged" />
+			</attribute>
+			<attribute name="Position" value="10 4 5" />
+			<attribute name="Rotation" value="1 0 0 0" />
+			<attribute name="Scale" value="1 1 1" />
+			<attribute name="Variables" />
+			<component type="PrefabReference" id="3568">
+				<attribute name="Prefab" value="PrefabResource;Quaternius/UltimateModularSciFiPack/Prefabs/FloorTile_Basic.prefab" />
+			</component>
+		</node>
+		<node id="3864">
+			<attribute name="Is Enabled" value="true" />
+			<attribute name="Name" value="FloorTile_Basic" />
+			<attribute name="Tags">
+				<string value="Untagged" />
+			</attribute>
+			<attribute name="Position" value="10 4 0" />
+			<attribute name="Rotation" value="1 0 0 0" />
+			<attribute name="Scale" value="1 1 1" />
+			<attribute name="Variables" />
+			<component type="PrefabReference" id="3572">
+				<attribute name="Prefab" value="PrefabResource;Quaternius/UltimateModularSciFiPack/Prefabs/FloorTile_Basic.prefab" />
 			</component>
 		</node>
 	</node>
@@ -516,6 +544,34 @@
 				<attribute name="Prefab" value="PrefabResource;Quaternius/UltimateModularSciFiPack/Prefabs/Wall_5.prefab" />
 			</component>
 		</node>
+		<node id="3865">
+			<attribute name="Is Enabled" value="true" />
+			<attribute name="Name" value="Wall_Empty" />
+			<attribute name="Tags">
+				<string value="Untagged" />
+			</attribute>
+			<attribute name="Position" value="12.5 4 5" />
+			<attribute name="Rotation" value="0.707107 0 0.707107 0" />
+			<attribute name="Scale" value="1 1 1" />
+			<attribute name="Variables" />
+			<component type="PrefabReference" id="3576">
+				<attribute name="Prefab" value="XMLFile;Quaternius/UltimateModularSciFiPack/Prefabs/Wall_Empty.prefab" />
+			</component>
+		</node>
+		<node id="3867">
+			<attribute name="Is Enabled" value="true" />
+			<attribute name="Name" value="Wall_Empty" />
+			<attribute name="Tags">
+				<string value="Untagged" />
+			</attribute>
+			<attribute name="Position" value="12.5 4 10" />
+			<attribute name="Rotation" value="0.707107 0 0.707107 0" />
+			<attribute name="Scale" value="1 1 1" />
+			<attribute name="Variables" />
+			<component type="PrefabReference" id="3580">
+				<attribute name="Prefab" value="XMLFile;Quaternius/UltimateModularSciFiPack/Prefabs/Wall_Empty.prefab" />
+			</component>
+		</node>
 	</node>
 	<node id="75">
 		<attribute name="Is Enabled" value="true" />
@@ -587,7 +643,7 @@
 			<attribute name="Tags">
 				<string value="Untagged" />
 			</attribute>
-			<attribute name="Position" value="10 4 10" />
+			<attribute name="Position" value="10 4 5" />
 			<attribute name="Rotation" value="1 0 0 0" />
 			<attribute name="Scale" value="1 1 1" />
 			<attribute name="Variables" />
@@ -600,7 +656,7 @@
 		<attribute name="Is Enabled" value="true" />
 		<attribute name="Name" value="Props_Crate" />
 		<attribute name="Tags">
-			<string value="Untagged" />
+			<string value="InteractableBox" />
 		</attribute>
 		<attribute name="Position" value="6.22514 0.178 5.20925" />
 		<attribute name="Rotation" value="1 0 0 0" />
@@ -673,5 +729,19 @@
 				</node>
 			</node>
 		</node>
+	</node>
+	<node id="3862">
+		<attribute name="Is Enabled" value="true" />
+		<attribute name="Name" value="StairC" />
+		<attribute name="Tags">
+			<string value="Untagged" />
+		</attribute>
+		<attribute name="Position" value="10 0 10" />
+		<attribute name="Rotation" value="1 0 0 0" />
+		<attribute name="Scale" value="1 1 1" />
+		<attribute name="Variables" />
+		<component type="PrefabReference" id="3567">
+			<attribute name="Prefab" value="PrefabResource;Models/StairC.prefab" />
+		</component>
 	</node>
 </scene>

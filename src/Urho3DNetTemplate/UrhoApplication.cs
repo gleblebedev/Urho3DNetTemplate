@@ -42,6 +42,7 @@ namespace Urho3DNetTemplate
             Context.AddFactoryReflection<Character>();
             Context.AddFactoryReflection<NonPlayableCharacter>();
             Context.AddFactoryReflection<InteractableBox>();
+            Context.AddFactoryReflection<Player>();
 
             var cache = GetSubsystem<ResourceCache>();
             var ui = GetSubsystem<RmlUI>();

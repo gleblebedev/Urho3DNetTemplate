@@ -6,6 +6,7 @@ namespace Urho3DNetTemplate
     {
         private readonly UrhoApplication _app;
         protected readonly SharedPtr<Scene> _scene;
+        protected readonly SharedPtr<Sprite> _cross;
         private readonly Node _cameraNode;
         private readonly Viewport _viewport;
         private readonly Node _character;
@@ -20,6 +21,12 @@ namespace Urho3DNetTemplate
             _scene = Context.CreateObject<Scene>();
             _scene.Ptr.LoadXML("Scenes/Sample.xml");
 
+            var boxes = _scene.Ptr.GetChildrenWithTag("InteractableBox", true);
+            foreach (var box in boxes)
+            {
+                box.CreateComponent<InteractableBox>();
+            }
+
             var nodeList = _scene.Ptr.GetChildrenWithComponent(nameof(KinematicCharacterController), true);
             foreach (var node in nodeList)
             {
@@ -30,21 +37,30 @@ namespace Urho3DNetTemplate
             _character = _scene.Ptr.CreateChild();
             _character.Position = new Vector3(0, 0.2f, 0);
             _character.CreateComponent<PrefabReference>().SetPrefab(Context.ResourceCache.GetResource<PrefabResource>("Models/Characters/YBot/YBot.prefab"));
-            var player = SetupCharacter(_character);
+            var character = SetupCharacter(_character);
+            var player = _character.CreateComponent<Player>();
             _cameraRoot = _character.CreateChild(); 
             var cameraPrefab = _cameraRoot.CreateComponent<PrefabReference>();
             cameraPrefab.SetPrefab(Context.ResourceCache.GetResource<PrefabResource>("Models/Characters/Camera.prefab"));
             cameraPrefab.Inline(PrefabInlineFlag.None);
-            _cameraNode = _character.GetComponent<Camera>(true).Node;
+            player.Camera = _character.GetComponent<Camera>(true);
+            _cameraNode = player.Camera.Node;
             _character.CreateComponent<MoveAndOrbitController>().InputMap = Context.ResourceCache.GetResource<InputMap>("Input/MoveAndOrbit.inputmap");
-            player.CameraYaw = _character.GetChild("CameraYawPivot", true);
-            player.CameraPitch = _character.GetChild("CameraPitchPivot", true);
-
+            character.CameraYaw = _character.GetChild("CameraYawPivot", true);
+            character.CameraPitch = _character.GetChild("CameraPitchPivot", true);
             _viewport = Context.CreateObject<Viewport>();
             _viewport.Camera = _cameraNode?.GetComponent<Camera>();
             _viewport.Scene = _scene;
             SetViewport(0, _viewport);
             _scene.Ptr.IsUpdateEnabled = false;
+
+            _cross = SharedPtr.MakeShared<Sprite>(Context);
+            var crossTexture = ResourceCache.GetResource<Texture2D>("Images/Cross.png");
+            _cross.Ptr.Texture = crossTexture;
+            _cross.Ptr.Size = new IntVector2(64, 64);
+            _cross.Ptr.VerticalAlignment = VerticalAlignment.VaCenter;
+            _cross.Ptr.HorizontalAlignment = HorizontalAlignment.HaCenter;
+            UIRoot.AddChild(_cross);
         }
 
         private Character SetupCharacter(Node _character)
@@ -57,6 +73,11 @@ namespace Urho3DNetTemplate
             player.Walk = Context.ResourceCache.GetResource<Animation>("Animations/Walking.ani");
             return player;
 
+        }
+
+        public override void Update(float timeStep)
+        {
+            base.Update(timeStep);
         }
 
         public override void Activate(StringVariantMap bundle)
