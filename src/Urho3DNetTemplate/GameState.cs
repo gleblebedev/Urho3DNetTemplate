@@ -17,6 +17,8 @@ namespace Urho3DNetTemplate
             MouseMode = MouseMode.MmAbsolute;
             IsMouseVisible = false;
 
+            var inputMap = Context.ResourceCache.GetResource<InputMap>("Input/MoveAndOrbit.inputmap");
+
             _app = app;
             _scene = Context.CreateObject<Scene>();
             _scene.Ptr.LoadXML("Scenes/Sample.xml");
@@ -39,13 +41,19 @@ namespace Urho3DNetTemplate
             _character.CreateComponent<PrefabReference>().SetPrefab(Context.ResourceCache.GetResource<PrefabResource>("Models/Characters/YBot/YBot.prefab"));
             var character = SetupCharacter(_character);
             var player = _character.CreateComponent<Player>();
+            player.InputMap = inputMap;
+            player.AttractionTarget = character.ModelPivot.CreateChild("AttractionTarget");
+            player.AttractionTarget.Position = new Vector3(0, 1.0f, 1.0f);
+            player.AttractionTarget.CreateComponent<RigidBody>();
+            player.Constraint = player.AttractionTarget.CreateComponent<Constraint>();
+            player.Constraint.ConstraintType = ConstraintType.ConstraintSlider;
             _cameraRoot = _character.CreateChild(); 
             var cameraPrefab = _cameraRoot.CreateComponent<PrefabReference>();
             cameraPrefab.SetPrefab(Context.ResourceCache.GetResource<PrefabResource>("Models/Characters/Camera.prefab"));
             cameraPrefab.Inline(PrefabInlineFlag.None);
             player.Camera = _character.GetComponent<Camera>(true);
             _cameraNode = player.Camera.Node;
-            _character.CreateComponent<MoveAndOrbitController>().InputMap = Context.ResourceCache.GetResource<InputMap>("Input/MoveAndOrbit.inputmap");
+            _character.CreateComponent<MoveAndOrbitController>().InputMap = inputMap;
             character.CameraYaw = _character.GetChild("CameraYawPivot", true);
             character.CameraPitch = _character.GetChild("CameraPitchPivot", true);
             _viewport = Context.CreateObject<Viewport>();

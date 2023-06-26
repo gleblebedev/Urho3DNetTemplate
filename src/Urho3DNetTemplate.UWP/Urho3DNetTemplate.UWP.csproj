@@ -18,6 +18,9 @@
     <ProjectTypeGuids>{A5A43C5B-DE2A-4C0C-9213-0A381AF9435A};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
     <WindowsXamlEnableOverview>true</WindowsXamlEnableOverview>
     <AppxPackageSigningEnabled>false</AppxPackageSigningEnabled>
+    <DefaultItemExcludes>$(DefaultItemExcludes);*.user.json</DefaultItemExcludes>
+    <!-- FastUpToDateCheck disabled as a workaround. Without this flag the build system going to miss changes in content files. -->
+    <DisableFastUpToDateCheck>True</DisableFastUpToDateCheck>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Platform)'=='AnyCPU'">
     <PlatformTarget>x64</PlatformTarget>
@@ -104,6 +107,7 @@
       <Pack>true</Pack>
       <PackagePath>%(RecursiveDir)%(FileName)%(Extension)</PackagePath>
     </Content>
+    <Content Remove="**/*.user.json"/>
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="Microsoft.NETCore.UniversalWindowsPlatform">

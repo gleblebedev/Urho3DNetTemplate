@@ -5,6 +5,8 @@
     <TargetFramework>net7.0</TargetFramework>
     <RootNamespace>Urho3DNetTemplate</RootNamespace>
     <ApplicationIcon>icon.ico</ApplicationIcon>
+    <!-- FastUpToDateCheck disabled as a workaround. Without this flag the build system going to miss changes in content files. -->
+    <DisableFastUpToDateCheck>True</DisableFastUpToDateCheck>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Platform)'=='AnyCPU'">
@@ -24,6 +26,7 @@
       <Link>%(RecursiveDir)%(FileName)%(Extension)</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+    <Content Remove="**/*.user.json"/>
   </ItemGroup>
 
   <ItemGroup>

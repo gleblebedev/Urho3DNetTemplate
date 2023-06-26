@@ -3,8 +3,8 @@
 	<attribute name="Name" value="Sample" />
 	<attribute name="Time Scale" value="1.000000" />
 	<attribute name="Elapsed Time" value="0.000000" />
-	<attribute name="Next Node ID" value="5150" />
-	<attribute name="Next Component ID" value="4937" />
+	<attribute name="Next Node ID" value="5277" />
+	<attribute name="Next Component ID" value="5070" />
 	<attribute name="Variables" />
 	<attribute name="Variable Names" value="" />
 	<attribute name="Lightmaps" value="Texture2D" />
