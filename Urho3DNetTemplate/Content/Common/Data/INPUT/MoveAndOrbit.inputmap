@@ -121,6 +121,26 @@
 					}
 				]
 			}
-		}
+		},
+    {
+      "key": "Use",
+      "value": {
+        "buttons": [
+          {
+            "controller": true
+          }
+        ],
+        "keys": [
+          {
+            "scancode": "E"
+          }
+        ],
+        "mouseButtons": [
+          {
+            "button": "Left"
+          }
+        ]
+      }
+    }
 	]
 }

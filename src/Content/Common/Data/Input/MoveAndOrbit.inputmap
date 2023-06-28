@@ -137,7 +137,7 @@
         ],
         "mouseButtons": [
           {
-            "button": "Middle"
+            "button": "Left"
           }
         ]
       }

@@ -3,7 +3,7 @@ using Urho3DNet;
 
 namespace Urho3DNetTemplate
 {
-    class Program
+    static class Program
     {
         /// <summary>
         /// The main entry point for the application.

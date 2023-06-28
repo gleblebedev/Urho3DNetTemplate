@@ -2,3 +2,4 @@
 template/Urho3DNetTemplate.zip
 src/Urho3DNet/Urho3DNetTemplate.zip
 obj/
+*.user.json

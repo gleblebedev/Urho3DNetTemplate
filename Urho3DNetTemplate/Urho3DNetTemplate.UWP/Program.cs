@@ -11,8 +11,8 @@ namespace $ext_safeprojectname$
         [MTAThread]
         private static void Main()
         {
-            Launcher.SdlHandleBackButton = true;
-            Launcher.Run(_=> new UrhoApplication(_));
+            Urho3DNet.Launcher.SdlHandleBackButton = true;
+            Urho3DNet.Launcher.Run(_=> new UrhoApplication(_));
         }
     }
 }

@@ -1,4 +1,5 @@
-﻿using Urho3DNet;
+﻿using System;
+using Urho3DNet;
 
 namespace Urho3DNetTemplate
 {
@@ -14,7 +15,7 @@ namespace Urho3DNetTemplate
 
         public GameState(UrhoApplication app) : base(app.Context)
         {
-            MouseMode = MouseMode.MmAbsolute;
+            MouseMode = MouseMode.MmRelative;
             IsMouseVisible = false;
 
             var inputMap = Context.ResourceCache.GetResource<InputMap>("Input/MoveAndOrbit.inputmap");
@@ -56,6 +57,7 @@ namespace Urho3DNetTemplate
             _character.CreateComponent<MoveAndOrbitController>().InputMap = inputMap;
             character.CameraYaw = _character.GetChild("CameraYawPivot", true);
             character.CameraPitch = _character.GetChild("CameraPitchPivot", true);
+            character.CameraNode = _cameraNode;
             _viewport = Context.CreateObject<Viewport>();
             _viewport.Camera = _cameraNode?.GetComponent<Camera>();
             _viewport.Scene = _scene;
@@ -68,6 +70,7 @@ namespace Urho3DNetTemplate
             _cross.Ptr.Size = new IntVector2(64, 64);
             _cross.Ptr.VerticalAlignment = VerticalAlignment.VaCenter;
             _cross.Ptr.HorizontalAlignment = HorizontalAlignment.HaCenter;
+            _cross.Ptr.HotSpot = new IntVector2(32, 32);
             UIRoot.AddChild(_cross);
         }
 
@@ -75,17 +78,13 @@ namespace Urho3DNetTemplate
         {
             var player = _character.CreateComponent<Character>();
             player.CharacterController = _character.GetComponent<KinematicCharacterController>();
+            player.CameraCollisionMask = UInt32.MaxValue & ~player.CharacterController.CollisionLayer;
             player.AnimationController = _character.GetComponent<AnimationController>(true);
             player.ModelPivot = _character.GetChild("ModelPivot");
             player.Idle = Context.ResourceCache.GetResource<Animation>("Animations/Idle.ani");
             player.Walk = Context.ResourceCache.GetResource<Animation>("Animations/Walking.ani");
             return player;
 
-        }
-
-        public override void Update(float timeStep)
-        {
-            base.Update(timeStep);
         }
 
         public override void Activate(StringVariantMap bundle)

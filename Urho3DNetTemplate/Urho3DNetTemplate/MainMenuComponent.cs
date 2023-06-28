@@ -7,7 +7,7 @@ namespace $safeprojectname$
         public MainMenuComponent(Context context) : base(context)
         {
         }
-		
+
         public UrhoApplication Application { get; set; }
 
         protected override void OnDataModelInitialized()

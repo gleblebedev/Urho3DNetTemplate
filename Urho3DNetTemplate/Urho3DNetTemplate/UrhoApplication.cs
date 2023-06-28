@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Diagnostics;
 using Urho3DNet;
 
 namespace $safeprojectname$
@@ -18,14 +19,14 @@ namespace $safeprojectname$
         {
             EngineParameters[Urho3D.EpFullScreen] = false;
             EngineParameters[Urho3D.EpWindowResizable] = true;
-            EngineParameters[Urho3D.EpWindowTitle] = "$safeprojectname$";
-            EngineParameters[Urho3D.EpApplicationName] = "$safeprojectname$";
-            EngineParameters[Urho3D.EpOrganizationName] = "$safeprojectname$";
+            EngineParameters[Urho3D.EpWindowTitle] = "Urho3DNetTemplate";
+            EngineParameters[Urho3D.EpApplicationName] = "Urho3DNetTemplate";
+            EngineParameters[Urho3D.EpOrganizationName] = "Urho3DNetTemplate";
             EngineParameters[Urho3D.EpFrameLimiter] = true;
             EngineParameters[Urho3D.EpConfigName] = "";
 
             // Run shaders via SpirV-Cross to eliminate potential driver bugs
-            EngineParameters[Urho3D.EpShaderPolicyGlsl] = 2;
+            EngineParameters[Urho3D.EpShaderPolicyGlsl] = 0;
             EngineParameters[Urho3D.EpShaderPolicyHlsl] = 2;
             // Enable this if you need to debug translated shaders.
             //EngineParameters[Urho3D.EpShaderLogSources] = true;
@@ -39,7 +40,10 @@ namespace $safeprojectname$
             Context.AddFactoryReflection<MainMenuComponent>();
             Context.AddFactoryReflection<MainMenuState>();
             Context.AddFactoryReflection<GameState>();
-            Context.AddFactoryReflection<PlayerComponent>();
+            Context.AddFactoryReflection<Character>();
+            Context.AddFactoryReflection<NonPlayableCharacter>();
+            Context.AddFactoryReflection<InteractableBox>();
+            Context.AddFactoryReflection<Player>();
 
             var cache = GetSubsystem<ResourceCache>();
             var ui = GetSubsystem<RmlUI>();
@@ -67,6 +71,7 @@ namespace $safeprojectname$
             }
 
             ToMenu();
+            //ToNewGame();
             
 
             SubscribeToEvent(E.LogMessage, OnLogMessage);
@@ -118,6 +123,9 @@ namespace $safeprojectname$
             {
                 case LogLevel.LogError:
                     throw new ApplicationException(args[E.LogMessage.Message].String);
+                default:
+                    Debug.WriteLine(args[E.LogMessage.Message].String);
+                    break;
             }
         }
 

@@ -24,7 +24,14 @@
 			],
 			"components": [
 				{
-					"_typeName": "KinematicCharacterController"
+					"_typeName": "KinematicCharacterController",
+					"attributes": [
+						{
+							"name": "Collision Layer",
+							"type": "Int",
+							"value": 2
+						}
+					]
 				}
 			],
 			"nodes": [

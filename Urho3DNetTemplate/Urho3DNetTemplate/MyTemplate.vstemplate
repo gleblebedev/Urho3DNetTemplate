@@ -17,10 +17,13 @@
   </TemplateData>
   <TemplateContent>
     <Project TargetFileName="$safeprojectname$.csproj" File="Urho3DNetTemplate.csproj" ReplaceParameters="true">
+      <ProjectItem ReplaceParameters="true" TargetFileName="Character.cs">Character.cs</ProjectItem>
       <ProjectItem ReplaceParameters="true" TargetFileName="GameState.cs">GameState.cs</ProjectItem>
+      <ProjectItem ReplaceParameters="true" TargetFileName="InteractableBox.cs">InteractableBox.cs</ProjectItem>
       <ProjectItem ReplaceParameters="true" TargetFileName="MainMenuComponent.cs">MainMenuComponent.cs</ProjectItem>
       <ProjectItem ReplaceParameters="true" TargetFileName="MainMenuState.cs">MainMenuState.cs</ProjectItem>
-      <ProjectItem ReplaceParameters="true" TargetFileName="PlayerComponent.cs">PlayerComponent.cs</ProjectItem>
+      <ProjectItem ReplaceParameters="true" TargetFileName="NonPlayableCharacter.cs">NonPlayableCharacter.cs</ProjectItem>
+      <ProjectItem ReplaceParameters="true" TargetFileName="Player.cs">Player.cs</ProjectItem>
       <ProjectItem ReplaceParameters="true" TargetFileName="UrhoApplication.cs">UrhoApplication.cs</ProjectItem>
     </Project>
   </TemplateContent>

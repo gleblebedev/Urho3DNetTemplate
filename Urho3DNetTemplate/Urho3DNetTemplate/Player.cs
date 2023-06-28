@@ -1,7 +1,7 @@
 ﻿using System.Diagnostics;
 using Urho3DNet;
 
-namespace Urho3DNetTemplate
+namespace $safeprojectname$
 {
     public class Player : LogicComponent
     {

@@ -27,6 +27,7 @@
           <Folder Name="Animations" TargetFolderName="Animations">
             <ProjectItem ReplaceParameters="false" TargetFileName="Idle.ani">Idle.ani</ProjectItem>
             <ProjectItem ReplaceParameters="true" TargetFileName="Idle.xml">Idle.xml</ProjectItem>
+            <ProjectItem ReplaceParameters="true" TargetFileName="License.txt">License.txt</ProjectItem>
             <ProjectItem ReplaceParameters="false" TargetFileName="Running.ani">Running.ani</ProjectItem>
             <ProjectItem ReplaceParameters="true" TargetFileName="Running.xml">Running.xml</ProjectItem>
             <ProjectItem ReplaceParameters="false" TargetFileName="Walking.ani">Walking.ani</ProjectItem>
@@ -40,6 +41,7 @@
           </Folder>
           <Folder Name="Images" TargetFolderName="Images">
             <ProjectItem ReplaceParameters="false" TargetFileName="Background.png">Background.png</ProjectItem>
+            <ProjectItem ReplaceParameters="false" TargetFileName="Cross.png">Cross.png</ProjectItem>
             <ProjectItem ReplaceParameters="false" TargetFileName="Splash.png">Splash.png</ProjectItem>
           </Folder>
           <Folder Name="Input" TargetFolderName="Input">
@@ -67,6 +69,10 @@
               </Folder>
               <ProjectItem ReplaceParameters="false" TargetFileName="Camera.prefab">Camera.prefab</ProjectItem>
             </Folder>
+            <Folder Name="StairC" TargetFolderName="StairC">
+              <ProjectItem ReplaceParameters="false" TargetFileName="StairC.mdl">StairC.mdl</ProjectItem>
+            </Folder>
+            <ProjectItem ReplaceParameters="false" TargetFileName="StairC.prefab">StairC.prefab</ProjectItem>
           </Folder>
           <Folder Name="Quaternius" TargetFolderName="Quaternius">
             <Folder Name="UltimateModularSciFiPack" TargetFolderName="UltimateModularSciFiPack">
@@ -110,6 +116,7 @@
                 <ProjectItem ReplaceParameters="false" TargetFileName="Wall_5.prefab">Wall_5.prefab</ProjectItem>
                 <ProjectItem ReplaceParameters="false" TargetFileName="Wall_Empty.prefab">Wall_Empty.prefab</ProjectItem>
               </Folder>
+              <ProjectItem ReplaceParameters="true" TargetFileName="LICENSE.txt">LICENSE.txt</ProjectItem>
             </Folder>
           </Folder>
           <Folder Name="Scenes" TargetFolderName="Scenes">

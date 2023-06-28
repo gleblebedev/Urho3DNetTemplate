@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Diagnostics;
 using Urho3DNet;
 
 namespace Urho3DNetTemplate
@@ -70,6 +71,7 @@ namespace Urho3DNetTemplate
             }
 
             ToMenu();
+            //ToNewGame();
             
 
             SubscribeToEvent(E.LogMessage, OnLogMessage);
@@ -121,6 +123,9 @@ namespace Urho3DNetTemplate
             {
                 case LogLevel.LogError:
                     throw new ApplicationException(args[E.LogMessage.Message].String);
+                default:
+                    Debug.WriteLine(args[E.LogMessage.Message].String);
+                    break;
             }
         }
 

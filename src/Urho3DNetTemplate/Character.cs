@@ -19,9 +19,15 @@ namespace Urho3DNetTemplate
         public Animation Idle { get; set; }
 
         public Animation Walk { get; set; }
+        public Node CameraNode { get; set; }
+
+        public float CameraDistance { get; set; } = 1.4f;
+
+        public uint CameraCollisionMask { get; set; } = UInt32.MaxValue;
 
         private Animation _currentAnimation;
         private float _speed;
+        private PhysicsRaycastResult _physicsRaycastResult = new PhysicsRaycastResult();
 
         public override void Update(float timeStep)
         {
@@ -29,6 +35,29 @@ namespace Urho3DNetTemplate
                 CameraPitch.Rotation = new Quaternion(new Vector3(GetPitch(), 0, 0));
             if (CameraYaw != null)
                 CameraYaw.Rotation = new Quaternion(new Vector3(0, GetYaw(), 0));
+
+            if (CameraNode != null)
+            {
+                var parent = CameraNode.Parent;
+                var physicsWorld = Scene.GetComponent<PhysicsWorld>();
+                if (physicsWorld != null)
+                {
+                    var ray = new Ray(parent.WorldPosition,-parent.WorldDirection);
+                    var target = ray.Origin + ray.Direction * CameraDistance;
+                    physicsWorld.SphereCast(_physicsRaycastResult, ray, 0.1f, CameraDistance, CameraCollisionMask);
+                    var distance = Math.Min(CameraDistance, _physicsRaycastResult.Distance);
+                    if (CameraYaw != null && distance < CameraDistance - 1e-6f)
+                    {
+                        var from = CameraYaw.WorldPosition;
+                        var diff = target - from;
+                        var diffLength = diff.Length;
+                        diff = diff / diffLength;
+                        var alternativeRay = new Ray(from, diff);
+
+                    }
+                    CameraNode.WorldPosition = ray.Origin + ray.Direction * distance;
+                }
+            }
 
             var velocity = this.Velocity;
             var l = velocity.Length;
@@ -55,6 +84,8 @@ namespace Urho3DNetTemplate
             {
                 var normalizedVelocity = new Quaternion(0, GetYaw(), 0) * (velocity * (1.0f / l));
                 var v = normalizedVelocity * timeStep * _speed;
+
+                //Limit rotation to avoid instant change of model orientation.
                 var targetRot = new Quaternion(Vector3.Forward, normalizedVelocity);
                 var currentRot = ModelPivot.Rotation;
                 var diff = Math.Abs(MathDefs.RadiansToDegrees((currentRot.Inversed * targetRot).Angle));
@@ -65,7 +96,7 @@ namespace Urho3DNetTemplate
                     float k = maxAngle / Math.Abs(diff);
                     targetRot = currentRot.Slerp(targetRot, k);
                 }
-                ModelPivot.Rotation = targetRot;// new Quaternion(0, GetYaw(), 0);
+                ModelPivot.Rotation = targetRot;
                 CharacterController.SetLinearVelocity(v);
             }
             else
