@@ -3,8 +3,6 @@
 	<components>
 		<component _typeName="Octree" />
 		<component _typeName="PhysicsWorld" />
-		<component _typeName="RenderPipeline" />
-		<component _typeName="ReflectionProbeManager" />
 	</components>
 	<nodes>
 		<node>

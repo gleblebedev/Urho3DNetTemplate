@@ -13,7 +13,7 @@
 	<parameter name="AlphaCutoff" value="0.500000" />
 	<parameter name="Roughness" value="1.000000" />
 	<cull value="ccw" />
-	<shadowcull value="none" />
+	<shadowcull value="ccw" />
 	<fill value="solid" />
 	<depthbias constant="0.000000" slopescaled="0.000000" normaloffset="0.000000" />
 	<alphatocoverage enable="false" />

@@ -3,8 +3,8 @@
 	<attribute name="Name" value="Sample" />
 	<attribute name="Time Scale" value="1.000000" />
 	<attribute name="Elapsed Time" value="0.000000" />
-	<attribute name="Next Node ID" value="5785" />
-	<attribute name="Next Component ID" value="5606" />
+	<attribute name="Next Node ID" value="6109" />
+	<attribute name="Next Component ID" value="5994" />
 	<attribute name="Variables" />
 	<attribute name="Variable Names" value="" />
 	<attribute name="Lightmaps" value="Texture2D" />
@@ -257,20 +257,6 @@
 				<attribute name="Prefab" value="PrefabResource;Quaternius/UltimateModularSciFiPack/Prefabs/Column_3.prefab" />
 			</component>
 		</node>
-		<node id="1797">
-			<attribute name="Is Enabled" value="true" />
-			<attribute name="Name" value="Column_3" />
-			<attribute name="Tags">
-				<string value="Untagged" />
-			</attribute>
-			<attribute name="Position" value="7.5 0 7.5" />
-			<attribute name="Rotation" value="1 0 0 0" />
-			<attribute name="Scale" value="1 1 1" />
-			<attribute name="Variables" />
-			<component type="PrefabReference" id="1710">
-				<attribute name="Prefab" value="PrefabResource;Quaternius/UltimateModularSciFiPack/Prefabs/Column_3.prefab" />
-			</component>
-		</node>
 		<node id="1798">
 			<attribute name="Is Enabled" value="true" />
 			<attribute name="Name" value="Column_3" />
@@ -283,34 +269,6 @@
 			<attribute name="Variables" />
 			<component type="PrefabReference" id="1714">
 				<attribute name="Prefab" value="PrefabResource;Quaternius/UltimateModularSciFiPack/Prefabs/Column_3.prefab" />
-			</component>
-		</node>
-		<node id="3863">
-			<attribute name="Is Enabled" value="true" />
-			<attribute name="Name" value="FloorTile_Basic" />
-			<attribute name="Tags">
-				<string value="Untagged" />
-			</attribute>
-			<attribute name="Position" value="10 4 5" />
-			<attribute name="Rotation" value="1 0 0 0" />
-			<attribute name="Scale" value="1 1 1" />
-			<attribute name="Variables" />
-			<component type="PrefabReference" id="3568">
-				<attribute name="Prefab" value="PrefabResource;Quaternius/UltimateModularSciFiPack/Prefabs/FloorTile_Basic.prefab" />
-			</component>
-		</node>
-		<node id="3864">
-			<attribute name="Is Enabled" value="true" />
-			<attribute name="Name" value="FloorTile_Basic" />
-			<attribute name="Tags">
-				<string value="Untagged" />
-			</attribute>
-			<attribute name="Position" value="10 4 0" />
-			<attribute name="Rotation" value="1 0 0 0" />
-			<attribute name="Scale" value="1 1 1" />
-			<attribute name="Variables" />
-			<component type="PrefabReference" id="3572">
-				<attribute name="Prefab" value="PrefabResource;Quaternius/UltimateModularSciFiPack/Prefabs/FloorTile_Basic.prefab" />
 			</component>
 		</node>
 	</node>
@@ -441,7 +399,7 @@
 				<string value="Untagged" />
 			</attribute>
 			<attribute name="Position" value="7.5 0 10" />
-			<attribute name="Rotation" value="0.707107 -0 -0.707107 0" />
+			<attribute name="Rotation" value="0.707107 0 0.707107 0" />
 			<attribute name="Scale" value="1 1 1" />
 			<attribute name="Variables" />
 			<component type="PrefabReference" id="1718">
@@ -539,7 +497,7 @@
 				<string value="Untagged" />
 			</attribute>
 			<attribute name="Position" value="10 0 12.5" />
-			<attribute name="Rotation" value="1 0 0 0" />
+			<attribute name="Rotation" value="-4.37114e-08 0 1 -0" />
 			<attribute name="Scale" value="1 1 1" />
 			<attribute name="Variables" />
 			<component type="PrefabReference" id="3076">

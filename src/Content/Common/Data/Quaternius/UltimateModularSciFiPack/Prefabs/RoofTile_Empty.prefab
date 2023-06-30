@@ -3,12 +3,11 @@
 	<components>
 		<component _typeName="Octree" />
 		<component _typeName="PhysicsWorld" />
-		<component _typeName="RenderPipeline" />
-		<component _typeName="ReflectionProbeManager" />
 	</components>
 	<nodes>
 		<node>
 			<attributes>
+				<attribute name="Is Enabled" type="Bool" value="false" />
 				<attribute name="Name" type="String" value="RoofTile_Empty" />
 				<attribute name="Tags" type="StringVector">
 					<value>
