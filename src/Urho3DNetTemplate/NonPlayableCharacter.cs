@@ -3,17 +3,24 @@ using Urho3DNet;
 
 namespace Urho3DNetTemplate
 {
-    public class NonPlayableCharacter: LogicComponent
+    public class NonPlayableCharacter : LogicComponent
     {
+        private static readonly Random _rnd = new Random();
         private Vector3 _targret;
-        private float _distance = 0.0f;
-        float _restTime = 0.0f;
+        private float _distance;
+        private float _restTime;
+        private MoveAndOrbitComponent _moveAndOrbitComponent;
+
         public NonPlayableCharacter(Context context) : base(context)
         {
             UpdateEventMask = UpdateEvent.UsePostupdate;
         }
 
-        private static Random _rnd = new Random();
+        public override void DelayedStart()
+        {
+            base.DelayedStart();
+            _moveAndOrbitComponent = Node.GetDerivedComponent<MoveAndOrbitComponent>();
+        }
 
         public override void PostUpdate(float timeStep)
         {
@@ -22,10 +29,7 @@ namespace Urho3DNetTemplate
             if (_restTime > 0)
             {
                 _restTime -= timeStep;
-                if (_restTime > 0.0f)
-                {
-                    return;
-                }
+                if (_restTime > 0.0f) return;
 
                 var dir = new Vector3(_rnd.Next(3) - 1, 0, _rnd.Next(3) - 1) * 5.0f;
                 if (dir.ApproximatelyEquivalent(Vector3.Zero))
@@ -35,9 +39,12 @@ namespace Urho3DNetTemplate
                 }
 
                 _targret = currentPosition + dir;
+                dir = dir.Normalized;
+                if (_rnd.Next(2) == 0)
+                    dir *= 0.5f;
                 _distance = float.MaxValue;
-                var moveAndOrbitComponent = (MoveAndOrbitComponent)Node.GetComponentImplementation(nameof(MoveAndOrbitComponent));
-                moveAndOrbitComponent.SetVelocity(dir.Normalized);
+
+                _moveAndOrbitComponent.SetVelocity(dir);
             }
 
             var diff = _targret - currentPosition;
@@ -46,8 +53,7 @@ namespace Urho3DNetTemplate
             if (distance >= _distance)
             {
                 _restTime = 2.0f;
-                var moveAndOrbitComponent = (MoveAndOrbitComponent)Node.GetComponentImplementation(nameof(MoveAndOrbitComponent));
-                moveAndOrbitComponent.SetVelocity(Vector3.Zero);
+                _moveAndOrbitComponent.SetVelocity(Vector3.Zero);
                 return;
             }
 

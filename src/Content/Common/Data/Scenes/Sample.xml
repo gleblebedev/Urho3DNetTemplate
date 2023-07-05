@@ -3,8 +3,8 @@
 	<attribute name="Name" value="Sample" />
 	<attribute name="Time Scale" value="1.000000" />
 	<attribute name="Elapsed Time" value="0.000000" />
-	<attribute name="Next Node ID" value="6109" />
-	<attribute name="Next Component ID" value="5994" />
+	<attribute name="Next Node ID" value="7651" />
+	<attribute name="Next Component ID" value="7883" />
 	<attribute name="Variables" />
 	<attribute name="Variable Names" value="" />
 	<attribute name="Lightmaps" value="Texture2D" />
@@ -271,6 +271,20 @@
 				<attribute name="Prefab" value="PrefabResource;Quaternius/UltimateModularSciFiPack/Prefabs/Column_3.prefab" />
 			</component>
 		</node>
+		<node id="6767">
+			<attribute name="Is Enabled" value="true" />
+			<attribute name="Name" value="FloorTile_Basic" />
+			<attribute name="Tags">
+				<string value="Untagged" />
+			</attribute>
+			<attribute name="Position" value="0 0 10" />
+			<attribute name="Rotation" value="1 0 0 0" />
+			<attribute name="Scale" value="1 1 1" />
+			<attribute name="Variables" />
+			<component type="PrefabReference" id="6771">
+				<attribute name="Prefab" value="PrefabResource;Quaternius/UltimateModularSciFiPack/Prefabs/FloorTile_Basic.prefab" />
+			</component>
+		</node>
 	</node>
 	<node id="44">
 		<attribute name="Is Enabled" value="true" />
@@ -338,7 +352,7 @@
 		</node>
 		<node id="45">
 			<attribute name="Is Enabled" value="true" />
-			<attribute name="Name" value="Wall_Empty" />
+			<attribute name="Name" value="Wall_DoubleDoor" />
 			<attribute name="Tags">
 				<string value="Untagged" />
 			</attribute>
@@ -347,7 +361,7 @@
 			<attribute name="Scale" value="1 1 1" />
 			<attribute name="Variables" />
 			<component type="PrefabReference" id="304">
-				<attribute name="Prefab" value="XMLFile;Quaternius/UltimateModularSciFiPack/Prefabs/Wall_Empty.prefab" />
+				<attribute name="Prefab" value="XMLFile;Quaternius/UltimateModularSciFiPack/Prefabs/DoorDouble_Wall_SideA.prefab" />
 			</component>
 		</node>
 		<node id="47">
@@ -529,6 +543,74 @@
 			<attribute name="Scale" value="1 1 1" />
 			<attribute name="Variables" />
 			<component type="PrefabReference" id="3580">
+				<attribute name="Prefab" value="XMLFile;Quaternius/UltimateModularSciFiPack/Prefabs/Wall_Empty.prefab" />
+			</component>
+		</node>
+		<node id="6328">
+			<attribute name="Is Enabled" value="true" />
+			<attribute name="Name" value="" />
+			<attribute name="Tags" />
+			<attribute name="Position" value="0 0 7.5" />
+			<attribute name="Rotation" value="1 0 0 0" />
+			<attribute name="Scale" value="1 1 1" />
+			<attribute name="Variables" />
+			<component type="PrefabReference" id="6255">
+				<attribute name="Prefab" value="PrefabResource;Quaternius/UltimateModularSciFiPack/Prefabs/Door_Double.prefab" />
+			</component>
+		</node>
+		<node id="6766">
+			<attribute name="Is Enabled" value="true" />
+			<attribute name="Name" value="Wall_DoubleDoor" />
+			<attribute name="Tags">
+				<string value="Untagged" />
+			</attribute>
+			<attribute name="Position" value="0 0 7.5" />
+			<attribute name="Rotation" value="-2.23517e-08 0 0.999999 0" />
+			<attribute name="Scale" value="1 1 1" />
+			<attribute name="Variables" />
+			<component type="PrefabReference" id="6767">
+				<attribute name="Prefab" value="XMLFile;Quaternius/UltimateModularSciFiPack/Prefabs/DoorDouble_Wall_SideA.prefab" />
+			</component>
+		</node>
+		<node id="7648">
+			<attribute name="Is Enabled" value="true" />
+			<attribute name="Name" value="Wall_Empty" />
+			<attribute name="Tags">
+				<string value="Untagged" />
+			</attribute>
+			<attribute name="Position" value="2.5 0 10" />
+			<attribute name="Rotation" value="0.707107 0 0.707107 0" />
+			<attribute name="Scale" value="1 1 1" />
+			<attribute name="Variables" />
+			<component type="PrefabReference" id="7871">
+				<attribute name="Prefab" value="XMLFile;Quaternius/UltimateModularSciFiPack/Prefabs/Wall_Empty.prefab" />
+			</component>
+		</node>
+		<node id="7649">
+			<attribute name="Is Enabled" value="true" />
+			<attribute name="Name" value="Wall_5" />
+			<attribute name="Tags">
+				<string value="Untagged" />
+			</attribute>
+			<attribute name="Position" value="0 0 12.5" />
+			<attribute name="Rotation" value="1 0 0 0" />
+			<attribute name="Scale" value="1 1 1" />
+			<attribute name="Variables" />
+			<component type="PrefabReference" id="7875">
+				<attribute name="Prefab" value="PrefabResource;Quaternius/UltimateModularSciFiPack/Prefabs/Wall_5.prefab" />
+			</component>
+		</node>
+		<node id="7650">
+			<attribute name="Is Enabled" value="true" />
+			<attribute name="Name" value="Wall_Empty" />
+			<attribute name="Tags">
+				<string value="Untagged" />
+			</attribute>
+			<attribute name="Position" value="-2.5 0 10" />
+			<attribute name="Rotation" value="0.707107 0 -0.707107 0" />
+			<attribute name="Scale" value="1 1 1" />
+			<attribute name="Variables" />
+			<component type="PrefabReference" id="7879">
 				<attribute name="Prefab" value="XMLFile;Quaternius/UltimateModularSciFiPack/Prefabs/Wall_Empty.prefab" />
 			</component>
 		</node>

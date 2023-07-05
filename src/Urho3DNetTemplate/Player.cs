@@ -1,29 +1,33 @@
-﻿using System.Diagnostics;
-using Urho3DNet;
+﻿using Urho3DNet;
 
 namespace Urho3DNetTemplate
 {
     public class Player : LogicComponent
     {
+        private readonly PhysicsRaycastResult _raycastResult;
+        private bool _usePressed;
+        private Node _selectedNode;
+        private Character _character;
+
+        public Player(Context context) : base(context)
+        {
+            UpdateEventMask = UpdateEvent.UseUpdate | UpdateEvent.UseFixedupdate;
+            _raycastResult = new PhysicsRaycastResult();
+        }
+
         public Camera Camera { get; set; }
 
         public Node SelectedNode
         {
-            get { return _selectedNode; }
+            get => _selectedNode;
             set
             {
                 if (_selectedNode != value)
                 {
-                    if (_selectedNode != null)
-                    {
-                        _selectedNode.SendEvent("Unselected", Context.EventDataMap);
-                    }
+                    if (_selectedNode != null) _selectedNode.SendEvent("Unselected", Context.EventDataMap);
 
                     _selectedNode = value;
-                    if (_selectedNode != null)
-                    {
-                        _selectedNode.SendEvent("Selected", Context.EventDataMap);
-                    }
+                    if (_selectedNode != null) _selectedNode.SendEvent("Selected", Context.EventDataMap);
                 }
             }
         }
@@ -36,15 +40,17 @@ namespace Urho3DNetTemplate
 
         public InputMap InputMap { get; set; }
 
-        public Player(Context context) : base(context)
+        public override void DelayedStart()
         {
-            UpdateEventMask = UpdateEvent.UseUpdate | UpdateEvent.UseFixedupdate;
-            _raycastResult = new PhysicsRaycastResult();
+            base.DelayedStart();
+            _character = Node.GetDerivedComponent<MoveAndOrbitComponent>() as Character;
         }
 
         public override void Update(float timeStep)
         {
             base.Update(timeStep);
+
+            _character.Jump = InputMap.Evaluate("Jump") > 0.5f;
 
             var usePressed = InputMap.Evaluate("Use") > 0.5f;
             if (usePressed != _usePressed)
@@ -69,10 +75,6 @@ namespace Urho3DNetTemplate
 
             if (BodyInArms == null)
             {
-                if (InputMap.Evaluate("Select") < 0.5f)
-                {
-
-                }
                 var world = Scene.GetComponent<PhysicsWorld>();
                 world.RaycastSingle(_raycastResult, new Ray(Camera.Node.WorldPosition, Camera.Node.WorldDirection),
                     4.0f - Camera.Node.Position.Z);
@@ -80,9 +82,5 @@ namespace Urho3DNetTemplate
                 SelectedNode = selectedNode;
             }
         }
-
-        private PhysicsRaycastResult _raycastResult;
-        private bool _usePressed;
-        private Node _selectedNode;
     }
 }
