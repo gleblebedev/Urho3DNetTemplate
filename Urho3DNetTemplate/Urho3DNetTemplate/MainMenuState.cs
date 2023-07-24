@@ -4,8 +4,8 @@ namespace $safeprojectname$
 {
     public class MainMenuState : ApplicationState
     {
-        private readonly UrhoApplication _app;
         protected readonly SharedPtr<Scene> _scene;
+        private readonly UrhoApplication _app;
         private readonly Viewport _viewport;
         private readonly MainMenuComponent _uiComponent;
         private readonly RmlUI _ui;
@@ -22,8 +22,8 @@ namespace $safeprojectname$
             scene.CreateComponent<Octree>();
             var zone = scene.CreateComponent<Zone>();
             zone.FogColor = Color.Blue;
-            zone.SetBoundingBox(new BoundingBox(-100,100));
-            var cameraNode =  scene.CreateChild();
+            zone.SetBoundingBox(new BoundingBox(-100, 100));
+            var cameraNode = scene.CreateChild();
             var camera = cameraNode.CreateComponent<Camera>();
             _viewport = Context.CreateObject<Viewport>();
             _viewport.Scene = _scene;

@@ -17,10 +17,9 @@
   </TemplateData>
   <TemplateContent>
     <Project TargetFileName="$ext_safeprojectname$.Tests.csproj" File="Urho3DNetTemplate.Tests.csproj" ReplaceParameters="true">
-      <ProjectItem ReplaceParameters="true" TargetFileName="InitializeEngine.cs">InitializeEngine.cs</ProjectItem>
+      <ProjectItem ReplaceParameters="true" TargetFileName="RbfxTestFramework.cs">RbfxTestFramework.cs</ProjectItem>
       <ProjectItem ReplaceParameters="true" TargetFileName="SampleUnitTestFixture.cs">SampleUnitTestFixture.cs</ProjectItem>
-      <ProjectItem ReplaceParameters="true" TargetFileName="TestApplication.cs">TestApplication.cs</ProjectItem>
-      <ProjectItem ReplaceParameters="true" TargetFileName="UnitTestBase.cs">UnitTestBase.cs</ProjectItem>
+      <ProjectItem ReplaceParameters="true" TargetFileName="SimpleHeadlessApplication.cs">SimpleHeadlessApplication.cs</ProjectItem>
     </Project>
   </TemplateContent>
 </VSTemplate>

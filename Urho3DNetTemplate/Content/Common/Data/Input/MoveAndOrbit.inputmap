@@ -126,9 +126,10 @@
       "key": "Use",
       "value": {
         "buttons": [
-          {
+					{
+            "button": "X",
             "controller": true
-          }
+					}
         ],
         "keys": [
           {
@@ -141,6 +142,21 @@
           }
         ]
       }
-    }
+    },
+		{
+			"key": "Jump",
+			"value": {
+				"buttons": [
+					{
+						"controller": true
+					}
+				],
+				"keys": [
+					{
+						"scancode": "Space"
+					}
+				]
+			}
+		}
 	]
 }

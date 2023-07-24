@@ -10,16 +10,16 @@ namespace $safeprojectname$
 
         public UrhoApplication Application { get; set; }
 
+        public void UpdateProperties()
+        {
+            DirtyAllVariables();
+        }
+
         protected override void OnDataModelInitialized()
         {
             BindDataModelProperty("is_game_played", _ => _.Set(Application?.IsGameRunning == true), _ => { });
             BindDataModelProperty("game_title", _ => _.Set("Awesome game"), _ => { });
             base.OnDataModelInitialized();
-        }
-
-        public void UpdateProperties()
-        {
-            DirtyAllVariables();
         }
     }
 }

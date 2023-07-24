@@ -1,5 +1,6 @@
 ﻿using System;
 using Urho3DNet;
+using Urho3DNetTemplate.CharacterStates;
 
 namespace Urho3DNetTemplate
 {
@@ -31,38 +32,6 @@ namespace Urho3DNetTemplate
                 new Fall(this)
             };
             TransitionToState(CharacterState.Start);
-        }
-
-        /// <summary>
-        /// Character states.
-        /// </summary>
-        private enum CharacterState
-        {
-            /// <summary>
-            /// Start state. On first update in changes into actual state based on input data.
-            /// </summary>
-            Start,
-
-            /// <summary>
-            /// Character is standing or running on ground.
-            /// </summary>
-            OnGround,
-
-            /// <summary>
-            /// Character is jumping.
-            /// </summary>
-            Jump,
-
-            /// <summary>
-            /// Character is in free fall.
-            /// </summary>
-            Fall,
-
-            /// <summary>
-            /// Total number of valid states.
-            /// This should be the last state!
-            /// </summary>
-            NumStates
         }
 
         public KinematicCharacterController CharacterController
@@ -130,7 +99,6 @@ namespace Urho3DNetTemplate
                 _inputs.InputDirection = _inputs.InputVelocity / _inputs.InputSpeed;
             }
 
-            _inputs.InputDirection = _inputs.InputVelocity;
             _currentState.Update(ref _inputs);
 
             CharacterController.SetWalkIncrement(_inputs.CurrentVelocity * timeStep);
@@ -139,7 +107,7 @@ namespace Urho3DNetTemplate
             base.Update(timeStep);
         }
 
-        private void TransitionToState(CharacterState state, ref Inputs inputs)
+        public void TransitionToState(CharacterState state, ref Inputs inputs)
         {
             var targetState = _states[(int)state];
             if (_currentState != targetState)
@@ -155,7 +123,7 @@ namespace Urho3DNetTemplate
             }
         }
 
-        private void TransitionToState(CharacterState state)
+        public void TransitionToState(CharacterState state)
         {
             var targetState = _states[(int)state];
             if (_currentState != targetState)
@@ -262,170 +230,6 @@ namespace Urho3DNetTemplate
 
             /// Last known velocity.
             public Vector3 CurrentVelocity;
-        }
-
-        /// <summary>
-        ///     Base class for character state.
-        /// </summary>
-        public class BaseState
-        {
-            /// <summary>
-            ///     Construct BaseState.
-            /// </summary>
-            /// <param name="character">Character component.</param>
-            protected BaseState(Character character)
-            {
-                Character = character;
-            }
-
-            /// <summary>
-            ///     Character component.
-            /// </summary>
-            public Character Character { get; }
-
-            /// <summary>
-            ///     Executes when the state becomes active.
-            /// </summary>
-            public virtual void Enter()
-            {
-            }
-
-            /// <summary>
-            ///     Executes when the state becomes inactive.
-            /// </summary>
-            public virtual void Exit()
-            {
-            }
-
-            /// <summary>
-            ///     Update state.
-            /// </summary>
-            public virtual void Update(ref Inputs inputs)
-            {
-            }
-        }
-
-        public class OnGround : BaseState
-        {
-            /// How much time character could be in air before it considers to be falling down.
-            private const float InairThresholdTime = 0.1f;
-            /// In air timer. Due to possible physics inaccuracy, character can be off ground for max. 1/10 second and still be allowed to move.
-            private float _inAirTimer;
-            /// Movement speed from animation.
-            private float _speed;
-            /// Current animation.
-            private Animation _currentAnimation;
-
-            public OnGround(Character character) : base(character)
-            {
-            }
-
-            /// <inheritdoc />
-            public override void Enter()
-            {
-                _inAirTimer = 0.0f;
-                _currentAnimation = null;
-            }
-
-            /// <inheritdoc />
-            public override void Update(ref Inputs inputs)
-            {
-                if (!Character.CharacterController.OnGround())
-                    _inAirTimer += inputs.TimeStep;
-                else
-                    _inAirTimer = 0;
-
-                var softGrounded = _inAirTimer < InairThresholdTime;
-                if (!softGrounded)
-                {
-                    Character.TransitionToState(CharacterState.Fall, ref inputs);
-                    return;
-                }
-
-                Animation nextAnimation = null;
-                if (inputs.InputSpeed < 0.3f)
-                {
-                    nextAnimation = Character.Idle;
-                    _speed = 0.0f;
-                }
-                else if (inputs.InputSpeed > 0.7f)
-                {
-                    nextAnimation = Character.Run;
-                }
-                else
-                {
-                    nextAnimation = Character.Walk;
-                }
-
-                if (nextAnimation != _currentAnimation)
-                {
-                    var animationParameters = new AnimationParameters(nextAnimation).Looped();
-                    Character.AnimationController.PlayNewExclusive(animationParameters, 0.2f);
-                    _currentAnimation = nextAnimation;
-                    _speed = _currentAnimation.GetMetadata("LinearVelocity").Vector3.Length;
-                }
-
-                inputs.CurrentVelocity = new Quaternion(0, Character.GetYaw(), 0) * (inputs.InputDirection * _speed);
-
-                if (inputs.Jump)
-                {
-                    Character.TransitionToState(CharacterState.Jump);
-                }
-            }
-        }
-
-        public class Fall : BaseState
-        {
-            public Fall(Character character) : base(character)
-            {
-            }
-
-            public override void Enter()
-            {
-                var animationParameters = new AnimationParameters(Character.Falling).Looped();
-                Character.AnimationController.PlayNewExclusive(animationParameters, 0.2f);
-            }
-
-            public override void Update(ref Inputs inputs)
-            {
-                if (Character.CharacterController.OnGround())
-                {
-                    Character.TransitionToState(CharacterState.OnGround, ref inputs);
-                    return;
-                }
-
-                var velocity = new Quaternion(0, Character.GetYaw(), 0) *
-                               (inputs.InputDirection * inputs.CurrentVelocity.Length);
-                inputs.CurrentVelocity = inputs.CurrentVelocity.Lerp(velocity, 2*inputs.TimeStep);
-            }
-        }
-
-        public class JumpState : Fall
-        {
-            public JumpState(Character character) : base(character)
-            {
-            }
-
-            public override void Enter()
-            {
-                base.Enter();
-                Character.CharacterController.Jump(new Vector3(0,7.5f,0));
-            }
-        }
-
-        public class StartState : BaseState
-        {
-            public StartState(Character character) : base(character)
-            {
-            }
-
-            public override void Update(ref Inputs inputs)
-            {
-                if (Character.CharacterController.OnGround())
-                    Character.TransitionToState(CharacterState.OnGround, ref inputs);
-                else
-                    Character.TransitionToState(CharacterState.Fall, ref inputs);
-            }
         }
     }
 }

@@ -8,7 +8,6 @@
     <ApplicationId>com.companyname.Urho3DNetTemplate</ApplicationId>
     <ApplicationVersion>1</ApplicationVersion>
     <ApplicationDisplayVersion>1.0</ApplicationDisplayVersion>
-    <URHO3D_GRAPHICS_API>GLES3</URHO3D_GRAPHICS_API>
     <!-- FastUpToDateCheck disabled as a workaround. Without this flag the build system going to miss changes in content files. -->
     <DisableFastUpToDateCheck>True</DisableFastUpToDateCheck>
   </PropertyGroup>

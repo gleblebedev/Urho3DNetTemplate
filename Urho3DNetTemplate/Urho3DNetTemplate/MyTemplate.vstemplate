@@ -17,6 +17,14 @@
   </TemplateData>
   <TemplateContent>
     <Project TargetFileName="$safeprojectname$.csproj" File="Urho3DNetTemplate.csproj" ReplaceParameters="true">
+      <Folder Name="CharacterStates" TargetFolderName="CharacterStates">
+        <ProjectItem ReplaceParameters="true" TargetFileName="BaseState.cs">BaseState.cs</ProjectItem>
+        <ProjectItem ReplaceParameters="true" TargetFileName="CharacterState.cs">CharacterState.cs</ProjectItem>
+        <ProjectItem ReplaceParameters="true" TargetFileName="Fall.cs">Fall.cs</ProjectItem>
+        <ProjectItem ReplaceParameters="true" TargetFileName="JumpState.cs">JumpState.cs</ProjectItem>
+        <ProjectItem ReplaceParameters="true" TargetFileName="OnGround.cs">OnGround.cs</ProjectItem>
+        <ProjectItem ReplaceParameters="true" TargetFileName="StartState.cs">StartState.cs</ProjectItem>
+      </Folder>
       <ProjectItem ReplaceParameters="true" TargetFileName="Character.cs">Character.cs</ProjectItem>
       <ProjectItem ReplaceParameters="true" TargetFileName="GameState.cs">GameState.cs</ProjectItem>
       <ProjectItem ReplaceParameters="true" TargetFileName="InteractableBox.cs">InteractableBox.cs</ProjectItem>

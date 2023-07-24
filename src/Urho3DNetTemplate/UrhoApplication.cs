@@ -65,8 +65,6 @@ namespace Urho3DNetTemplate
             }
 
             ToMenu();
-            //ToNewGame();
-
 
             SubscribeToEvent(E.LogMessage, OnLogMessage);
 

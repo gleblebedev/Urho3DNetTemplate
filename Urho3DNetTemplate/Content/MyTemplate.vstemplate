@@ -25,6 +25,12 @@
       <Folder Name="Common" TargetFolderName="Common">
         <Folder Name="Data" TargetFolderName="Data">
           <Folder Name="Animations" TargetFolderName="Animations">
+            <Folder Name="SlidingDoor" TargetFolderName="SlidingDoor">
+              <ProjectItem ReplaceParameters="true" TargetFileName="Close.xml">Close.xml</ProjectItem>
+              <ProjectItem ReplaceParameters="true" TargetFileName="Open.xml">Open.xml</ProjectItem>
+            </Folder>
+            <ProjectItem ReplaceParameters="false" TargetFileName="FallingIdle.ani">FallingIdle.ani</ProjectItem>
+            <ProjectItem ReplaceParameters="true" TargetFileName="FallingIdle.xml">FallingIdle.xml</ProjectItem>
             <ProjectItem ReplaceParameters="false" TargetFileName="Idle.ani">Idle.ani</ProjectItem>
             <ProjectItem ReplaceParameters="true" TargetFileName="Idle.xml">Idle.xml</ProjectItem>
             <ProjectItem ReplaceParameters="true" TargetFileName="License.txt">License.txt</ProjectItem>
@@ -69,8 +75,14 @@
               </Folder>
               <ProjectItem ReplaceParameters="false" TargetFileName="Camera.prefab">Camera.prefab</ProjectItem>
             </Folder>
+            <Folder Name="FloorOccluder" TargetFolderName="FloorOccluder">
+              <ProjectItem ReplaceParameters="false" TargetFileName="FloorOccluder.mdl">FloorOccluder.mdl</ProjectItem>
+            </Folder>
             <Folder Name="StairC" TargetFolderName="StairC">
               <ProjectItem ReplaceParameters="false" TargetFileName="StairC.mdl">StairC.mdl</ProjectItem>
+            </Folder>
+            <Folder Name="WallOccluder" TargetFolderName="WallOccluder">
+              <ProjectItem ReplaceParameters="false" TargetFileName="WallOccluder.mdl">WallOccluder.mdl</ProjectItem>
             </Folder>
             <ProjectItem ReplaceParameters="false" TargetFileName="StairC.prefab">StairC.prefab</ProjectItem>
           </Folder>
@@ -82,6 +94,13 @@
                 </Folder>
                 <Folder Name="Column_Slim" TargetFolderName="Column_Slim">
                   <ProjectItem ReplaceParameters="false" TargetFileName="Column_Slim.mdl">Column_Slim.mdl</ProjectItem>
+                </Folder>
+                <Folder Name="Door_Double" TargetFolderName="Door_Double">
+                  <ProjectItem ReplaceParameters="false" TargetFileName="Door_Double.L.mdl">Door_Double.L.mdl</ProjectItem>
+                  <ProjectItem ReplaceParameters="false" TargetFileName="Door_Double.R.mdl">Door_Double.R.mdl</ProjectItem>
+                </Folder>
+                <Folder Name="DoorDouble_Wall_SideA" TargetFolderName="DoorDouble_Wall_SideA">
+                  <ProjectItem ReplaceParameters="false" TargetFileName="DoorDouble_Wall_SideA.mdl">DoorDouble_Wall_SideA.mdl</ProjectItem>
                 </Folder>
                 <Folder Name="FloorTile_Basic" TargetFolderName="FloorTile_Basic">
                   <ProjectItem ReplaceParameters="false" TargetFileName="FloorTile_Basic.mdl">FloorTile_Basic.mdl</ProjectItem>
@@ -108,6 +127,8 @@
               <Folder Name="Prefabs" TargetFolderName="Prefabs">
                 <ProjectItem ReplaceParameters="false" TargetFileName="Column_3.prefab">Column_3.prefab</ProjectItem>
                 <ProjectItem ReplaceParameters="false" TargetFileName="Column_Slim.prefab">Column_Slim.prefab</ProjectItem>
+                <ProjectItem ReplaceParameters="false" TargetFileName="Door_Double.prefab">Door_Double.prefab</ProjectItem>
+                <ProjectItem ReplaceParameters="false" TargetFileName="DoorDouble_Wall_SideA.prefab">DoorDouble_Wall_SideA.prefab</ProjectItem>
                 <ProjectItem ReplaceParameters="false" TargetFileName="FloorTile_Basic.prefab">FloorTile_Basic.prefab</ProjectItem>
                 <ProjectItem ReplaceParameters="false" TargetFileName="Props_Base.prefab">Props_Base.prefab</ProjectItem>
                 <ProjectItem ReplaceParameters="false" TargetFileName="Props_Crate.prefab">Props_Crate.prefab</ProjectItem>

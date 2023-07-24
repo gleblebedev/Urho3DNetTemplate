@@ -19,9 +19,9 @@ namespace $safeprojectname$
         {
             EngineParameters[Urho3D.EpFullScreen] = false;
             EngineParameters[Urho3D.EpWindowResizable] = true;
-            EngineParameters[Urho3D.EpWindowTitle] = "Urho3DNetTemplate";
-            EngineParameters[Urho3D.EpApplicationName] = "Urho3DNetTemplate";
-            EngineParameters[Urho3D.EpOrganizationName] = "Urho3DNetTemplate";
+            EngineParameters[Urho3D.EpWindowTitle] = "$safeprojectname$";
+            EngineParameters[Urho3D.EpApplicationName] = "$safeprojectname$";
+            EngineParameters[Urho3D.EpOrganizationName] = "$safeprojectname$";
             EngineParameters[Urho3D.EpFrameLimiter] = true;
             EngineParameters[Urho3D.EpConfigName] = "";
 
@@ -47,19 +47,13 @@ namespace $safeprojectname$
 
             var cache = GetSubsystem<ResourceCache>();
             var ui = GetSubsystem<RmlUI>();
-            StringList fonts = new StringList();
+            var fonts = new StringList();
             cache.Scan(fonts, "Fonts/", "*.ttf", ScanFlag.ScanFiles);
-            foreach (var font in fonts)
-            {
-                ui.LoadFont($"Fonts/{font}");
-            }
+            foreach (var font in fonts) ui.LoadFont($"Fonts/{font}");
             cache.Scan(fonts, "Fonts/", "*.otf", ScanFlag.ScanFiles);
-            foreach (var font in fonts)
-            {
-                ui.LoadFont($"Fonts/{font}");
-            }
+            foreach (var font in fonts) ui.LoadFont($"Fonts/{font}");
 
-            var stateManager = this.Context.GetSubsystem<StateManager>();
+            var stateManager = Context.GetSubsystem<StateManager>();
             stateManager.FadeInDuration = 0.1f;
             stateManager.FadeOutDuration = 0.1f;
             using (SharedPtr<SplashScreen> splash = new SplashScreen(Context))
@@ -71,21 +65,10 @@ namespace $safeprojectname$
             }
 
             ToMenu();
-            //ToNewGame();
-            
 
             SubscribeToEvent(E.LogMessage, OnLogMessage);
-            
-            base.Start();
-        }
 
-        /// <summary>
-        /// Transition to main menu
-        /// </summary>
-        public void ToMenu()
-        {
-            _mainMenuState = _mainMenuState ?? new MainMenuState(this);
-            Context.GetSubsystem<StateManager>().EnqueueState(_mainMenuState);
+            base.Start();
         }
 
         public override void Stop()
@@ -96,7 +79,16 @@ namespace $safeprojectname$
         }
 
         /// <summary>
-        /// Transition to game
+        ///     Transition to main menu
+        /// </summary>
+        public void ToMenu()
+        {
+            _mainMenuState = _mainMenuState ?? new MainMenuState(this);
+            Context.GetSubsystem<StateManager>().EnqueueState(_mainMenuState);
+        }
+
+        /// <summary>
+        ///     Transition to game
         /// </summary>
         public void ToNewGame()
         {
@@ -106,14 +98,16 @@ namespace $safeprojectname$
         }
 
         /// <summary>
-        /// Transition to game
+        ///     Transition to game
         /// </summary>
         public void ContinueGame()
         {
-            if (_gameState)
-            {
-                Context.GetSubsystem<StateManager>().EnqueueState(_gameState);
-            }
+            if (_gameState) Context.GetSubsystem<StateManager>().EnqueueState(_gameState);
+        }
+
+        public void Quit()
+        {
+            Context.Engine.Exit();
         }
 
         private void OnLogMessage(VariantMap args)
@@ -127,11 +121,6 @@ namespace $safeprojectname$
                     Debug.WriteLine(args[E.LogMessage.Message].String);
                     break;
             }
-        }
-
-        public void Quit()
-        {
-            Context.Engine.Exit();
         }
     }
 }

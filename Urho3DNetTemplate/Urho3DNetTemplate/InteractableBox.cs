@@ -28,13 +28,11 @@ namespace $safeprojectname$
         {
             var outline = Scene.GetComponent<OutlineGroup>();
             if (outline != null && _drawables != null)
-            {
                 foreach (var component in _drawables)
                 {
                     var drawable = component as Drawable;
                     outline.RemoveDrawable(drawable);
                 }
-            }
         }
 
         private void Select(VariantMap obj)
