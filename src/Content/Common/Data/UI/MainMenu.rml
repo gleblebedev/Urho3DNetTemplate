@@ -31,19 +31,25 @@
 
 <body navigation-group="main_menu_group" data-model="MainMenuComponent">
 	<br/>
-	<navigable group="main_menu_group" class="gray-inner-panel" style="width: 50%; margin: auto">
+	<div class="gray-inner-panel" style="width: 50%; margin: auto">
 		<img src="../Images/Splash.png" style="margin: 0 auto"/>
 		<div style="text-align: center">{{game_title}}</div>
-		<input type="button" class="blue-button" data-attrif-disabled="!is_game_played" style="display: block" onclick="event:Continue" onnavigated="sound:Sounds/UINavigated.wav" onpressed="sound:Sounds/UIClicked.wav">
+		<navigable group="main_menu_group" onnavigated="sound:Sounds/UINavigated.wav" onpressed="sound:Sounds/UIClicked.wav" data-event-depressed="Continue()">
+		<input type="button" class="blue-button" data-attrif-disabled="!is_game_played" style="display: block" onclick="">
 			Continue
 		</input>
+		</navigable>
+		<navigable group="main_menu_group" onnavigated="sound:Sounds/UINavigated.wav" onpressed="sound:Sounds/UIClicked.wav" data-event-depressed="NewGame()">
 		<input type="button" class="blue-button" style="display: block" onclick="event:NewGame" onnavigated="sound:Sounds/UINavigated.wav" onpressed="sound:Sounds/UIClicked.wav">
 			New game
 		</input>
+		</navigable>
+		<navigable group="main_menu_group" onnavigated="sound:Sounds/UINavigated.wav" onpressed="sound:Sounds/UIClicked.wav" data-event-depressed="Exit()">
 		<input type="button" class="blue-button" style="display: block" onclick="event:Exit" onnavigated="sound:Sounds/UINavigated.wav" onpressed="sound:Sounds/UIClicked.wav">
 			Exit
 		</input>
-	</navigable>
+		</navigable>
+	</div>
 </body>
 
 </rml>

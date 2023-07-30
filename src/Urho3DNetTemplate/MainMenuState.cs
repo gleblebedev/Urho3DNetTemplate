@@ -1,4 +1,5 @@
-﻿using Urho3DNet;
+﻿using System.ComponentModel;
+using Urho3DNet;
 
 namespace Urho3DNetTemplate
 {
@@ -31,6 +32,7 @@ namespace Urho3DNetTemplate
             SetViewport(0, _viewport);
             _uiComponent = scene.CreateComponent<MainMenuComponent>();
             _uiComponent.Application = _app;
+            _uiComponent.State = this;
             _uiComponent.SetResource("UI/MainMenu.rml");
             Deactivate();
         }
@@ -40,9 +42,6 @@ namespace Urho3DNetTemplate
             _uiComponent.IsEnabled = true;
             _scene.Ptr.IsUpdateEnabled = true;
             _uiComponent.UpdateProperties();
-            SubscribeToEvent("Exit", _ui, OnExit);
-            SubscribeToEvent("NewGame", _ui, OnNewGame);
-            SubscribeToEvent("Continue", _ui, OnContinue);
             SubscribeToEvent(E.KeyUp, HandleKeyUp);
             base.Activate(bundle);
         }
@@ -51,9 +50,6 @@ namespace Urho3DNetTemplate
         {
             _uiComponent.IsEnabled = false;
             _scene.Ptr.IsUpdateEnabled = false;
-            UnsubscribeFromEvent("Exit");
-            UnsubscribeFromEvent("NewGame");
-            UnsubscribeFromEvent("Continue");
             UnsubscribeFromEvent(E.KeyUp);
             base.Deactivate();
         }
@@ -73,17 +69,17 @@ namespace Urho3DNetTemplate
             }
         }
 
-        private void OnNewGame(VariantMap obj)
+        public void OnNewGame()
         {
             _app.ToNewGame();
         }
 
-        private void OnExit(VariantMap obj)
+        public void OnExit()
         {
             _app.Quit();
         }
 
-        private void OnContinue(VariantMap obj)
+        public void OnContinue()
         {
             _app.ContinueGame();
         }

@@ -43,6 +43,7 @@ input.blue-button
     padding-bottom: 20.5px;
     padding-left: 12.5px;
 }
+input.blue-button:navigated,
 input.blue-button:hover
 {
     decorator: ninepatch( blue-button-hover, blue-button-hover-inner, 1.0 );
@@ -51,7 +52,8 @@ input.blue-button:hover
     padding-bottom: 24.5px;
     padding-left: 12.5px;
 }
-input.blue-button:active
+input.blue-button:active,
+input.blue-button:pressed
 {
     decorator: ninepatch( blue-button-active, blue-button-active-inner, 1.0 );
     padding-top: 18.5px;
