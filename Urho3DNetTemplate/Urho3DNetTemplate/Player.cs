@@ -1,4 +1,5 @@
-﻿using Urho3DNet;
+using System.Collections.Generic;
+using Urho3DNet;
 
 namespace $safeprojectname$
 {
@@ -24,7 +25,7 @@ namespace $safeprojectname$
             {
                 if (_selectedNode != value)
                 {
-                    if (_selectedNode != null) _selectedNode.SendEvent("Unselected", Context.EventDataMap);
+                    if (_selectedNode != null && !_selectedNode.IsExpired) _selectedNode.SendEvent("Unselected", Context.EventDataMap);
 
                     _selectedNode = value;
                     if (_selectedNode != null) _selectedNode.SendEvent("Selected", Context.EventDataMap);
@@ -58,7 +59,21 @@ namespace $safeprojectname$
                 _usePressed = usePressed;
                 if (_usePressed)
                 {
-                    BodyInArms = SelectedNode?.GetComponent<RigidBody>();
+                    BodyInArms = null;
+                    if (SelectedNode != null)
+                    {
+                        if (SelectedNode.HasTag("Pickable"))
+                        {
+                            BodyInArms = SelectedNode.GetComponent<RigidBody>();
+                        }
+                        else
+                        {
+                            var map = Context.EventDataMap;
+                            map["Player"] = this;
+                            SelectedNode.SendEvent("Use", map);
+                        }
+                    }
+
                     if (BodyInArms != null && BodyInArms.Mass > 0)
                     {
                         Constraint.OtherBody = BodyInArms;
@@ -82,5 +97,17 @@ namespace $safeprojectname$
                 SelectedNode = selectedNode;
             }
         }
+
+        public void AddToInventory(string inventoryKey)
+        {
+            _inventory.Add(inventoryKey);
+        }
+
+        public bool HasInInventory(string inventoryKey)
+        {
+            return _inventory.Contains(inventoryKey);
+        }
+
+        private readonly HashSet<string> _inventory = new HashSet<string>();
     }
 }

@@ -1,10 +1,10 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
 <VSTemplate Version="3.0.0" xmlns="http://schemas.microsoft.com/developer/vstemplate/2005" Type="Project">
   <TemplateData>
     <Name>Urho3DNetTemplate</Name>
     <Description>Urho3DNet Project Template</Description>
     <ProjectType>CSharp</ProjectType>
-    <ProjectSubType>
-    </ProjectSubType>
+    <ProjectSubType></ProjectSubType>
     <SortOrder>1000</SortOrder>
     <CreateNewFolder>true</CreateNewFolder>
     <DefaultName>Urho3DNetTemplate</DefaultName>
@@ -17,6 +17,17 @@
   </TemplateData>
   <TemplateContent>
     <Project TargetFileName="$safeprojectname$.csproj" File="Urho3DNetTemplate.csproj" ReplaceParameters="true">
+      <ProjectItem ReplaceParameters="true" TargetFileName="Character.cs">Character.cs</ProjectItem>
+      <ProjectItem ReplaceParameters="true" TargetFileName="DoorButton.cs">DoorButton.cs</ProjectItem>
+      <ProjectItem ReplaceParameters="true" TargetFileName="DoorTrigger.cs">DoorTrigger.cs</ProjectItem>
+      <ProjectItem ReplaceParameters="true" TargetFileName="GameState.cs">GameState.cs</ProjectItem>
+      <ProjectItem ReplaceParameters="true" TargetFileName="MainMenuComponent.cs">MainMenuComponent.cs</ProjectItem>
+      <ProjectItem ReplaceParameters="true" TargetFileName="MainMenuState.cs">MainMenuState.cs</ProjectItem>
+      <ProjectItem ReplaceParameters="true" TargetFileName="NonPlayableCharacter.cs">NonPlayableCharacter.cs</ProjectItem>
+      <ProjectItem ReplaceParameters="true" TargetFileName="Pickable.cs">Pickable.cs</ProjectItem>
+      <ProjectItem ReplaceParameters="true" TargetFileName="Player.cs">Player.cs</ProjectItem>
+      <ProjectItem ReplaceParameters="true" TargetFileName="Selectable.cs">Selectable.cs</ProjectItem>
+      <ProjectItem ReplaceParameters="true" TargetFileName="UrhoApplication.cs">UrhoApplication.cs</ProjectItem>
       <Folder Name="CharacterStates" TargetFolderName="CharacterStates">
         <ProjectItem ReplaceParameters="true" TargetFileName="BaseState.cs">BaseState.cs</ProjectItem>
         <ProjectItem ReplaceParameters="true" TargetFileName="CharacterState.cs">CharacterState.cs</ProjectItem>
@@ -25,14 +36,6 @@
         <ProjectItem ReplaceParameters="true" TargetFileName="OnGround.cs">OnGround.cs</ProjectItem>
         <ProjectItem ReplaceParameters="true" TargetFileName="StartState.cs">StartState.cs</ProjectItem>
       </Folder>
-      <ProjectItem ReplaceParameters="true" TargetFileName="Character.cs">Character.cs</ProjectItem>
-      <ProjectItem ReplaceParameters="true" TargetFileName="GameState.cs">GameState.cs</ProjectItem>
-      <ProjectItem ReplaceParameters="true" TargetFileName="InteractableBox.cs">InteractableBox.cs</ProjectItem>
-      <ProjectItem ReplaceParameters="true" TargetFileName="MainMenuComponent.cs">MainMenuComponent.cs</ProjectItem>
-      <ProjectItem ReplaceParameters="true" TargetFileName="MainMenuState.cs">MainMenuState.cs</ProjectItem>
-      <ProjectItem ReplaceParameters="true" TargetFileName="NonPlayableCharacter.cs">NonPlayableCharacter.cs</ProjectItem>
-      <ProjectItem ReplaceParameters="true" TargetFileName="Player.cs">Player.cs</ProjectItem>
-      <ProjectItem ReplaceParameters="true" TargetFileName="UrhoApplication.cs">UrhoApplication.cs</ProjectItem>
     </Project>
   </TemplateContent>
 </VSTemplate>

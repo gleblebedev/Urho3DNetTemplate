@@ -1,4 +1,4 @@
-﻿using Android.Content.PM;
+using Android.Content.PM;
 using Android.Runtime;
 using Org.Libsdl.App;
 using Urho3DNet;

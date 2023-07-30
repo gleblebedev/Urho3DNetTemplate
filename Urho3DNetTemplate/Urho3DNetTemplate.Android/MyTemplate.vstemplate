@@ -1,10 +1,10 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
 <VSTemplate Version="3.0.0" xmlns="http://schemas.microsoft.com/developer/vstemplate/2005" Type="Project">
   <TemplateData>
     <Name>Urho3DNet.Android</Name>
     <Description>Urho3DNet Android project template</Description>
     <ProjectType>CSharp</ProjectType>
-    <ProjectSubType>
-    </ProjectSubType>
+    <ProjectSubType></ProjectSubType>
     <SortOrder>1000</SortOrder>
     <CreateNewFolder>true</CreateNewFolder>
     <DefaultName>Urho3DNet.Android</DefaultName>
@@ -17,7 +17,11 @@
   </TemplateData>
   <TemplateContent>
     <Project TargetFileName="$safeprojectname$.Android.csproj" File="Urho3DNetTemplate.Android.csproj" ReplaceParameters="true">
+      <ProjectItem ReplaceParameters="true" TargetFileName="AndroidManifest.xml">AndroidManifest.xml</ProjectItem>
+      <ProjectItem ReplaceParameters="true" TargetFileName="MainActivity.cs">MainActivity.cs</ProjectItem>
       <Folder Name="Resources" TargetFolderName="Resources">
+        <ProjectItem ReplaceParameters="false" TargetFileName="AboutResources.txt">AboutResources.txt</ProjectItem>
+        <Folder Name="drawable" TargetFolderName="drawable" />
         <Folder Name="layout" TargetFolderName="layout">
           <ProjectItem ReplaceParameters="true" TargetFileName="activity_main.xml">activity_main.xml</ProjectItem>
         </Folder>
@@ -73,10 +77,7 @@
           <ProjectItem ReplaceParameters="true" TargetFileName="ic_launcher_background.xml">ic_launcher_background.xml</ProjectItem>
           <ProjectItem ReplaceParameters="true" TargetFileName="strings.xml">strings.xml</ProjectItem>
         </Folder>
-        <ProjectItem ReplaceParameters="true" TargetFileName="AboutResources.txt">AboutResources.txt</ProjectItem>
       </Folder>
-      <ProjectItem ReplaceParameters="true" TargetFileName="AndroidManifest.xml">AndroidManifest.xml</ProjectItem>
-      <ProjectItem ReplaceParameters="true" TargetFileName="MainActivity.cs">MainActivity.cs</ProjectItem>
     </Project>
   </TemplateContent>
 </VSTemplate>

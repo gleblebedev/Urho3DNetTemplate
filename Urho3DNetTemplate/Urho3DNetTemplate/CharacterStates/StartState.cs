@@ -1,4 +1,4 @@
-﻿namespace $safeprojectname$.CharacterStates
+namespace $safeprojectname$.CharacterStates
 {
     public class StartState : BaseState
     {

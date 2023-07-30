@@ -1,12 +1,12 @@
-﻿using Urho3DNet;
+using Urho3DNet;
 
-namespace $safeprojectname$
+namespace $ext_safeprojectname$
 {
-    public class InteractableBox : Component
+    public class Selectable : Component
     {
         private ComponentList _drawables;
 
-        public InteractableBox(Context context) : base(context)
+        public Selectable(Context context) : base(context)
         {
         }
 

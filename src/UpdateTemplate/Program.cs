@@ -1,4 +1,5 @@
-﻿using System.Xml;
+﻿using System.Text;
+using System.Xml;
 using System.Xml.Linq;
 
 public static class Program
@@ -37,7 +38,8 @@ public static class Program
             if (fileName.EndsWith(".user.json"))
                 continue;
             var replaceParameters = false;
-            switch (Path.GetExtension(file).ToLower())
+            var ext = Path.GetExtension(file).ToLower();
+            switch (ext)
             {
                 case ".csproj":
                 case ".vstemplate":
@@ -53,6 +55,19 @@ public static class Program
                 new XAttribute(XName.Get("TargetFileName"), fileName),
                 new XText(fileName)
                 ));
+
+            if (ext == ".cs")
+            {
+                var cs = File.ReadAllText(file);
+                for (;;)
+                {
+                    var res = cs.Replace("Urho3DNetTemplate", "$ext_safeprojectname$");
+                    if (res == cs)
+                        break;
+                    cs = res;
+                }
+                File.WriteAllText(file, cs, new UTF8Encoding(false));
+            }
         }
         foreach (var dir in Directory.GetDirectories(templatePath))
         {

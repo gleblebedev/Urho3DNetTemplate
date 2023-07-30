@@ -1,6 +1,6 @@
 <PackageManifest Version="2.0.0" xmlns="http://schemas.microsoft.com/developer/vsx-schema/2011" xmlns:d="http://schemas.microsoft.com/developer/vsx-schema-design/2011">
     <Metadata>
-        <Identity Id="{9B1E5F82-3335-4EE9-A180-138CBA8CC06C}" Version="0.3.7.582" Language="en-US" Publisher="Gleb Lebedev" />
+        <Identity Id="{9B1E5F82-3335-4EE9-A180-138CBA8CC06C}" Version="0.3.7.586" Language="en-US" Publisher="Gleb Lebedev" />
         <DisplayName>Urho3DNet</DisplayName>
         <Description xml:space="preserve">Urho3DNet cross-platform solution template.
 

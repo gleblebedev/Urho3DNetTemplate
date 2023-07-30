@@ -39,6 +39,23 @@ namespace Urho3DNetTemplate
                 }
             }
 
+            {
+                var doorKeys = _scene.Ptr.GetChildrenWithTag("DoorKey", true);
+                foreach (var box in doorKeys)
+                {
+                    var c = box.CreateComponent<Pickable>();
+                    c.InventoryKey = box.Name;
+                }
+
+                var redKeyDoor = _scene.Ptr.GetChild("RedKeyDoor", true);
+                var triggerAnimator = redKeyDoor.GetComponent<TriggerAnimator>(true);
+                var newTrigger = triggerAnimator.Node.CreateComponent<DoorTrigger>();
+                newTrigger.InventoryKey = "RedKey";
+                newTrigger.EnterAnimation = triggerAnimator.EnterAnimation;
+                newTrigger.ExitAnimation = triggerAnimator.ExitAnimation;
+                triggerAnimator.Remove();
+            }
+
             var nodeList = _scene.Ptr.GetChildrenWithComponent(nameof(KinematicCharacterController), true);
             foreach (var node in nodeList)
             {

@@ -1,4 +1,5 @@
-﻿using Urho3DNet;
+﻿using System.Collections.Generic;
+using Urho3DNet;
 
 namespace Urho3DNetTemplate
 {
@@ -24,7 +25,7 @@ namespace Urho3DNetTemplate
             {
                 if (_selectedNode != value)
                 {
-                    if (_selectedNode != null) _selectedNode.SendEvent("Unselected", Context.EventDataMap);
+                    if (_selectedNode != null && !_selectedNode.IsExpired) _selectedNode.SendEvent("Unselected", Context.EventDataMap);
 
                     _selectedNode = value;
                     if (_selectedNode != null) _selectedNode.SendEvent("Selected", Context.EventDataMap);
@@ -67,7 +68,9 @@ namespace Urho3DNetTemplate
                         }
                         else
                         {
-                            SelectedNode.SendEvent("Use", Context.EventDataMap);
+                            var map = Context.EventDataMap;
+                            map["Player"] = this;
+                            SelectedNode.SendEvent("Use", map);
                         }
                     }
 
@@ -94,5 +97,17 @@ namespace Urho3DNetTemplate
                 SelectedNode = selectedNode;
             }
         }
+
+        public void AddToInventory(string inventoryKey)
+        {
+            _inventory.Add(inventoryKey);
+        }
+
+        public bool HasInInventory(string inventoryKey)
+        {
+            return _inventory.Contains(inventoryKey);
+        }
+
+        private readonly HashSet<string> _inventory = new HashSet<string>();
     }
 }

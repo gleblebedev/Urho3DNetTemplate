@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Diagnostics;
 using Urho3DNet;
 
@@ -42,8 +42,11 @@ namespace $safeprojectname$
             Context.AddFactoryReflection<GameState>();
             Context.AddFactoryReflection<Character>();
             Context.AddFactoryReflection<NonPlayableCharacter>();
-            Context.AddFactoryReflection<InteractableBox>();
+            Context.AddFactoryReflection<Selectable>();
             Context.AddFactoryReflection<Player>();
+            Context.AddFactoryReflection<DoorButton>();
+            Context.AddFactoryReflection<Pickable>();
+            Context.AddFactoryReflection<DoorTrigger>();
 
             var cache = GetSubsystem<ResourceCache>();
             var ui = GetSubsystem<RmlUI>();

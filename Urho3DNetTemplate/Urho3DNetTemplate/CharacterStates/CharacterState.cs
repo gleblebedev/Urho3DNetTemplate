@@ -1,4 +1,4 @@
-﻿namespace $safeprojectname$.CharacterStates
+namespace $safeprojectname$.CharacterStates
 {
     /// <summary>
     /// Character states.

@@ -45,6 +45,8 @@ namespace Urho3DNetTemplate
             Context.AddFactoryReflection<Selectable>();
             Context.AddFactoryReflection<Player>();
             Context.AddFactoryReflection<DoorButton>();
+            Context.AddFactoryReflection<Pickable>();
+            Context.AddFactoryReflection<DoorTrigger>();
 
             var cache = GetSubsystem<ResourceCache>();
             var ui = GetSubsystem<RmlUI>();

@@ -1,4 +1,5 @@
-﻿using Urho3DNet;
+using System.Xml.Linq;
+using Urho3DNet;
 
 namespace $safeprojectname$
 {
@@ -23,8 +24,37 @@ namespace $safeprojectname$
             _scene = Context.CreateObject<Scene>();
             _scene.Ptr.LoadXML("Scenes/Sample.xml");
 
-            var boxes = _scene.Ptr.GetChildrenWithTag("InteractableBox", true);
-            foreach (var box in boxes) box.CreateComponent<InteractableBox>();
+            var selectables = _scene.Ptr.GetChildrenWithTag("Selectable", true);
+            foreach (var box in selectables) box.CreateComponent<Selectable>();
+
+            {
+                var doorButtons = _scene.Ptr.GetChildrenWithTag("DoorButton", true);
+                var openAnimation = Context.ResourceCache.GetResource<Animation>("Animations/SlidingDoor/Open.xml");
+                var closeAnimation = Context.ResourceCache.GetResource<Animation>("Animations/SlidingDoor/Close.xml");
+                foreach (var box in doorButtons)
+                {
+                    var c = box.CreateComponent<DoorButton>();
+                    c.OpenAnimation = openAnimation;
+                    c.CloseAnimation = closeAnimation;
+                }
+            }
+
+            {
+                var doorKeys = _scene.Ptr.GetChildrenWithTag("DoorKey", true);
+                foreach (var box in doorKeys)
+                {
+                    var c = box.CreateComponent<Pickable>();
+                    c.InventoryKey = box.Name;
+                }
+
+                var redKeyDoor = _scene.Ptr.GetChild("RedKeyDoor", true);
+                var triggerAnimator = redKeyDoor.GetComponent<TriggerAnimator>(true);
+                var newTrigger = triggerAnimator.Node.CreateComponent<DoorTrigger>();
+                newTrigger.InventoryKey = "RedKey";
+                newTrigger.EnterAnimation = triggerAnimator.EnterAnimation;
+                newTrigger.ExitAnimation = triggerAnimator.ExitAnimation;
+                triggerAnimator.Remove();
+            }
 
             var nodeList = _scene.Ptr.GetChildrenWithComponent(nameof(KinematicCharacterController), true);
             foreach (var node in nodeList)

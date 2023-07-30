@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using Urho3DNet;
 
 namespace $ext_safeprojectname$
