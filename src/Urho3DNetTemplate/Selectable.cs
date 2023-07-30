@@ -2,11 +2,11 @@
 
 namespace Urho3DNetTemplate
 {
-    public class InteractableBox : Component
+    public class Selectable : Component
     {
         private ComponentList _drawables;
 
-        public InteractableBox(Context context) : base(context)
+        public Selectable(Context context) : base(context)
         {
         }
 

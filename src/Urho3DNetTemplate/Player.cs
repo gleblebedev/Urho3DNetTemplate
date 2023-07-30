@@ -58,7 +58,19 @@ namespace Urho3DNetTemplate
                 _usePressed = usePressed;
                 if (_usePressed)
                 {
-                    BodyInArms = SelectedNode?.GetComponent<RigidBody>();
+                    BodyInArms = null;
+                    if (SelectedNode != null)
+                    {
+                        if (SelectedNode.HasTag("Pickable"))
+                        {
+                            BodyInArms = SelectedNode.GetComponent<RigidBody>();
+                        }
+                        else
+                        {
+                            SelectedNode.SendEvent("Use", Context.EventDataMap);
+                        }
+                    }
+
                     if (BodyInArms != null && BodyInArms.Mass > 0)
                     {
                         Constraint.OtherBody = BodyInArms;

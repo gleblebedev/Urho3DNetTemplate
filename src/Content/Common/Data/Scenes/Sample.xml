@@ -3,8 +3,8 @@
 	<attribute name="Name" value="Sample" />
 	<attribute name="Time Scale" value="1.000000" />
 	<attribute name="Elapsed Time" value="0.000000" />
-	<attribute name="Next Node ID" value="7651" />
-	<attribute name="Next Component ID" value="7883" />
+	<attribute name="Next Node ID" value="8112" />
+	<attribute name="Next Component ID" value="8597" />
 	<attribute name="Variables" />
 	<attribute name="Variable Names" value="" />
 	<attribute name="Lightmaps" value="Texture2D" />
@@ -85,7 +85,8 @@
 		<attribute name="Is Enabled" value="true" />
 		<attribute name="Name" value="Props_Crate" />
 		<attribute name="Tags">
-			<string value="InteractableBox" />
+			<string value="Selectable" />
+			<string value="Pickable" />
 		</attribute>
 		<attribute name="Position" value="-1.265 0.178 -1.256" />
 		<attribute name="Rotation" value="1 0 0 0" />
@@ -285,6 +286,34 @@
 				<attribute name="Prefab" value="PrefabResource;Quaternius/UltimateModularSciFiPack/Prefabs/FloorTile_Basic.prefab" />
 			</component>
 		</node>
+		<node id="7766">
+			<attribute name="Is Enabled" value="true" />
+			<attribute name="Name" value="FloorTile_Basic" />
+			<attribute name="Tags">
+				<string value="Untagged" />
+			</attribute>
+			<attribute name="Position" value="15 0 0" />
+			<attribute name="Rotation" value="1 0 0 0" />
+			<attribute name="Scale" value="1 1 1" />
+			<attribute name="Variables" />
+			<component type="PrefabReference" id="8055">
+				<attribute name="Prefab" value="PrefabResource;Quaternius/UltimateModularSciFiPack/Prefabs/FloorTile_Basic.prefab" />
+			</component>
+		</node>
+		<node id="7887">
+			<attribute name="Is Enabled" value="true" />
+			<attribute name="Name" value="FloorTile_Basic" />
+			<attribute name="Tags">
+				<string value="Untagged" />
+			</attribute>
+			<attribute name="Position" value="10 0 -10" />
+			<attribute name="Rotation" value="1 0 0 0" />
+			<attribute name="Scale" value="1 1 1" />
+			<attribute name="Variables" />
+			<component type="PrefabReference" id="8239">
+				<attribute name="Prefab" value="PrefabResource;Quaternius/UltimateModularSciFiPack/Prefabs/FloorTile_Basic.prefab" />
+			</component>
+		</node>
 	</node>
 	<node id="44">
 		<attribute name="Is Enabled" value="true" />
@@ -348,20 +377,6 @@
 			<attribute name="Variables" />
 			<component type="PrefabReference" id="120">
 				<attribute name="Prefab" value="PrefabResource;Quaternius/UltimateModularSciFiPack/Prefabs/Wall_5.prefab" />
-			</component>
-		</node>
-		<node id="45">
-			<attribute name="Is Enabled" value="true" />
-			<attribute name="Name" value="Wall_DoubleDoor" />
-			<attribute name="Tags">
-				<string value="Untagged" />
-			</attribute>
-			<attribute name="Position" value="0 0 7.5" />
-			<attribute name="Rotation" value="1 0 0 0" />
-			<attribute name="Scale" value="1 1 1" />
-			<attribute name="Variables" />
-			<component type="PrefabReference" id="304">
-				<attribute name="Prefab" value="XMLFile;Quaternius/UltimateModularSciFiPack/Prefabs/DoorDouble_Wall_SideA.prefab" />
 			</component>
 		</node>
 		<node id="47">
@@ -462,20 +477,6 @@
 				<attribute name="Prefab" value="XMLFile;Quaternius/UltimateModularSciFiPack/Prefabs/Wall_Empty.prefab" />
 			</component>
 		</node>
-		<node id="3354">
-			<attribute name="Is Enabled" value="true" />
-			<attribute name="Name" value="Wall_Empty" />
-			<attribute name="Tags">
-				<string value="Untagged" />
-			</attribute>
-			<attribute name="Position" value="12.5 0 0" />
-			<attribute name="Rotation" value="0.707107 0 0.707107 0" />
-			<attribute name="Scale" value="1 1 1" />
-			<attribute name="Variables" />
-			<component type="PrefabReference" id="3064">
-				<attribute name="Prefab" value="XMLFile;Quaternius/UltimateModularSciFiPack/Prefabs/Wall_Empty.prefab" />
-			</component>
-		</node>
 		<node id="3356">
 			<attribute name="Is Enabled" value="true" />
 			<attribute name="Name" value="Wall_Empty" />
@@ -496,7 +497,7 @@
 			<attribute name="Tags">
 				<string value="Untagged" />
 			</attribute>
-			<attribute name="Position" value="10 0 -7.5" />
+			<attribute name="Position" value="10 0 -12.5" />
 			<attribute name="Rotation" value="-4.37114e-08 0 1 -0" />
 			<attribute name="Scale" value="1 1 1" />
 			<attribute name="Variables" />
@@ -546,32 +547,6 @@
 				<attribute name="Prefab" value="XMLFile;Quaternius/UltimateModularSciFiPack/Prefabs/Wall_Empty.prefab" />
 			</component>
 		</node>
-		<node id="6328">
-			<attribute name="Is Enabled" value="true" />
-			<attribute name="Name" value="" />
-			<attribute name="Tags" />
-			<attribute name="Position" value="0 0 7.5" />
-			<attribute name="Rotation" value="1 0 0 0" />
-			<attribute name="Scale" value="1 1 1" />
-			<attribute name="Variables" />
-			<component type="PrefabReference" id="6255">
-				<attribute name="Prefab" value="PrefabResource;Quaternius/UltimateModularSciFiPack/Prefabs/Door_Double.prefab" />
-			</component>
-		</node>
-		<node id="6766">
-			<attribute name="Is Enabled" value="true" />
-			<attribute name="Name" value="Wall_DoubleDoor" />
-			<attribute name="Tags">
-				<string value="Untagged" />
-			</attribute>
-			<attribute name="Position" value="0 0 7.5" />
-			<attribute name="Rotation" value="-2.23517e-08 0 0.999999 0" />
-			<attribute name="Scale" value="1 1 1" />
-			<attribute name="Variables" />
-			<component type="PrefabReference" id="6767">
-				<attribute name="Prefab" value="XMLFile;Quaternius/UltimateModularSciFiPack/Prefabs/DoorDouble_Wall_SideA.prefab" />
-			</component>
-		</node>
 		<node id="7648">
 			<attribute name="Is Enabled" value="true" />
 			<attribute name="Name" value="Wall_Empty" />
@@ -613,6 +588,226 @@
 			<component type="PrefabReference" id="7879">
 				<attribute name="Prefab" value="XMLFile;Quaternius/UltimateModularSciFiPack/Prefabs/Wall_Empty.prefab" />
 			</component>
+		</node>
+		<node id="7767">
+			<attribute name="Is Enabled" value="true" />
+			<attribute name="Name" value="Door" />
+			<attribute name="Tags" />
+			<attribute name="Position" value="12.5 0 0" />
+			<attribute name="Rotation" value="0.707108 0 0.707106 0" />
+			<attribute name="Scale" value="0.999997 1 0.999997" />
+			<attribute name="Variables" />
+			<node id="7762">
+				<attribute name="Is Enabled" value="true" />
+				<attribute name="Name" value="DoorTrigger" />
+				<attribute name="Tags" />
+				<attribute name="Position" value="0 0 0" />
+				<attribute name="Rotation" value="1 0 1.43052e-06 0" />
+				<attribute name="Scale" value="1 1 1" />
+				<attribute name="Variables" />
+				<component type="AnimationController" id="8043">
+					<attribute name="Animations">
+						<variant type="Int" value="0" />
+					</attribute>
+				</component>
+				<node id="7763">
+					<attribute name="Is Enabled" value="true" />
+					<attribute name="Name" value="Door_Double.L" />
+					<attribute name="Tags">
+						<string value="Untagged" />
+					</attribute>
+					<attribute name="Position" value="1.6 0 0" />
+					<attribute name="Rotation" value="1 0 0 0" />
+					<attribute name="Scale" value="1 1 1" />
+					<attribute name="Variables" />
+					<component type="CollisionShape" id="8045">
+						<attribute name="Size" value="1.65039 2.51974 0.454233" />
+						<attribute name="Offset Position" value="-0.767207 1.25955 9.68575e-08" />
+						<attribute name="Collision Margin" value="0.010000" />
+					</component>
+					<component type="RigidBody" id="8046">
+						<attribute name="Physics Rotation" value="0.707107 0 0.707107 0" />
+						<attribute name="Physics Position" value="12.5 0 -1.6" />
+					</component>
+					<component type="StaticModel" id="8047">
+						<attribute name="Model" value="Model;Quaternius/UltimateModularSciFiPack/Meshes/Door_Double/Door_Double.L.mdl" />
+						<attribute name="Material" value="Material;Materials/VertexColor.xml" />
+						<attribute name="Cast Shadows" value="true" />
+					</component>
+				</node>
+				<node id="7764">
+					<attribute name="Is Enabled" value="true" />
+					<attribute name="Name" value="Door_Double.R" />
+					<attribute name="Tags">
+						<string value="Untagged" />
+					</attribute>
+					<attribute name="Position" value="-1.6 0 0" />
+					<attribute name="Rotation" value="1 0 0 0" />
+					<attribute name="Scale" value="1 1 1" />
+					<attribute name="Variables" />
+					<component type="CollisionShape" id="8048">
+						<attribute name="Size" value="1.65039 2.51974 0.454233" />
+						<attribute name="Offset Position" value="0.767207 1.25955 9.68575e-08" />
+						<attribute name="Collision Margin" value="0.010000" />
+					</component>
+					<component type="RigidBody" id="8049">
+						<attribute name="Physics Rotation" value="0.707107 0 0.707107 0" />
+						<attribute name="Physics Position" value="12.5 0 1.6" />
+					</component>
+					<component type="StaticModel" id="8050">
+						<attribute name="Model" value="Model;Quaternius/UltimateModularSciFiPack/Meshes/Door_Double/Door_Double.R.mdl" />
+						<attribute name="Material" value="Material;Materials/VertexColor.xml" />
+						<attribute name="Cast Shadows" value="true" />
+					</component>
+				</node>
+				<node id="7768">
+					<attribute name="Is Enabled" value="true" />
+					<attribute name="Name" value="ButtonBox" />
+					<attribute name="Tags">
+						<string value="Selectable" />
+						<string value="DoorButton" />
+					</attribute>
+					<attribute name="Position" value="-1.73917 1.5 -0.202894" />
+					<attribute name="Rotation" value="1 0 0 0" />
+					<attribute name="Scale" value="0.2 0.2 0.2" />
+					<attribute name="Variables" />
+					<component type="StaticModel" id="8059">
+						<attribute name="Model" value="Model;Models/Box.mdl" />
+						<attribute name="Material" value="Material;" />
+					</component>
+					<component type="CollisionShape" id="8218" />
+					<component type="RigidBody" id="8219">
+						<attribute name="Physics Rotation" value="0.707107 0 0.707107 0" />
+						<attribute name="Physics Position" value="12.2971 1.5 1.73917" />
+					</component>
+				</node>
+			</node>
+			<node id="7765">
+				<attribute name="Is Enabled" value="true" />
+				<attribute name="Name" value="Wall_DoubleDoor" />
+				<attribute name="Tags">
+					<string value="Untagged" />
+				</attribute>
+				<attribute name="Position" value="0 0 0" />
+				<attribute name="Rotation" value="-1.49012e-06 0 1 0" />
+				<attribute name="Scale" value="1 1 1" />
+				<attribute name="Variables" />
+				<component type="PrefabReference" id="8051">
+					<attribute name="Prefab" value="XMLFile;Quaternius/UltimateModularSciFiPack/Prefabs/DoorDouble_Wall_SideA.prefab" />
+				</component>
+			</node>
+			<node id="7761">
+				<attribute name="Is Enabled" value="true" />
+				<attribute name="Name" value="Wall_DoubleDoor" />
+				<attribute name="Tags">
+					<string value="Untagged" />
+				</attribute>
+				<attribute name="Position" value="0 0 0" />
+				<attribute name="Rotation" value="1 0 5.96002e-08 0" />
+				<attribute name="Scale" value="1 1 1" />
+				<attribute name="Variables" />
+				<component type="PrefabReference" id="8036">
+					<attribute name="Prefab" value="XMLFile;Quaternius/UltimateModularSciFiPack/Prefabs/DoorDouble_Wall_SideA.prefab" />
+				</component>
+			</node>
+		</node>
+		<node id="7880">
+			<attribute name="Is Enabled" value="true" />
+			<attribute name="Name" value="Door" />
+			<attribute name="Tags" />
+			<attribute name="Position" value="0 0 7.5" />
+			<attribute name="Rotation" value="1 0 0 0" />
+			<attribute name="Scale" value="1 1 1" />
+			<attribute name="Variables" />
+			<node id="6328">
+				<attribute name="Is Enabled" value="true" />
+				<attribute name="Name" value="DoorTrigger" />
+				<attribute name="Tags" />
+				<attribute name="Position" value="0 0 0" />
+				<attribute name="Rotation" value="1 0 0 0" />
+				<attribute name="Scale" value="1 1 1" />
+				<attribute name="Variables" />
+				<component type="PrefabReference" id="6255">
+					<attribute name="Prefab" value="PrefabResource;Quaternius/UltimateModularSciFiPack/Prefabs/Door_Double.prefab" />
+				</component>
+			</node>
+			<node id="6766">
+				<attribute name="Is Enabled" value="true" />
+				<attribute name="Name" value="Wall_DoubleDoor" />
+				<attribute name="Tags">
+					<string value="Untagged" />
+				</attribute>
+				<attribute name="Position" value="0 0 0" />
+				<attribute name="Rotation" value="-2.23518e-08 0 1 0" />
+				<attribute name="Scale" value="0.999996 1 0.999996" />
+				<attribute name="Variables" />
+				<component type="PrefabReference" id="6767">
+					<attribute name="Prefab" value="XMLFile;Quaternius/UltimateModularSciFiPack/Prefabs/DoorDouble_Wall_SideA.prefab" />
+				</component>
+			</node>
+			<node id="45">
+				<attribute name="Is Enabled" value="true" />
+				<attribute name="Name" value="Wall_DoubleDoor" />
+				<attribute name="Tags">
+					<string value="Untagged" />
+				</attribute>
+				<attribute name="Position" value="0 0 0" />
+				<attribute name="Rotation" value="1 0 0 0" />
+				<attribute name="Scale" value="1 1 1" />
+				<attribute name="Variables" />
+				<component type="PrefabReference" id="304">
+					<attribute name="Prefab" value="XMLFile;Quaternius/UltimateModularSciFiPack/Prefabs/DoorDouble_Wall_SideA.prefab" />
+				</component>
+			</node>
+		</node>
+		<node id="7881">
+			<attribute name="Is Enabled" value="true" />
+			<attribute name="Name" value="Door" />
+			<attribute name="Tags" />
+			<attribute name="Position" value="10 0 -7.5" />
+			<attribute name="Rotation" value="1 0 0 0" />
+			<attribute name="Scale" value="1 1 1" />
+			<attribute name="Variables" />
+			<node id="7882">
+				<attribute name="Is Enabled" value="true" />
+				<attribute name="Name" value="DoorTrigger" />
+				<attribute name="Tags" />
+				<attribute name="Position" value="0 0 0" />
+				<attribute name="Rotation" value="1 0 0 0" />
+				<attribute name="Scale" value="1 1 1" />
+				<attribute name="Variables" />
+				<component type="PrefabReference" id="8220">
+					<attribute name="Prefab" value="PrefabResource;Quaternius/UltimateModularSciFiPack/Prefabs/Door_Double.prefab" />
+				</component>
+			</node>
+			<node id="7883">
+				<attribute name="Is Enabled" value="true" />
+				<attribute name="Name" value="Wall_DoubleDoor" />
+				<attribute name="Tags">
+					<string value="Untagged" />
+				</attribute>
+				<attribute name="Position" value="0 0 0" />
+				<attribute name="Rotation" value="-2.23518e-08 0 1 0" />
+				<attribute name="Scale" value="0.999996 1 0.999996" />
+				<attribute name="Variables" />
+				<component type="PrefabReference" id="8221">
+					<attribute name="Prefab" value="XMLFile;Quaternius/UltimateModularSciFiPack/Prefabs/DoorDouble_Wall_SideA.prefab" />
+				</component>
+			</node>
+			<node id="7884">
+				<attribute name="Is Enabled" value="true" />
+				<attribute name="Name" value="Wall_DoubleDoor" />
+				<attribute name="Tags">
+					<string value="Untagged" />
+				</attribute>
+				<attribute name="Position" value="0 0 0" />
+				<attribute name="Rotation" value="1 0 0 0" />
+				<attribute name="Scale" value="1 1 1" />
+				<attribute name="Variables" />
+				<component type="PrefabReference" id="8222">
+					<attribute name="Prefab" value="XMLFile;Quaternius/UltimateModularSciFiPack/Prefabs/DoorDouble_Wall_SideA.prefab" />
+				</component>
+			</node>
 		</node>
 	</node>
 	<node id="75">
@@ -698,7 +893,8 @@
 		<attribute name="Is Enabled" value="true" />
 		<attribute name="Name" value="Props_Crate" />
 		<attribute name="Tags">
-			<string value="InteractableBox" />
+			<string value="Selectable" />
+			<string value="Pickable" />
 		</attribute>
 		<attribute name="Position" value="6.22514 0.178 5.20925" />
 		<attribute name="Rotation" value="1 0 0 0" />

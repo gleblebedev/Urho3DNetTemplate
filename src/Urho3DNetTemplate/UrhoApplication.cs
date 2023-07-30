@@ -42,8 +42,9 @@ namespace Urho3DNetTemplate
             Context.AddFactoryReflection<GameState>();
             Context.AddFactoryReflection<Character>();
             Context.AddFactoryReflection<NonPlayableCharacter>();
-            Context.AddFactoryReflection<InteractableBox>();
+            Context.AddFactoryReflection<Selectable>();
             Context.AddFactoryReflection<Player>();
+            Context.AddFactoryReflection<DoorButton>();
 
             var cache = GetSubsystem<ResourceCache>();
             var ui = GetSubsystem<RmlUI>();
