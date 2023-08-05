@@ -147,7 +147,7 @@ namespace Urho3DNetTemplate
             {
                 case Key.KeyEscape:
                 case Key.KeyBackspace:
-                    _app.ToMenu();
+                    _app.HandleBackKey();
                     return;
             }
         }
