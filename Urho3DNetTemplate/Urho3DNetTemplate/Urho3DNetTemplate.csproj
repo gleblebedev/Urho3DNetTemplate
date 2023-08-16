@@ -6,6 +6,7 @@
 
   <ItemGroup>
     <PackageReference Include="unofficial.Urho3DNet" Version="$ext_urho3dnetversion$" />
+    <PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
   </ItemGroup>
 
 </Project>

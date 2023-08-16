@@ -38,6 +38,9 @@
     blue-slider-sliderbar: 146px 70px 28px 40px;
     blue-slider-sliderbar-inner: 159px 87px 2px 2px;
     selectarrow: 228px 70px 20px 20px;
+    icon-settings: 256px 70px 20px 20px;
+    icon-xbox: 284px 70px 20px 20px;
+    icon-discord: 312px 70px 20px 20px;
 
 }
 input.blue-button,

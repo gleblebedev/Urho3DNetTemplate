@@ -1,86 +1,43 @@
 using Urho3DNet;
 
-namespace $safeprojectname$
+namespace $ext_safeprojectname$
 {
-    public class MainMenuState : ApplicationState
+    public class MainMenuState : MenuStateBase
     {
-        protected readonly SharedPtr<Scene> _scene;
-        private readonly UrhoApplication _app;
-        private readonly Viewport _viewport;
-        private readonly MainMenuComponent _uiComponent;
-        private readonly RmlUI _ui;
 
-        public MainMenuState(UrhoApplication app) : base(app.Context)
+
+        public MainMenuState(UrhoApplication app) : base(app, "UI/MainMenu.rml")
         {
-            MouseMode = MouseMode.MmFree;
-            IsMouseVisible = true;
-
-            _ui = Context.GetSubsystem<RmlUI>();
-            _app = app;
-            _scene = Context.CreateObject<Scene>();
-            var scene = _scene.Ptr;
-            scene.CreateComponent<Octree>();
-            var zone = scene.CreateComponent<Zone>();
-            zone.FogColor = Color.Blue;
-            zone.SetBoundingBox(new BoundingBox(-100, 100));
-            var cameraNode = scene.CreateChild();
-            var camera = cameraNode.CreateComponent<Camera>();
-            _viewport = Context.CreateObject<Viewport>();
-            _viewport.Scene = _scene;
-            _viewport.Camera = camera;
-            SetViewport(0, _viewport);
-            _uiComponent = scene.CreateComponent<MainMenuComponent>();
-            _uiComponent.Application = _app;
-            _uiComponent.State = this;
-            _uiComponent.SetResource("UI/MainMenu.rml");
-            Deactivate();
         }
 
-        public override void Activate(StringVariantMap bundle)
+        public override void OnDataModelInitialized(MenuComponent menuComponent)
         {
-            _uiComponent.IsEnabled = true;
-            _scene.Ptr.IsUpdateEnabled = true;
-            _uiComponent.UpdateProperties();
-            SubscribeToEvent(E.KeyUp, HandleKeyUp);
-            base.Activate(bundle);
+            menuComponent.BindDataModelProperty("is_game_played", _ => _.Set(Application?.IsGameRunning == true), _ => { });
+            menuComponent.BindDataModelProperty("game_title", _ => _.Set("$ext_safeprojectname$"), _ => { });
+            menuComponent.BindDataModelEvent("Continue", OnContinue);
+            menuComponent.BindDataModelEvent("NewGame", OnNewGame);
+            menuComponent.BindDataModelEvent("Settings", OnSettings);
+            menuComponent.BindDataModelEvent("Exit", OnExit);
         }
 
-        public override void Deactivate()
+        public void OnNewGame(VariantList variantList)
         {
-            _uiComponent.IsEnabled = false;
-            _scene.Ptr.IsUpdateEnabled = false;
-            UnsubscribeFromEvent(E.KeyUp);
-            base.Deactivate();
+            Application.ToNewGame();
         }
 
-        private void HandleKeyUp(VariantMap args)
+        public void OnSettings(VariantList variantList)
         {
-            var key = (Key)args[E.KeyUp.Key].Int;
-            switch (key)
-            {
-                case Key.KeyEscape:
-                case Key.KeyBackspace:
-                    if (_app.IsGameRunning)
-                        _app.ContinueGame();
-                    else
-                        _app.Quit();
-                    return;
-            }
+            Application.ToSettings();
         }
 
-        public void OnNewGame()
+        public void OnExit(VariantList variantList)
         {
-            _app.ToNewGame();
+            Application.Quit();
         }
 
-        public void OnExit()
+        public void OnContinue(VariantList variantList)
         {
-            _app.Quit();
-        }
-
-        public void OnContinue()
-        {
-            _app.ContinueGame();
+            Application.ContinueGame();
         }
     }
 }

@@ -1,4 +1,6 @@
-﻿using Urho3DNet;
+﻿using System.Diagnostics;
+using System.Runtime.InteropServices;
+using Urho3DNet;
 
 namespace Urho3DNetTemplate
 {
@@ -19,6 +21,41 @@ namespace Urho3DNetTemplate
             menuComponent.BindDataModelEvent("NewGame", OnNewGame);
             menuComponent.BindDataModelEvent("Settings", OnSettings);
             menuComponent.BindDataModelEvent("Exit", OnExit);
+            menuComponent.BindDataModelEvent("Discord", OnDiscord);
+        }
+
+        private void OpenUrlInBrowser(string url)
+        {
+            // Open URL in default browser: https://stackoverflow.com/questions/4580263/how-to-open-in-default-browser-in-c-sharp
+            try
+            {
+                Process.Start(url);
+            }
+            catch
+            {
+                if (RuntimeInformation.IsOSPlatform(OSPlatform.Windows))
+                {
+                    url = url.Replace("&", "^&");
+                    Process.Start(new ProcessStartInfo(url) { UseShellExecute = true });
+                }
+                else if (RuntimeInformation.IsOSPlatform(OSPlatform.Linux))
+                {
+                    Process.Start("xdg-open", url);
+                }
+                else if (RuntimeInformation.IsOSPlatform(OSPlatform.OSX))
+                {
+                    Process.Start("open", url);
+                }
+                else
+                {
+                    throw;
+                }
+            }
+        }
+
+        private void OnDiscord(VariantList obj)
+        {
+            OpenUrlInBrowser("https://discord.gg/46aKYFQj7W");
         }
 
         public void OnNewGame(VariantList variantList)

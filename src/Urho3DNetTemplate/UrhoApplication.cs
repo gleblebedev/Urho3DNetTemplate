@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Diagnostics;
 using Urho3DNet;
 using Application = Urho3DNet.Application;
@@ -18,6 +17,8 @@ namespace Urho3DNetTemplate
         }
 
         public bool IsGameRunning => _gameState;
+
+        public SettingFile Settings { get; set; }
 
         public override void Setup()
         {
@@ -40,6 +41,8 @@ namespace Urho3DNetTemplate
 
         public override void Start()
         {
+            Settings = SettingFile.Load(Context);
+
             Context.Engine.MaxFps = 60;
             Context.AddFactoryReflection<MenuComponent>();
             Context.AddFactoryReflection<MainMenuState>();

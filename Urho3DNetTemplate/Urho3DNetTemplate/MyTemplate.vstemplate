@@ -21,12 +21,16 @@
       <ProjectItem ReplaceParameters="true" TargetFileName="DoorButton.cs">DoorButton.cs</ProjectItem>
       <ProjectItem ReplaceParameters="true" TargetFileName="DoorTrigger.cs">DoorTrigger.cs</ProjectItem>
       <ProjectItem ReplaceParameters="true" TargetFileName="GameState.cs">GameState.cs</ProjectItem>
-      <ProjectItem ReplaceParameters="true" TargetFileName="MainMenuComponent.cs">MainMenuComponent.cs</ProjectItem>
       <ProjectItem ReplaceParameters="true" TargetFileName="MainMenuState.cs">MainMenuState.cs</ProjectItem>
+      <ProjectItem ReplaceParameters="true" TargetFileName="MenuComponent.cs">MenuComponent.cs</ProjectItem>
+      <ProjectItem ReplaceParameters="true" TargetFileName="MenuStateBase.cs">MenuStateBase.cs</ProjectItem>
       <ProjectItem ReplaceParameters="true" TargetFileName="NonPlayableCharacter.cs">NonPlayableCharacter.cs</ProjectItem>
       <ProjectItem ReplaceParameters="true" TargetFileName="Pickable.cs">Pickable.cs</ProjectItem>
       <ProjectItem ReplaceParameters="true" TargetFileName="Player.cs">Player.cs</ProjectItem>
       <ProjectItem ReplaceParameters="true" TargetFileName="Selectable.cs">Selectable.cs</ProjectItem>
+      <ProjectItem ReplaceParameters="true" TargetFileName="SettingFile.cs">SettingFile.cs</ProjectItem>
+      <ProjectItem ReplaceParameters="true" TargetFileName="SettingsMenuState.cs">SettingsMenuState.cs</ProjectItem>
+      <ProjectItem ReplaceParameters="true" TargetFileName="StateStack.cs">StateStack.cs</ProjectItem>
       <ProjectItem ReplaceParameters="true" TargetFileName="UrhoApplication.cs">UrhoApplication.cs</ProjectItem>
       <Folder Name="CharacterStates" TargetFolderName="CharacterStates">
         <ProjectItem ReplaceParameters="true" TargetFileName="BaseState.cs">BaseState.cs</ProjectItem>

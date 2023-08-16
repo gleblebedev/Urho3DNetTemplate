@@ -152,6 +152,7 @@
             <ProjectItem ReplaceParameters="false" TargetFileName="casual.png">casual.png</ProjectItem>
             <ProjectItem ReplaceParameters="false" TargetFileName="casual.rcss">casual.rcss</ProjectItem>
             <ProjectItem ReplaceParameters="false" TargetFileName="MainMenu.rml">MainMenu.rml</ProjectItem>
+            <ProjectItem ReplaceParameters="false" TargetFileName="Options.rml">Options.rml</ProjectItem>
             <ProjectItem ReplaceParameters="false" TargetFileName="rml.rcss">rml.rcss</ProjectItem>
           </Folder>
         </Folder>

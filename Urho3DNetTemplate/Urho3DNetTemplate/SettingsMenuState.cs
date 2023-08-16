@@ -1,6 +1,6 @@
-﻿using Urho3DNet;
+using Urho3DNet;
 
-namespace Urho3DNetTemplate
+namespace $ext_safeprojectname$
 {
     public class SettingsMenuState : MenuStateBase
     {

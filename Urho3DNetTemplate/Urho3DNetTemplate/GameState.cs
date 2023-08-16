@@ -1,4 +1,3 @@
-using System.Xml.Linq;
 using Urho3DNet;
 
 namespace $safeprojectname$
@@ -108,6 +107,8 @@ namespace $safeprojectname$
 
             _scene.Ptr.IsUpdateEnabled = true;
 
+            _app.Settings.Apply(_scene.Ptr.GetComponent<RenderPipeline>());
+
             base.Activate(bundle);
         }
 
@@ -147,7 +148,7 @@ namespace $safeprojectname$
             {
                 case Key.KeyEscape:
                 case Key.KeyBackspace:
-                    _app.ToMenu();
+                    _app.HandleBackKey();
                     return;
             }
         }

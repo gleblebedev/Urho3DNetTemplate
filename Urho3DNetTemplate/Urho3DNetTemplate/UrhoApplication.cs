@@ -1,6 +1,7 @@
 using System;
 using System.Diagnostics;
 using Urho3DNet;
+using Application = Urho3DNet.Application;
 
 namespace $safeprojectname$
 {
@@ -8,12 +9,16 @@ namespace $safeprojectname$
     {
         private SharedPtr<GameState> _gameState;
         private SharedPtr<MainMenuState> _mainMenuState;
+        private SharedPtr<SettingsMenuState> _settingsMenuState;
+        private StateStack _stateStack;
 
         public UrhoApplication(Context context) : base(context)
         {
         }
 
         public bool IsGameRunning => _gameState;
+
+        public SettingFile Settings { get; set; }
 
         public override void Setup()
         {
@@ -36,8 +41,10 @@ namespace $safeprojectname$
 
         public override void Start()
         {
+            Settings = SettingFile.Load(Context);
+
             Context.Engine.MaxFps = 60;
-            Context.AddFactoryReflection<MainMenuComponent>();
+            Context.AddFactoryReflection<MenuComponent>();
             Context.AddFactoryReflection<MainMenuState>();
             Context.AddFactoryReflection<GameState>();
             Context.AddFactoryReflection<Character>();
@@ -47,6 +54,8 @@ namespace $safeprojectname$
             Context.AddFactoryReflection<DoorButton>();
             Context.AddFactoryReflection<Pickable>();
             Context.AddFactoryReflection<DoorTrigger>();
+
+            _stateStack = new StateStack(Context.GetSubsystem<StateManager>());
 
             var cache = GetSubsystem<ResourceCache>();
             var ui = GetSubsystem<RmlUI>();
@@ -67,7 +76,8 @@ namespace $safeprojectname$
                 stateManager.EnqueueState(splash);
             }
 
-            ToMenu();
+            _mainMenuState = _mainMenuState ?? new MainMenuState(this);
+            _stateStack.Push(_mainMenuState);
 
             SubscribeToEvent(E.LogMessage, OnLogMessage);
 
@@ -82,12 +92,12 @@ namespace $safeprojectname$
         }
 
         /// <summary>
-        ///     Transition to main menu
+        ///     Transition to settings menu
         /// </summary>
-        public void ToMenu()
+        public void ToSettings()
         {
-            _mainMenuState = _mainMenuState ?? new MainMenuState(this);
-            Context.GetSubsystem<StateManager>().EnqueueState(_mainMenuState);
+            _settingsMenuState = _settingsMenuState ?? new SettingsMenuState(this);
+            _stateStack.Push(_settingsMenuState);
         }
 
         /// <summary>
@@ -97,7 +107,7 @@ namespace $safeprojectname$
         {
             _gameState?.Dispose();
             _gameState = new GameState(this);
-            Context.GetSubsystem<StateManager>().EnqueueState(_gameState);
+            _stateStack.Push(_gameState);
         }
 
         /// <summary>
@@ -105,7 +115,7 @@ namespace $safeprojectname$
         /// </summary>
         public void ContinueGame()
         {
-            if (_gameState) Context.GetSubsystem<StateManager>().EnqueueState(_gameState);
+            if (_gameState) _stateStack.Push(_gameState); ;
         }
 
         public void Quit()
@@ -123,6 +133,21 @@ namespace $safeprojectname$
                 default:
                     Debug.WriteLine(args[E.LogMessage.Message].String);
                     break;
+            }
+        }
+
+        public void HandleBackKey()
+        {
+            if (_stateStack.State == _mainMenuState.Ptr)
+            {
+                if (IsGameRunning)
+                    ContinueGame();
+                else
+                    Quit();
+            }
+            else
+            {
+                _stateStack.Pop();
             }
         }
     }

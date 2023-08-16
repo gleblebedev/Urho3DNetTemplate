@@ -1,5 +1,4 @@
-﻿using System.Xml.Linq;
-using Urho3DNet;
+﻿using Urho3DNet;
 
 namespace Urho3DNetTemplate
 {
@@ -107,6 +106,8 @@ namespace Urho3DNetTemplate
             SubscribeToEvent(E.KeyUp, HandleKeyUp);
 
             _scene.Ptr.IsUpdateEnabled = true;
+
+            _app.Settings.Apply(_scene.Ptr.GetComponent<RenderPipeline>());
 
             base.Activate(bundle);
         }
