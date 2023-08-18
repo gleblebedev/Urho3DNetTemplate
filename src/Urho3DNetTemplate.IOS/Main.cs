@@ -1,4 +1,4 @@
-﻿using Urho3DNet;
+using Urho3DNet;
 
 namespace Urho3DNetTemplate.IOS
 {
