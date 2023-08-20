@@ -1,0 +1,23 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+	<PropertyGroup>
+		<TargetFramework>net7.0</TargetFramework>
+		<RuntimeIdentifier>browser-wasm</RuntimeIdentifier>
+		<WasmMainJSPath>main.js</WasmMainJSPath>
+		<OutputType>Exe</OutputType>
+		<AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+	</PropertyGroup>
+
+	<ItemGroup>
+		<PackageReference Include="unofficial.Urho3DNet" Version="$(Urho3DNetVersion)" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<NativeFileReference Include="libUrho3D.a" />
+		<WasmExtraFilesToDeploy Include="index.html" />
+		<WasmExtraFilesToDeploy Include="main.js" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<ProjectReference Include="..\Urho3DNetTemplate\Urho3DNetTemplate.csproj" />
+	</ItemGroup>
+</Project>
