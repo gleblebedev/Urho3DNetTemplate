@@ -7,6 +7,7 @@ namespace Urho3DNetTemplate
 {
     public class UrhoApplication : Application
     {
+        private SharedPtr<DebugHud> _debugHud;
         private SharedPtr<GameState> _gameState;
         private SharedPtr<MainMenuState> _mainMenuState;
         private SharedPtr<SettingsMenuState> _settingsMenuState;
@@ -55,6 +56,11 @@ namespace Urho3DNetTemplate
             Context.AddFactoryReflection<Pickable>();
             Context.AddFactoryReflection<DoorTrigger>();
 
+#if DEBUG
+            _debugHud = Context.Engine.CreateDebugHud();
+            _debugHud.Ptr.Mode = DebugHudMode.DebughudShowAll;
+#endif
+
             _stateStack = new StateStack(Context.GetSubsystem<StateManager>());
 
             var cache = GetSubsystem<ResourceCache>();
@@ -88,6 +94,7 @@ namespace Urho3DNetTemplate
         {
             _mainMenuState?.Dispose();
             _gameState?.Dispose();
+            _debugHud?.Dispose();
             base.Stop();
         }
 
