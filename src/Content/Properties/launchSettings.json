@@ -1,0 +1,9 @@
+{
+  "profiles": {
+    "Content": {
+      "commandName": "Executable",
+      "executablePath": "rbfx",
+      "commandLineArgs": "$(MSBuildProjectDirectory)\\Common"
+    }
+  }
+}
