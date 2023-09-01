@@ -4,18 +4,40 @@ using Urho3DNet;
 
 namespace Urho3DNetTemplate
 {
-    public class StateStack: IDisposable
+    /// <summary>
+    ///     Application state stack.
+    ///     Keeps stack of application states to navigate between them when Esc button is pressed.
+    /// </summary>
+    public class StateStack : IDisposable
     {
+        /// <summary>
+        ///     Cached state manager subsystem.
+        /// </summary>
         private readonly StateManager _stateManager;
+
+        /// <summary>
+        ///     Stack of aplication states.
+        /// </summary>
         private readonly Stack<SharedPtr<ApplicationState>> _stack = new Stack<SharedPtr<ApplicationState>>();
 
+        /// <summary>
+        ///     Construct instance of StateStack.
+        /// </summary>
+        /// <param name="stateManager">State manager subsystem instance.</param>
         public StateStack(StateManager stateManager)
         {
             _stateManager = stateManager;
         }
 
-        public ApplicationState State => (_stack.Count > 0) ? _stack.Peek() : null;
+        /// <summary>
+        ///     Current state from the top of the stack.
+        /// </summary>
+        public ApplicationState State => _stack.Count > 0 ? _stack.Peek() : null;
 
+        /// <summary>
+        ///     Push state to the stack and make it current.
+        /// </summary>
+        /// <param name="state">State to push.</param>
         public void Push(ApplicationState state)
         {
             if (state != null)
@@ -25,6 +47,10 @@ namespace Urho3DNetTemplate
             }
         }
 
+        /// <summary>
+        ///     Pop state from the top of the stack.
+        ///     The application transitions to the previous state.
+        /// </summary>
         public void Pop()
         {
             if (_stack.Count > 0)
@@ -32,9 +58,15 @@ namespace Urho3DNetTemplate
                 _stack.Peek().Dispose();
                 _stack.Pop();
             }
+
             _stateManager.EnqueueState(State);
         }
 
+        /// <summary>
+        ///     Switch between states.
+        ///     Application transitions to the new state without going to the previous first.
+        /// </summary>
+        /// <param name="state">State to transition to.</param>
         public void Switch(ApplicationState state)
         {
             if (_stack.Count > 0)
@@ -42,6 +74,7 @@ namespace Urho3DNetTemplate
                 _stack.Peek().Dispose();
                 _stack.Pop();
             }
+
             if (state != null)
             {
                 _stack.Push(state);
@@ -49,7 +82,9 @@ namespace Urho3DNetTemplate
             }
         }
 
-
+        /// <summary>
+        ///     Performs application-defined tasks associated with freeing, releasing, or resetting unmanaged resources.
+        /// </summary>
         public void Dispose()
         {
             while (_stack.Count > 0)

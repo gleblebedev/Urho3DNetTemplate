@@ -1,24 +1,18 @@
-﻿using System.ComponentModel;
-using Urho3DNet;
+﻿using Urho3DNet;
 
 namespace Urho3DNetTemplate
 {
     public abstract class MenuStateBase : ApplicationState
     {
-        private readonly UrhoApplication _app;
         protected readonly SharedPtr<Scene> _scene;
         private readonly Viewport _viewport;
         private readonly MenuComponent _uiComponent;
-
-        public Scene Scene => _scene;
-
-        public UrhoApplication Application => _app;
 
         public MenuStateBase(UrhoApplication app, string rmlResource) : base(app.Context)
         {
             MouseMode = MouseMode.MmFree;
             IsMouseVisible = true;
-            _app = app;
+            Application = app;
 
             _scene = Context.CreateObject<Scene>();
             var scene = _scene.Ptr;
@@ -38,6 +32,12 @@ namespace Urho3DNetTemplate
             _uiComponent.SetResource(rmlResource);
             Deactivate();
         }
+
+        public Scene Scene => _scene;
+
+        public UrhoApplication Application { get; }
+
+        public abstract void OnDataModelInitialized(MenuComponent menuComponent);
 
         public override void Activate(StringVariantMap bundle)
         {
@@ -67,7 +67,5 @@ namespace Urho3DNetTemplate
                     return;
             }
         }
-
-        public abstract void OnDataModelInitialized(MenuComponent menuComponent);
     }
 }

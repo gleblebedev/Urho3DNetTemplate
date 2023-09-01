@@ -1,33 +1,33 @@
 ﻿namespace Urho3DNetTemplate.CharacterStates
 {
     /// <summary>
-    /// Character states.
+    ///     Character states.
     /// </summary>
     public enum CharacterState
     {
         /// <summary>
-        /// Start state. On first update in changes into actual state based on input data.
+        ///     Start state. On first update in changes into actual state based on input data.
         /// </summary>
         Start,
 
         /// <summary>
-        /// Character is standing or running on ground.
+        ///     Character is standing or running on ground.
         /// </summary>
         OnGround,
 
         /// <summary>
-        /// Character is jumping.
+        ///     Character is jumping.
         /// </summary>
         Jump,
 
         /// <summary>
-        /// Character is in free fall.
+        ///     Character is in free fall.
         /// </summary>
         Fall,
 
         /// <summary>
-        /// Total number of valid states.
-        /// This should be the last state!
+        ///     Total number of valid states.
+        ///     This should be the last state!
         /// </summary>
         NumStates
     }

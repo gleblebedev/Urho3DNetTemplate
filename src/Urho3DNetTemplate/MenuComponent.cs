@@ -1,17 +1,19 @@
-﻿using System;
-using Urho3DNet;
+﻿using Urho3DNet;
 
 namespace Urho3DNetTemplate
 {
+    [ObjectFactory(Category = "Component/Game")]
+    [Preserve(AllMembers = true)]
     public class MenuComponent : RmlUIComponent
     {
-        public MenuComponent(Context context):base(context)
+        private bool _bloom = true;
+
+        public MenuComponent(Context context) : base(context)
         {
         }
 
         public MenuStateBase State { get; set; }
 
-        private bool _bloom = true;
         public void UpdateProperties()
         {
             DirtyAllVariables();

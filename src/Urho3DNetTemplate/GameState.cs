@@ -2,6 +2,8 @@
 
 namespace Urho3DNetTemplate
 {
+    [ObjectFactory]
+    [Preserve(AllMembers = true)]
     public class GameState : ApplicationState
     {
         protected readonly SharedPtr<Scene> _scene;

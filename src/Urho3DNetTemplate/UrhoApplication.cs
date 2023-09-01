@@ -1,37 +1,37 @@
 ﻿using System;
 using System.Diagnostics;
 using Urho3DNet;
-using Application = Urho3DNet.Application;
 
 namespace Urho3DNetTemplate
 {
     /// <summary>
-    /// This class represents an Urho3D application.
+    ///     This class represents an Urho3D application.
     /// </summary>
+    [Preserve(AllMembers = true)]
     public class UrhoApplication : Application
     {
         /// <summary>
-        /// Safe pointer to debug HUD.
+        ///     Safe pointer to debug HUD.
         /// </summary>
         private SharedPtr<DebugHud> _debugHud;
 
         /// <summary>
-        /// Safe pointer to game screen.
+        ///     Safe pointer to game screen.
         /// </summary>
         private SharedPtr<GameState> _gameState;
 
         /// <summary>
-        /// Safe pointer to menu screen.
+        ///     Safe pointer to menu screen.
         /// </summary>
         private SharedPtr<MainMenuState> _mainMenuState;
 
         /// <summary>
-        /// Safe pointer to settings screen.
+        ///     Safe pointer to settings screen.
         /// </summary>
         private SharedPtr<SettingsMenuState> _settingsMenuState;
 
         /// <summary>
-        /// Application state manager.
+        ///     Application state manager.
         /// </summary>
         private StateStack _stateStack;
 
@@ -40,18 +40,19 @@ namespace Urho3DNetTemplate
         }
 
         /// <summary>
-        /// Gets a value indicating whether the game is running.
+        ///     Gets a value indicating whether the game is running.
         /// </summary>
         public bool IsGameRunning => _gameState;
 
         /// <summary>
-        /// Gets or sets the settings file.
+        ///     Gets or sets the settings file.
         /// </summary>
         public SettingFile Settings { get; set; }
 
+
         /// <summary>
-        /// Setup application.
-        /// This method is executed before most of the engine system initialized.
+        ///     Setup application.
+        ///     This method is executed before most of the engine system initialized.
         /// </summary>
         public override void Setup()
         {
@@ -74,7 +75,7 @@ namespace Urho3DNetTemplate
         }
 
         /// <summary>
-        /// Start application.
+        ///     Start application.
         /// </summary>
         public override void Start()
         {
@@ -88,16 +89,7 @@ namespace Urho3DNetTemplate
             Context.Engine.MaxFps = 60;
 
             // Add factory reflections
-            Context.AddFactoryReflection<MenuComponent>();
-            Context.AddFactoryReflection<MainMenuState>();
-            Context.AddFactoryReflection<GameState>();
-            Context.AddFactoryReflection<Character>();
-            Context.AddFactoryReflection<NonPlayableCharacter>();
-            Context.AddFactoryReflection<Selectable>();
-            Context.AddFactoryReflection<Player>();
-            Context.AddFactoryReflection<DoorButton>();
-            Context.AddFactoryReflection<Pickable>();
-            Context.AddFactoryReflection<DoorTrigger>();
+            Context.RegisterFactories(GetType().Assembly);
 
 #if DEBUG
             // Setup Debug HUD when building in Debug configuration.
@@ -149,7 +141,7 @@ namespace Urho3DNetTemplate
         }
 
         /// <summary>
-        /// Transition to settings menu
+        ///     Transition to settings menu
         /// </summary>
         public void ToSettings()
         {
@@ -158,7 +150,7 @@ namespace Urho3DNetTemplate
         }
 
         /// <summary>
-        /// Transition to game
+        ///     Transition to game
         /// </summary>
         public void ToNewGame()
         {
@@ -168,29 +160,17 @@ namespace Urho3DNetTemplate
         }
 
         /// <summary>
-        /// Transition to game
+        ///     Transition to game
         /// </summary>
         public void ContinueGame()
         {
-            if (_gameState) _stateStack.Push(_gameState); ;
+            if (_gameState) _stateStack.Push(_gameState);
+            ;
         }
 
         public void Quit()
         {
             Context.Engine.Exit();
-        }
-
-        private void OnLogMessage(VariantMap args)
-        {
-            var logLevel = (LogLevel)args[E.LogMessage.Level].Int;
-            switch (logLevel)
-            {
-                case LogLevel.LogError:
-                    throw new ApplicationException(args[E.LogMessage.Message].String);
-                default:
-                    Debug.WriteLine(args[E.LogMessage.Message].String);
-                    break;
-            }
         }
 
         public void HandleBackKey()
@@ -205,6 +185,19 @@ namespace Urho3DNetTemplate
             else
             {
                 _stateStack.Pop();
+            }
+        }
+
+        private void OnLogMessage(VariantMap args)
+        {
+            var logLevel = (LogLevel)args[E.LogMessage.Level].Int;
+            switch (logLevel)
+            {
+                case LogLevel.LogError:
+                    throw new ApplicationException(args[E.LogMessage.Message].String);
+                default:
+                    Debug.WriteLine(args[E.LogMessage.Message].String);
+                    break;
             }
         }
     }

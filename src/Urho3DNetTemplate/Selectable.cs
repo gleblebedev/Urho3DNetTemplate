@@ -2,6 +2,8 @@
 
 namespace Urho3DNetTemplate
 {
+    [ObjectFactory(Category = "Component/Game")]
+    [Preserve(AllMembers = true)]
     public class Selectable : Component
     {
         private ComponentList _drawables;

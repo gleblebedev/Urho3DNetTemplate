@@ -3,6 +3,8 @@ using Urho3DNet;
 
 namespace Urho3DNetTemplate
 {
+    [ObjectFactory(Category = "Component/Game")]
+    [Preserve(AllMembers = true)]
     public class NonPlayableCharacter : LogicComponent
     {
         private static readonly Random _rnd = new Random();

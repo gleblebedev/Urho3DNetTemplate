@@ -4,6 +4,8 @@ using Urho3DNetTemplate.CharacterStates;
 
 namespace Urho3DNetTemplate
 {
+    [ObjectFactory(Category = "Component/Game")]
+    [Preserve(AllMembers = true)]
     public class Character : MoveAndOrbitComponent
     {
         /// Character states (on ground, falling, etc).
@@ -14,7 +16,7 @@ namespace Urho3DNetTemplate
 
         /// Character state input.
         private Inputs _inputs;
-        
+
         /// Kinematic character controller.
         private KinematicCharacterController _characterController;
 

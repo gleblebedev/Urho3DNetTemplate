@@ -4,17 +4,18 @@ using Urho3DNet;
 
 namespace Urho3DNetTemplate
 {
+    [ObjectFactory]
+    [Preserve(AllMembers = true)]
     public class MainMenuState : MenuStateBase
     {
-
-
         public MainMenuState(UrhoApplication app) : base(app, "UI/MainMenu.rml")
         {
         }
 
         public override void OnDataModelInitialized(MenuComponent menuComponent)
         {
-            menuComponent.BindDataModelProperty("is_game_played", _ => _.Set(Application?.IsGameRunning == true), _ => { });
+            menuComponent.BindDataModelProperty("is_game_played", _ => _.Set(Application?.IsGameRunning == true),
+                _ => { });
             //menuComponent.BindDataModelProperty("bloom", _ => _.Set(_bloom), _ => { _bloom = _.Bool; });
             menuComponent.BindDataModelProperty("game_title", _ => _.Set("Awesome game"), _ => { });
             menuComponent.BindDataModelEvent("Continue", OnContinue);
@@ -22,6 +23,26 @@ namespace Urho3DNetTemplate
             menuComponent.BindDataModelEvent("Settings", OnSettings);
             menuComponent.BindDataModelEvent("Exit", OnExit);
             menuComponent.BindDataModelEvent("Discord", OnDiscord);
+        }
+
+        public void OnNewGame(VariantList variantList)
+        {
+            Application.ToNewGame();
+        }
+
+        public void OnSettings(VariantList variantList)
+        {
+            Application.ToSettings();
+        }
+
+        public void OnExit(VariantList variantList)
+        {
+            Application.Quit();
+        }
+
+        public void OnContinue(VariantList variantList)
+        {
+            Application.ContinueGame();
         }
 
         private void OpenUrlInBrowser(string url)
@@ -56,26 +77,6 @@ namespace Urho3DNetTemplate
         private void OnDiscord(VariantList obj)
         {
             OpenUrlInBrowser("https://discord.gg/46aKYFQj7W");
-        }
-
-        public void OnNewGame(VariantList variantList)
-        {
-            Application.ToNewGame();
-        }
-
-        public void OnSettings(VariantList variantList)
-        {
-            Application.ToSettings();
-        }
-
-        public void OnExit(VariantList variantList)
-        {
-            Application.Quit();
-        }
-
-        public void OnContinue(VariantList variantList)
-        {
-            Application.ContinueGame();
         }
     }
 }
