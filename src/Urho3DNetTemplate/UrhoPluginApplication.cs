@@ -22,5 +22,30 @@ namespace Urho3DNetTemplate
         {
             Context.RemoveFactories(GetType().Assembly);
         }
+
+        public override bool IsMain()
+        {
+            return true;
+        }
+
+        protected override void Start(bool isMain)
+        {
+            base.Start(isMain);
+        }
+
+        protected override void Stop()
+        {
+            base.Stop();
+        }
+
+        protected override void Suspend(Archive output)
+        {
+            base.Suspend(output);
+        }
+
+        protected override void Resume(Archive input, bool differentVersion)
+        {
+            base.Resume(input, differentVersion);
+        }
     }
 }

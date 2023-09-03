@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Diagnostics;
 using Urho3DNet;
 
@@ -81,6 +82,12 @@ namespace Urho3DNetTemplate
         {
             // Subscribe for log messages.
             SubscribeToEvent(E.LogMessage, OnLogMessage);
+
+            //var engine = GetSubsystem<Engine>();
+            //List<string> loadedPlugins = new List<string>();
+            //var pluginManager = GetSubsystem<PluginManager>();
+            //pluginManager.SetPluginsLoaded(loadedPlugins);
+            //pluginManager.StartApplication();
 
             // Load settings.
             Settings = SettingFile.Load(Context);
