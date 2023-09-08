@@ -8,7 +8,7 @@ namespace Urho3DNetTemplate
         private readonly Viewport _viewport;
         private readonly MenuComponent _uiComponent;
 
-        public MenuStateBase(UrhoApplication app, string rmlResource) : base(app.Context)
+        public MenuStateBase(UrhoPluginApplication app, string rmlResource) : base(app.Context)
         {
             MouseMode = MouseMode.MmFree;
             IsMouseVisible = true;
@@ -35,7 +35,7 @@ namespace Urho3DNetTemplate
 
         public Scene Scene => _scene;
 
-        public UrhoApplication Application { get; }
+        public UrhoPluginApplication Application { get; }
 
         public abstract void OnDataModelInitialized(MenuComponent menuComponent);
 

@@ -8,7 +8,7 @@ namespace Urho3DNetTemplate
     [Preserve(AllMembers = true)]
     public class MainMenuState : MenuStateBase
     {
-        public MainMenuState(UrhoApplication app) : base(app, "UI/MainMenu.rml")
+        public MainMenuState(UrhoPluginApplication app) : base(app, "UI/MainMenu.rml")
         {
         }
 

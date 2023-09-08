@@ -8,13 +8,13 @@ namespace Urho3DNetTemplate
     {
         protected readonly SharedPtr<Scene> _scene;
         protected readonly SharedPtr<Sprite> _cross;
-        private readonly UrhoApplication _app;
+        private readonly UrhoPluginApplication _app;
         private readonly Node _cameraNode;
         private readonly Viewport _viewport;
         private readonly Node _character;
         private readonly Node _cameraRoot;
 
-        public GameState(UrhoApplication app) : base(app.Context)
+        public GameState(UrhoPluginApplication app) : base(app.Context)
         {
             MouseMode = MouseMode.MmRelative;
             IsMouseVisible = false;

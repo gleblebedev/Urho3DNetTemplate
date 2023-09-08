@@ -4,7 +4,7 @@ namespace Urho3DNetTemplate
 {
     public class SettingsMenuState : MenuStateBase
     {
-        public SettingsMenuState(UrhoApplication app) : base(app, "UI/Options.rml")
+        public SettingsMenuState(UrhoPluginApplication app) : base(app, "UI/Options.rml")
         {
             Settings = app.Settings;
         }

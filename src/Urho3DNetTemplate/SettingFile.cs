@@ -53,6 +53,7 @@ namespace Urho3DNetTemplate
                 .ReadAllText(new FileIdentifier("conf", "settings.json"));
 
             if (!string.IsNullOrWhiteSpace(json))
+            {
                 try
                 {
                     return JsonConvert.DeserializeObject<SettingFile>(json);
@@ -60,8 +61,10 @@ namespace Urho3DNetTemplate
                 catch (Exception)
                 {
                 }
+            }
 
             return new SettingFile();
+
         }
 
         /// <summary>
