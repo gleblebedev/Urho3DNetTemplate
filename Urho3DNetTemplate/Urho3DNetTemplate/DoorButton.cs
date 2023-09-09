@@ -2,17 +2,19 @@ using Urho3DNet;
 
 namespace $ext_safeprojectname$
 {
+    [ObjectFactory(Category = "Component/Game")]
+    [Preserve(AllMembers = true)]
     public class DoorButton : Component
     {
+        public DoorButton(Context context) : base(context)
+        {
+        }
+
         public Animation OpenAnimation { get; set; }
 
         public Animation CloseAnimation { get; set; }
 
         public bool Open { get; set; }
-
-        public DoorButton(Context context): base(context)
-        {
-        }
 
         protected override void OnNodeSet(Node previousNode, Node currentNode)
         {

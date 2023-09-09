@@ -2,7 +2,8 @@
 
     <PropertyGroup>
         <TargetFrameworks>netstandard2.0</TargetFrameworks>
-    </PropertyGroup>
+		<!--<CopyLocalLockFileAssemblies>true</CopyLocalLockFileAssemblies>-->
+	</PropertyGroup>
 
   <ItemGroup>
     <PackageReference Include="unofficial.Urho3DNet" Version="$ext_urho3dnetversion$" />

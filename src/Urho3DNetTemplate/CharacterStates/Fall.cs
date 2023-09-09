@@ -30,9 +30,13 @@ namespace Urho3DNetTemplate.CharacterStates
             if (firstFrame_)
             {
                 if (inputs.InputSpeed < 1e-2f)
+                {
                     speedScale_ = Character.Walk.GetMetadata("LinearVelocity").Vector3.Length;
+                }
                 else
+                {
                     speedScale_ = inputs.CurrentVelocity.Length / Math.Min(1.0f, inputs.InputSpeed);
+                }
                 firstFrame_ = false;
             }
 

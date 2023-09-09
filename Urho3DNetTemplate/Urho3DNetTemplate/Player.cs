@@ -3,9 +3,13 @@ using Urho3DNet;
 
 namespace $safeprojectname$
 {
+    [ObjectFactory(Category = "Component/Game")]
+    [Preserve(AllMembers = true)]
     public class Player : LogicComponent
     {
         private readonly PhysicsRaycastResult _raycastResult;
+
+        private readonly HashSet<string> _inventory = new HashSet<string>();
         private bool _usePressed;
         private Node _selectedNode;
         private Character _character;
@@ -25,7 +29,8 @@ namespace $safeprojectname$
             {
                 if (_selectedNode != value)
                 {
-                    if (_selectedNode != null && !_selectedNode.IsExpired) _selectedNode.SendEvent("Unselected", Context.EventDataMap);
+                    if (_selectedNode != null && !_selectedNode.IsExpired)
+                        _selectedNode.SendEvent("Unselected", Context.EventDataMap);
 
                     _selectedNode = value;
                     if (_selectedNode != null) _selectedNode.SendEvent("Selected", Context.EventDataMap);
@@ -107,7 +112,5 @@ namespace $safeprojectname$
         {
             return _inventory.Contains(inventoryKey);
         }
-
-        private readonly HashSet<string> _inventory = new HashSet<string>();
     }
 }

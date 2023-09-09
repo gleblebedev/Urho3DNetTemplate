@@ -2,23 +2,22 @@ using Urho3DNet;
 
 namespace $ext_safeprojectname$
 {
+    [ObjectFactory(Category = "Component/Game")]
+    [Preserve(AllMembers = true)]
     public class DoorTrigger : TriggerAnimator
     {
-        public string InventoryKey { get; set; }
-
-        public DoorTrigger(Context context): base(context)
+        public DoorTrigger(Context context) : base(context)
         {
         }
+
+        public string InventoryKey { get; set; }
 
         public override bool Filter(Node node)
         {
             if (!string.IsNullOrEmpty(InventoryKey))
             {
                 var player = node.GetComponent<Player>();
-                if (player != null)
-                {
-                    return player.HasInInventory(InventoryKey);
-                }
+                if (player != null) return player.HasInInventory(InventoryKey);
                 return false;
             }
 

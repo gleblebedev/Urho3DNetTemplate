@@ -4,6 +4,8 @@ using $safeprojectname$.CharacterStates;
 
 namespace $safeprojectname$
 {
+    [ObjectFactory(Category = "Component/Game")]
+    [Preserve(AllMembers = true)]
     public class Character : MoveAndOrbitComponent
     {
         /// Character states (on ground, falling, etc).
@@ -14,7 +16,7 @@ namespace $safeprojectname$
 
         /// Character state input.
         private Inputs _inputs;
-        
+
         /// Kinematic character controller.
         private KinematicCharacterController _characterController;
 

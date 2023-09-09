@@ -2,6 +2,8 @@ using Urho3DNet;
 
 namespace $ext_safeprojectname$
 {
+    [ObjectFactory(Category = "Component/Game")]
+    [Preserve(AllMembers = true)]
     public class Selectable : Component
     {
         private ComponentList _drawables;

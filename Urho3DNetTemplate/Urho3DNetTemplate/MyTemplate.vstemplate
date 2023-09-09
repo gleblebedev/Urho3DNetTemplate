@@ -32,6 +32,7 @@
       <ProjectItem ReplaceParameters="true" TargetFileName="SettingsMenuState.cs">SettingsMenuState.cs</ProjectItem>
       <ProjectItem ReplaceParameters="true" TargetFileName="StateStack.cs">StateStack.cs</ProjectItem>
       <ProjectItem ReplaceParameters="true" TargetFileName="UrhoApplication.cs">UrhoApplication.cs</ProjectItem>
+      <ProjectItem ReplaceParameters="true" TargetFileName="UrhoPluginApplication.cs">UrhoPluginApplication.cs</ProjectItem>
       <Folder Name="CharacterStates" TargetFolderName="CharacterStates">
         <ProjectItem ReplaceParameters="true" TargetFileName="BaseState.cs">BaseState.cs</ProjectItem>
         <ProjectItem ReplaceParameters="true" TargetFileName="CharacterState.cs">CharacterState.cs</ProjectItem>

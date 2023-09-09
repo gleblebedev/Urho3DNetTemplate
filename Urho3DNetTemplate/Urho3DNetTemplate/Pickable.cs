@@ -2,6 +2,8 @@ using Urho3DNet;
 
 namespace $ext_safeprojectname$
 {
+    [ObjectFactory(Category = "Component/Game")]
+    [Preserve(AllMembers = true)]
     public class Pickable : Component
     {
         public Pickable(Context context) : base(context)
@@ -13,13 +15,9 @@ namespace $ext_safeprojectname$
         protected override void OnNodeSet(Node previousNode, Node currentNode)
         {
             if (currentNode != null)
-            {
                 SubscribeToEvent("Use", currentNode, HandleUse);
-            }
             else
-            {
                 UnsubscribeFromEvent("Use");
-            }
             base.OnNodeSet(previousNode, currentNode);
         }
 

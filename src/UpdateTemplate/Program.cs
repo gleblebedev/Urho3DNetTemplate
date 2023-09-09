@@ -15,6 +15,9 @@ public static class Program
             Console.WriteLine(projectName);
 
             var templateFileName = Directory.GetFiles(templatePath, "*.vstemplate").FirstOrDefault();
+            if (templateFileName == null)
+                continue;
+
             var xml = XDocument.Load(templateFileName);
             var project = xml.Element(XName.Get("VSTemplate", ns))
                 .Element(XName.Get("TemplateContent", ns))

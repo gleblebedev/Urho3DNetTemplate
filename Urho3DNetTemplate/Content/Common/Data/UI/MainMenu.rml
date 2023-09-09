@@ -60,6 +60,13 @@
 		</input>
 		</navigable>
 	</div>
+	<div style="top: 100%; left: 100%; position: absolute; transform: translate(-100%, -100%);">
+		<navigable group="main_menu_group" onnavigated="sound:Sounds/UINavigated.wav" onpressed="sound:Sounds/UIClicked.wav" data-event-depressed="Discord()">
+			<input type="button" class="blue-button" style="display: block; margin: 5px">
+				<img sprite="icon-discord"></img>
+			</input>
+		</navigable>
+	</div>
 </body>
 
 </rml>

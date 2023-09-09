@@ -4,33 +4,34 @@ namespace $ext_safeprojectname$
 {
     public class SettingsMenuState : MenuStateBase
     {
-        private SettingFile _config;
-
-        public SettingsMenuState(UrhoApplication app) : base(app, "UI/Options.rml")
+        public SettingsMenuState(UrhoPluginApplication app) : base(app, "UI/Options.rml")
         {
-            _config = app.Settings;
-
+            Settings = app.Settings;
         }
 
-        public SettingFile Settings => _config;
+        public SettingFile Settings { get; private set; }
 
         public override void OnDataModelInitialized(MenuComponent menuComponent)
         {
             menuComponent.BindDataModelEvent("Apply", OnApply);
             menuComponent.BindDataModelEvent("Cancel", OnCancel);
-            menuComponent.BindDataModelProperty("bloom", val=> val.Set(_config.Bloom), (val)=> _config.Bloom = val.Bool);
-            menuComponent.BindDataModelProperty("ssao", val => val.Set(_config.SSAO), (val) => _config.SSAO = val.Bool);
-            menuComponent.BindDataModelProperty("master", val => val.Set(_config.MasterVolume), (val) => _config.MasterVolume = val.Float);
-            menuComponent.BindDataModelProperty("music", val => val.Set(_config.MusicVolume), (val) => _config.MusicVolume = val.Float);
-            menuComponent.BindDataModelProperty("effects", val => val.Set(_config.EffectVolume), (val) => _config.EffectVolume = val.Float);
+            menuComponent.BindDataModelProperty("bloom", val => val.Set(Settings.Bloom),
+                val => Settings.Bloom = val.Bool);
+            menuComponent.BindDataModelProperty("ssao", val => val.Set(Settings.SSAO), val => Settings.SSAO = val.Bool);
+            menuComponent.BindDataModelProperty("master", val => val.Set(Settings.MasterVolume),
+                val => Settings.MasterVolume = val.Float);
+            menuComponent.BindDataModelProperty("music", val => val.Set(Settings.MusicVolume),
+                val => Settings.MusicVolume = val.Float);
+            menuComponent.BindDataModelProperty("effects", val => val.Set(Settings.EffectVolume),
+                val => Settings.EffectVolume = val.Float);
             //menuComponent.BindDataModelProperty("shadows", val => val.Set(_shadowsQuality), (val) => _shadowsQuality = val.Convert(VariantType.VarInt).Int);
         }
 
         public override void Activate(StringVariantMap bundle)
         {
-            _config = Application.Settings;
+            Settings = Application.Settings;
 
-            Audio audio = Context.GetSubsystem<Audio>();
+            var audio = Context.GetSubsystem<Audio>();
 
             base.Activate(bundle);
         }
@@ -49,8 +50,8 @@ namespace $ext_safeprojectname$
 
         private void OnApply(VariantList obj)
         {
-            _config.Apply(Context);
-            _config.Save(Context);
+            Settings.Apply(Context);
+            Settings.Save(Context);
 
             Application.HandleBackKey();
         }

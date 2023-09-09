@@ -11,7 +11,7 @@ namespace Urho3DNetTemplate.CharacterStates
         public override void Enter()
         {
             base.Enter();
-            Character.CharacterController.Jump(new Vector3(0, 7.5f));
+            Character.CharacterController.Jump(new Vector3(0, 7.5f, 0));
         }
     }
 }
