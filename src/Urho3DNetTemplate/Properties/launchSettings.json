@@ -3,7 +3,7 @@
     "RBFX Editor": {
       "commandName": "Executable",
       "executablePath": "rbfx",
-      "commandLineArgs": "$(MSBuildProjectDirectory)/Common/",
+      "commandLineArgs": "$(MSBuildProjectDirectory)/../Content/Common --plugin $(TargetDir)$(TargetFileName)",
       "nativeDebugging": true
     }
   }

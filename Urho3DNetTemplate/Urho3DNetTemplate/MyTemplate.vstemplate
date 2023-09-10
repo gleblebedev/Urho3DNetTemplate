@@ -41,6 +41,9 @@
         <ProjectItem ReplaceParameters="true" TargetFileName="OnGround.cs">OnGround.cs</ProjectItem>
         <ProjectItem ReplaceParameters="true" TargetFileName="StartState.cs">StartState.cs</ProjectItem>
       </Folder>
+      <Folder Name="Properties" TargetFolderName="Properties">
+        <ProjectItem ReplaceParameters="false" TargetFileName="launchSettings.json">launchSettings.json</ProjectItem>
+      </Folder>
     </Project>
   </TemplateContent>
 </VSTemplate>

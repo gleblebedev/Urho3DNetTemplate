@@ -167,6 +167,9 @@
           <ProjectItem ReplaceParameters="false" TargetFileName="ios.txt">ios.txt</ProjectItem>
         </Folder>
       </Folder>
+      <Folder Name="Properties" TargetFolderName="Properties">
+        <ProjectItem ReplaceParameters="false" TargetFileName="launchSettings.json">launchSettings.json</ProjectItem>
+      </Folder>
     </Project>
   </TemplateContent>
 </VSTemplate>
