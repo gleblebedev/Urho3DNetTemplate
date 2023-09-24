@@ -42,7 +42,7 @@ namespace Urho3DNetTemplate
             var outline = Scene.GetComponent<OutlineGroup>();
             if (outline != null)
             {
-                _drawables = Node.GetComponents<StaticModel>();
+                _drawables = Node.GetComponents<StaticModel>(true);
                 foreach (var component in _drawables)
                 {
                     var drawable = component as Drawable;
